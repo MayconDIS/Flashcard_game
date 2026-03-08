@@ -21,7 +21,8 @@ let deckAtual = [];
 let deckRevisao = []; 
 let indiceCarta = 0;
 let faseAtualId = ''; // NOVO: Memoriza em qual fase estamos
-const ordemFases = ['fase1', 'fase2', 'fase4', 'fase5']; // NOVO: A ordem das aulas
+// A ordem correta para o botão "Próxima Atividade" seguir
+const ordemFases = ['fase1', 'fase2', 'fase3', 'fase4', 'fase5', 'fase6', 'fase7'];
 
 // ==========================================
 // 3. MECÂNICA DOS FLASHCARDS
