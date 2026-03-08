@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - English Quest</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <div class="glow-background"></div>
+
+    <div class="login-container">
+        <div class="login-card">
+            
+            <div class="login-header">
+                <h1 id="form-title">English <span class="tech-text">Quest</span></h1>
+                <p id="form-subtitle">Welcome back, developer.</p>
+            </div>
+
+            <form class="login-form" onsubmit="handleAuth(event)">
+                
+                <div class="input-group" id="group-nome" style="display: none;">
+                    <label for="nome">Nome ou Nickname</label>
+                    <input type="text" id="nome" placeholder="Ex: Maycon">
+                </div>
+
+                <div class="input-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="maycon@exemplo.com" required autocomplete="email">
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" placeholder="••••••••" required autocomplete="current-password">
+                </div>
+
+                <div class="forgot-password" id="forgot-pass-link">
+                    <a href="#">Esqueceu a senha?</a>
+                </div>
+
+                <button type="submit" class="btn-login" id="btn-submit">Entrar no Terminal</button>
+            </form>
+
+            <div class="login-footer">
+                <p id="footer-text">Ainda não tem acesso? <a href="#" onclick="toggleMode(event)">Cadastre-se</a></p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // ==========================================
+        // SISTEMA DE AUTENTICAÇÃO REAL (LOCALSTORAGE)
+        // ==========================================
+        
+        // Estado inicial da tela (true = Login, false = Cadastro)
+        let isLoginMode = true;
+
+        // "Banco de Dados" de usuários
+        let usersDB = JSON.parse(localStorage.getItem('quest_users')) || {};
+
+        // Função para alternar entre a tela de Login e a tela de Cadastro
+        function toggleMode(event) {
+            event.preventDefault(); // Evita recarregar a página
+            isLoginMode = !isLoginMode; // Inverte o estado
+
+            // Elementos da tela que vão mudar
+            const title = document.getElementById('form-title');
+            const subtitle = document.getElementById('form-subtitle');
+            const btn = document.getElementById('btn-submit');
+            const footerText = document.getElementById('footer-text');
+            const groupNome = document.getElementById('group-nome');
+            const forgotPass = document.getElementById('forgot-pass-link');
+            const inputNome = document.getElementById('nome');
+
+            if (isLoginMode) {
+                // MODO LOGIN
+                title.innerHTML = 'English <span class="tech-text">Quest</span>';
+                subtitle.innerText = 'Welcome back, developer.';
+                btn.innerText = 'Entrar no Terminal';
+                footerText.innerHTML = 'Ainda não tem acesso? <a href="#" onclick="toggleMode(event)">Cadastre-se</a>';
+                
+                groupNome.style.display = 'none'; // Esconde campo nome
+                inputNome.required = false;
+                forgotPass.style.display = 'block';
+            } else {
+                // MODO CADASTRO
+                title.innerHTML = 'Novo <span class="tech-text">Acesso</span>';
+                subtitle.innerText = 'Join the Quest.';
+                btn.innerText = 'Criar Conta';
+                footerText.innerHTML = 'Já tem acesso? <a href="#" onclick="toggleMode(event)">Faça Login</a>';
+                
+                groupNome.style.display = 'flex'; // Mostra campo nome
+                inputNome.required = true;
+                forgotPass.style.display = 'none'; // Esconde "esqueceu a senha"
+            }
+        }
+
+        // Função que processa o botão de submit (Login ou Cadastro)
+        function handleAuth(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const btn = document.getElementById('btn-submit');
+
+            // 1. REGRA DE OURO: ACESSO MESTRE ADMIN (Sempre funciona no modo login)
+            if (isLoginMode && email === "admin@quest.com" && password === "admin") {
+                btn.innerText = "Acesso Mestre Concedido...";
+                btn.style.background = "var(--alura-purple)";
+                localStorage.setItem('quest_user_name', 'Admin');
+                setTimeout(() => { window.location.href = '../index.html'; }, 800);
+                return;
+            }
+
+            // 2. LÓGICA DE CADASTRO
+            if (!isLoginMode) {
+                const nome = document.getElementById('nome').value.trim();
+                
+                // Validação: Verifica se o e-mail já existe no "Banco de Dados"
+                if (usersDB[email]) {
+                    mostrarErro("Este e-mail já está cadastrado!");
+                    return;
+                }
+                
+                // Validação: Senha curta
+                if (password.length < 4) {
+                    mostrarErro("A senha precisa ter no mínimo 4 caracteres.");
+                    return;
+                }
+
+                // Cria o usuário e salva no LocalStorage
+                usersDB[email] = { nome: nome, senha: password };
+                localStorage.setItem('quest_users', JSON.stringify(usersDB));
+                
+                // Entra automaticamente após cadastrar
+                btn.innerText = "Conta Criada! Entrando...";
+                btn.style.background = "var(--alura-green)"; // Fica verde no sucesso
+                localStorage.setItem('quest_user_name', nome);
+                
+                setTimeout(() => { window.location.href = '../index.html'; }, 1000);
+            } 
+            
+            // 3. LÓGICA DE LOGIN COMUM
+            else {
+                const user = usersDB[email];
+                
+                // Verifica se o usuário existe e se a senha está correta
+                if (!user || user.senha !== password) {
+                    mostrarErro("E-mail ou senha incorretos!");
+                    return;
+                }
+
+                // Sucesso no login
+                btn.innerText = "Autenticando...";
+                localStorage.setItem('quest_user_name', user.nome);
+                setTimeout(() => { window.location.href = '../index.html'; }, 1000);
+            }
+        }
+
+        // Função auxiliar para dar feedback visual de erro no botão
+        function mostrarErro(mensagem) {
+            const btn = document.getElementById('btn-submit');
+            const textoOriginal = btn.innerText;
+            const corOriginal = btn.style.background;
+            
+            btn.innerText = mensagem;
+            btn.style.background = "#ff5555"; // Vermelho de erro
+            
+            setTimeout(() => {
+                btn.innerText = textoOriginal;
+                btn.style.background = corOriginal;
+            }, 2500);
+        }
+    </script>
+</body>
+</html>

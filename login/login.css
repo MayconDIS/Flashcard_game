@@ -1,0 +1,196 @@
+:root {
+    --bg-dark: #0b0c10;
+    --card-dark: #161b22;
+    --border-color: #30363d;
+    --alura-cyan: #00e6e6;
+    --alura-green: #00ff88;
+    --alura-purple: #8a2be2;
+    --text-light: #c5c6c7;
+    --text-white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden; /* Evita rolagem na tela de login */
+    position: relative;
+}
+
+/* Brilho neon sutil no fundo (Efeito Alura) */
+.glow-background {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 230, 230, 0.05) 0%, transparent 60%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+.login-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+}
+
+.login-card {
+    background-color: var(--card-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    border-top: 3px solid var(--alura-cyan); /* Detalhe premium no topo */
+}
+
+/* --- Cabeçalho --- */
+.login-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.login-header h1 {
+    color: var(--text-white);
+    font-size: 2rem;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.tech-text {
+    background: linear-gradient(90deg, var(--alura-cyan), var(--alura-purple));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+.login-header p {
+    font-size: 0.95rem;
+    color: #8b92a5;
+}
+
+/* --- Formulário (Estilo curso.dev) --- */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.input-group input {
+    background-color: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 14px 16px;
+    color: var(--text-white);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--alura-cyan);
+    box-shadow: 0 0 0 3px rgba(0, 230, 230, 0.1); /* Efeito de foco suave */
+}
+
+.input-group input::placeholder {
+    color: #4b5563;
+}
+
+.forgot-password {
+    text-align: right;
+    margin-top: -10px;
+}
+
+.forgot-password a {
+    color: var(--alura-cyan);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.forgot-password a:hover {
+    color: #00b3b3;
+    text-decoration: underline;
+}
+
+/* --- Botão Principal --- */
+.btn-login {
+    background: linear-gradient(90deg, var(--alura-cyan), #00b3b3);
+    color: var(--bg-dark);
+    border: none;
+    border-radius: 6px;
+    padding: 16px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 230, 230, 0.3);
+}
+
+.btn-login:active {
+    transform: translateY(0);
+}
+
+/* --- Rodapé --- */
+.login-footer {
+    margin-top: 30px;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+}
+
+.login-footer p {
+    font-size: 0.9rem;
+    color: #8b92a5;
+}
+
+.login-footer a {
+    color: var(--text-white);
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.login-footer a:hover {
+    color: var(--alura-purple);
+}
+
+/* Responsividade Básica */
+@media screen and (max-width: 480px) {
+    .login-card {
+        padding: 30px 20px;
+    }
+}
