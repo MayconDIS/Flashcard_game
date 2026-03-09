@@ -1,2 +1,2 @@
-# Flashcard_game
+# Nex_TI | Flashcards
 
