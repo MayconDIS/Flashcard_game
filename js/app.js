@@ -38,13 +38,31 @@ function atualizarFasesVisuais() {
 }
 
 // ==========================================
-// 3. FEEDBACK 1: SISTEMA DE NIVELAMENTO (PLACEMENT TEST)
+// 3. SISTEMA DE NIVELAMENTO (PLACEMENT TEST)
 // ==========================================
 const quizPerguntas = [
-    { p: "Preencha a lacuna: 'He ____ to code in Python.'", r: ["like", "likes", "liking"], certa: 1 },
-    { p: "Qual o auxiliar correto para a pergunta: '____ they understand Artificial Intelligence?'", r: ["Do", "Does", "Are"], certa: 0 },
-    { p: "Traduza: 'O sistema não salva os dados.'", r: ["The system don't save the data.", "The system doesn't save the data."], certa: 1 }
+    // Fase 1: Presente
+    { p: "1. Preencha a lacuna: 'He ____ to code in Python.'", r: ["like", "likes", "liking"], certa: 1 },
+    // Fase 2: Do/Does
+    { p: "2. Qual o auxiliar correto para a pergunta: '____ they understand Artificial Intelligence?'", r: ["Do", "Does", "Are"], certa: 0 },
+    // Fase 3: Negações
+    { p: "3. Traduza: 'O sistema não salva os dados.'", r: ["The system don't save the data.", "The system doesn't save the data.", "The system not save the data."], certa: 1 },
+    // Fase 4: Futuro (Will)
+    { p: "4. Como dizemos 'Eu vou comprar um SSD novo' no futuro simples?", r: ["I buying a new SSD.", "I will buy a new SSD.", "I buy a new SSD soon."], certa: 1 },
+    // Fase 5: Gerúndio (ING)
+    { p: "5. O que significa 'The server is running'?", r: ["O servidor rodou.", "O servidor vai rodar.", "O servidor está rodando."], certa: 2 },
+    // Pegadinha Presente
+    { p: "6. Complete corretamente: 'She ____ work with esthetics.'", r: ["don't", "doesn't", "isn't"], certa: 1 },
+    // Fase 6: Preposições
+    { p: "7. Qual preposição usar na frase: 'The bug is ___ line 40.' (O bug está na linha 40)", r: ["in", "on", "at"], certa: 1 },
+    // Fase 6: Preposições
+    { p: "8. Complete: 'I usually study code ___ night.' (Eu geralmente estudo código à noite)", r: ["in", "on", "at"], certa: 2 },
+    // Fase 7: Passado Simples
+    { p: "9. Qual o passado correto do verbo Ir (Go) na frase: 'Nós fomos para a academia'?", r: ["We goed to the gym.", "We went to the gym.", "We going to the gym."], certa: 1 },
+    // Fase 7: Did
+    { p: "10. Como perguntar 'Você configurou o dual-boot?' no passado?", r: ["Do you configure the dual-boot?", "Are you configure the dual-boot?", "Did you configure the dual-boot?"], certa: 2 }
 ];
+
 let questaoAtualNivelamento = 0;
 let acertosNivelamento = 0;
 
@@ -53,7 +71,7 @@ function verificarNivelamento() {
     if (!jaNivelou) {
         document.getElementById('modalNivelamento').classList.add('show');
     } else {
-        atualizarFasesVisuais(); // Se já nivelou, só atualiza a tela
+        atualizarFasesVisuais(); 
     }
 }
 
@@ -93,24 +111,22 @@ function responderNivelamento(indiceResposta) {
 function finalizarNivelamento() {
     let nivelMsg = "";
     
-    if (acertosNivelamento <= 1) {
-        nivelMsg = "Iniciante. Começaremos da Fase 01 para construir uma base sólida!";
+    // Lógica de Pontuação de 0 a 10
+    if (acertosNivelamento <= 3) {
+        nivelMsg = `Você acertou ${acertosNivelamento} de 10. <br><br><b>Nível Iniciante:</b> Começaremos da Fase 01 para construir uma base gramatical sólida!`;
         fasesDesbloqueadas = ['fase1'];
-    } else if (acertosNivelamento === 2) {
-        nivelMsg = "Intermediário. Mandou bem! Você já tem as Fases 01, 02 e 03 desbloqueadas.";
-        fasesDesbloqueadas = ['fase1', 'fase2', 'fase3'];
-        // XP e Coins de bônus removidos. Começa do zero!
+    } else if (acertosNivelamento >= 4 && acertosNivelamento <= 7) {
+        nivelMsg = `Você acertou ${acertosNivelamento} de 10. <br><br><b>Nível Intermediário:</b> Mandou bem! Você já dominou o básico e começará com as Fases de 01 a 04 desbloqueadas.`;
+        fasesDesbloqueadas = ['fase1', 'fase2', 'fase3', 'fase4'];
     } else {
-        nivelMsg = "Expert! Excelente conhecimento. Fases de 01 a 05 desbloqueadas!";
-        fasesDesbloqueadas = ['fase1', 'fase2', 'fase3', 'fase4', 'fase5'];
-        // XP e Coins de bônus removidos. Começa do zero!
+        nivelMsg = `Você acertou ${acertosNivelamento} de 10. <br><br><b>Nível Expert:</b> Excelente conhecimento técnico! Todas as 7 fases de aprendizado contínuo foram desbloqueadas para você.`;
+        fasesDesbloqueadas = ['fase1', 'fase2', 'fase3', 'fase4', 'fase5', 'fase6', 'fase7'];
     }
 
-    // Salva o progresso inicial no banco
     localStorage.setItem('quest_nivelado', 'true');
     localStorage.setItem('quest_desbloqueadas', JSON.stringify(fasesDesbloqueadas));
     
-    // Garante que grave o zero no banco de dados do navegador
+    // Garante que a economia comece do zero
     localStorage.setItem('quest_xp', xpTotal);
     localStorage.setItem('quest_coins', coinsTotal);
     
