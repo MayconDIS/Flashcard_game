@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - English Quest</title>
+    <title>Login - Game Quest Ti</title>
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
         <div class="login-card">
             
             <div class="login-header">
-                <h1 id="form-title">English <span class="tech-text">Quest</span></h1>
+                <h1 id="form-title">Game Quest <span class="tech-text">Ti</span></h1>
                 <p id="form-subtitle">Welcome back, developer.</p>
             </div>
 
@@ -66,7 +66,8 @@
             const inputNome = document.getElementById('nome');
 
             if (isLoginMode) {
-                title.innerHTML = 'English <span class="tech-text">Quest</span>';
+                // Nome atualizado no JS para quando voltar ao modo de Login
+                title.innerHTML = 'Game Quest <span class="tech-text">Ti</span>';
                 subtitle.innerText = 'Welcome back, developer.';
                 btn.innerText = 'Entrar no Terminal';
                 footerText.innerHTML = 'Ainda não tem acesso? <a href="#" onclick="toggleMode(event)">Cadastre-se</a>';
