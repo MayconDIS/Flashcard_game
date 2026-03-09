@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English Quest</title>
+    <title>Game Quest Ti</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -53,70 +53,39 @@
         <div class="main-content" id="main-content">
             
             <div class="left-panel">
-                <div class="dia-header"><span style="color: var(--alura-green);">[ Módulo 01 ]</span> A Base Sólida<div class="dia-line"></div></div>
                 
-                <div class="aula-item" id="menu-fase1" onclick="carregarAula('fase1', 'Presente e Afirmações', this)">
-                    <span class="icon-status">✓</span>
-                    <span class="aula-title">Fase 01: Presente e Afirmações</span>
-                    <span class="xp-badge">15xp</span>
-                </div>
+                <div class="dia-header"><span style="color: var(--alura-green);">[ Módulo 01 ]</span> Fundamentos Algorítmicos<div class="dia-line"></div></div>
+                <div class="aula-item" id="menu-fase1" onclick="carregarAula('fase1', 'Lógica com Python', this)"><span class="icon-status">✓</span><span class="aula-title">Fase 01: Lógica com Python</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge">5xp</span><span class="xp-badge" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);">🪙 10</span></div></div>
+                <div class="aula-item" id="menu-fase2" onclick="carregarAula('fase2', 'Matemática e Estatística', this)"><span class="icon-status">▶</span><span class="aula-title">Fase 02: Mat e Estatística</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge">5xp</span><span class="xp-badge" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);">🪙 10</span></div></div>
+                <div class="aula-item" id="menu-fase3" onclick="carregarAula('fase3', 'Infraestrutura e TIC', this)"><span class="icon-status">▶</span><span class="aula-title">Fase 03: Infraestrutura e TIC</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge">5xp</span><span class="xp-badge" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);">🪙 10</span></div></div>
+                <div class="aula-item" id="menu-fase4" onclick="carregarAula('fase4', 'Cibersegurança e LGPD', this)"><span class="icon-status">▶</span><span class="aula-title">Fase 04: Cibersegurança e LGPD</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge">5xp</span><span class="xp-badge" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);">🪙 10</span></div></div>
+                <div class="aula-item" id="menu-fase5" onclick="carregarAula('fase5', 'Ética e Humanidades', this)"><span class="icon-status">▶</span><span class="aula-title">Fase 05: Ética e Humanidades</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge">5xp</span><span class="xp-badge" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);">🪙 10</span></div></div>
+                <div class="aula-item" id="menu-bonus1" onclick="tentarAbrirBonus('bonus1', 50, 'Curiosidades & Hackers', this)"><span class="icon-status" id="icon-bonus1">🔒</span><span class="aula-title" style="color: #ffd700;">[ Bônus ] Curiosidades & Hackers</span><div style="margin-left: auto;"><span class="xp-badge" id="price-bonus1" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);">🪙 50</span></div></div>
 
-                <div class="aula-item" id="menu-fase2" onclick="carregarAula('fase2', 'Perguntas (Do / Does)', this)">
-                    <span class="icon-status">▶</span>
-                    <span class="aula-title">Fase 02: Perguntas (Do / Does)</span>
-                    <span class="xp-badge">15xp</span>
-                </div>
+                <div class="dia-header"><span style="color: var(--alura-cyan);">[ Módulo 02 ]</span> Engenharia e Estruturas<div class="dia-line"></div></div>
+                <div class="aula-item" id="menu-fase6" onclick="carregarAula('fase6', 'Algoritmos em Python', this)"><span class="icon-status">▶</span><span class="aula-title">Fase 06: Algoritmos Python</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge">10xp</span><span class="xp-badge" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);">🪙 10</span></div></div>
+                <div class="aula-item" id="menu-fase7" onclick="carregarAula('fase7', 'Programação C', this)"><span class="icon-status">▶</span><span class="aula-title">Fase 07: Programação C</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge">10xp</span><span class="xp-badge" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);">🪙 10</span></div></div>
+                <div class="aula-item" id="menu-fase8" onclick="carregarAula('fase8', 'Análise e Eng. de Sistemas', this)"><span class="icon-status">▶</span><span class="aula-title">Fase 08: Análise de Sistemas</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge">10xp</span><span class="xp-badge" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);">🪙 10</span></div></div>
+                <div class="aula-item" id="menu-fase9" onclick="carregarAula('fase9', 'Redes e Sist. Distribuídos', this)"><span class="icon-status">▶</span><span class="aula-title">Fase 09: Redes de Comp.</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge">10xp</span><span class="xp-badge" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);">🪙 10</span></div></div>
+                <div class="aula-item" id="menu-fase10" onclick="carregarAula('fase10', 'Inteligência Artificial', this)"><span class="icon-status">▶</span><span class="aula-title">Fase 10: Int. Artificial</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge">10xp</span><span class="xp-badge" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);">🪙 10</span></div></div>
+                <div class="aula-item" id="menu-bonus2" onclick="tentarAbrirBonus('bonus2', 50, 'História e Cultura Tech', this)"><span class="icon-status" id="icon-bonus2">🔒</span><span class="aula-title" style="color: #ffd700;">[ Bônus ] História e Cultura Tech</span><div style="margin-left: auto;"><span class="xp-badge" id="price-bonus2" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);">🪙 50</span></div></div>
 
-                <div class="aula-item" id="menu-fase3" onclick="carregarAula('fase3', 'Negações e Recusas', this)">
-                    <span class="icon-status">▶</span>
-                    <span class="aula-title">Fase 03: Negações e Recusas</span>
-                    <span class="xp-badge">15xp</span>
-                </div>
+                <div class="dia-header"><span style="color: #8a2be2;">[ Módulo 03 ]</span> Desenvolvimento Profissional<div class="dia-line" style="background: linear-gradient(90deg, #8a2be2, transparent);"></div></div>
+                <div class="aula-item" id="menu-fase11" onclick="carregarAula('fase11', 'Banco de Dados e NoSQL', this)"><span class="icon-status">▶</span><span class="aula-title">Fase 11: Banco de Dados</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge">15xp</span><span class="xp-badge" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);">🪙 10</span></div></div>
+                <div class="aula-item" id="menu-fase12" onclick="carregarAula('fase12', 'POO com C#', this)"><span class="icon-status">▶</span><span class="aula-title">Fase 12: POO com C#</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge">15xp</span><span class="xp-badge" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);">🪙 10</span></div></div>
+                <div class="aula-item" id="menu-fase13" onclick="carregarAula('fase13', 'Web e UX/UI Design', this)"><span class="icon-status">▶</span><span class="aula-title">Fase 13: Web Resp e UX/UI</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge">15xp</span><span class="xp-badge" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);">🪙 10</span></div></div>
+                <div class="aula-item" id="menu-fase14" onclick="carregarAula('fase14', 'Machine Learning', this)"><span class="icon-status">▶</span><span class="aula-title">Fase 14: Machine Learning</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge">15xp</span><span class="xp-badge" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);">🪙 10</span></div></div>
+                <div class="aula-item" id="menu-fase15" onclick="carregarAula('fase15', 'Eng. Software Ágil', this)"><span class="icon-status">▶</span><span class="aula-title">Fase 15: Scrum e Ágil</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge">15xp</span><span class="xp-badge" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);">🪙 10</span></div></div>
+                <div class="aula-item" id="menu-bonus3" onclick="tentarAbrirBonus('bonus3', 50, 'Carreira e Mercado', this)"><span class="icon-status" id="icon-bonus3">🔒</span><span class="aula-title" style="color: #ffd700;">[ Bônus ] Carreira e Mercado</span><div style="margin-left: auto;"><span class="xp-badge" id="price-bonus3" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);">🪙 50</span></div></div>
 
-                <div class="dia-header"><span style="color: var(--alura-cyan);">[ Módulo 02 ]</span> Tempos e Ações<div class="dia-line"></div></div>
+                <div class="dia-header"><span style="color: #ffd700;">[ Módulo 04 ]</span> Tecnologias Avançadas<div class="dia-line" style="background: linear-gradient(90deg, #ffd700, transparent);"></div></div>
+                <div class="aula-item" id="menu-fase16" onclick="carregarAula('fase16', 'Web e App com .NET', this)"><span class="icon-status">▶</span><span class="aula-title">Fase 16: Web e App .NET</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge">20xp</span><span class="xp-badge" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);">🪙 10</span></div></div>
+                <div class="aula-item" id="menu-fase17" onclick="carregarAula('fase17', 'Desenvolvimento Mobile', this)"><span class="icon-status">▶</span><span class="aula-title">Fase 17: Dev Mobile</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge">20xp</span><span class="xp-badge" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);">🪙 10</span></div></div>
+                <div class="aula-item" id="menu-fase18" onclick="carregarAula('fase18', 'Programação BD', this)"><span class="icon-status">▶</span><span class="aula-title">Fase 18: Programação BD</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge">20xp</span><span class="xp-badge" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);">🪙 10</span></div></div>
+                <div class="aula-item" id="menu-fase19" onclick="carregarAula('fase19', 'Cloud Computing e DevOps', this)"><span class="icon-status">▶</span><span class="aula-title">Fase 19: Cloud e DevOps</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge">20xp</span><span class="xp-badge" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);">🪙 10</span></div></div>
+                <div class="aula-item" id="menu-fase20" onclick="carregarAula('fase20', 'Empreendedorismo em TI', this)"><span class="icon-status">▶</span><span class="aula-title">Fase 20: Empreendedorismo</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge">20xp</span><span class="xp-badge" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);">🪙 10</span></div></div>
+                <div class="aula-item" id="menu-bonus4" onclick="tentarAbrirBonus('bonus4', 50, 'Mercado das Startups', this)"><span class="icon-status" id="icon-bonus4">🔒</span><span class="aula-title" style="color: #ffd700;">[ Bônus ] Mercado das Startups</span><div style="margin-left: auto;"><span class="xp-badge" id="price-bonus4" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);">🪙 50</span></div></div>
 
-                <div class="aula-item" id="menu-fase4" onclick="carregarAula('fase4', 'Futuro Simples (Will)', this)">
-                    <span class="icon-status">▶</span>
-                    <span class="aula-title">Fase 04: Futuro Simples (Will)</span>
-                    <span class="xp-badge">20xp</span>
-                </div>
-
-                <div class="aula-item" id="menu-fase5" onclick="carregarAula('fase5', 'Gerúndio (ING / Endo)', this)">
-                    <span class="icon-status">▶</span>
-                    <span class="aula-title">Fase 05: Gerúndio (ING / Endo)</span>
-                    <span class="xp-badge">20xp</span>
-                </div>
-
-                <div class="dia-header"><span style="color: #8a2be2;">[ Módulo 03 ]</span> Imersão Técnica<div class="dia-line" style="background: linear-gradient(90deg, #8a2be2, transparent);"></div></div>
-
-                <div class="aula-item" id="menu-fase6" onclick="carregarAula('fase6', 'Preposições (In, On, At)', this)">
-                    <span class="icon-status">▶</span>
-                    <span class="aula-title">Fase 06: Preposições (In, On, At)</span>
-                    <span class="xp-badge">25xp</span>
-                </div>
-
-                <div class="aula-item" id="menu-fase7" onclick="carregarAula('fase7', 'Passado Simples (Did)', this)">
-                    <span class="icon-status">▶</span>
-                    <span class="aula-title">Fase 07: Passado Simples (Did)</span>
-                    <span class="xp-badge">30xp</span>
-                </div>
-
-                <div class="dia-header" style="margin-top: 30px;">
-                    <span style="color: #ffd700;">[ BÔNUS ]</span> Loja de Conteúdo
-                    <div class="dia-line" style="background: linear-gradient(90deg, #ffd700, transparent);"></div>
-                </div>
-
-                <div class="aula-item" id="menu-bonus1" onclick="tentarAbrirBonus('bonus1', 50, 'Gírias Tech (Slangs)', this)">
-                    <span class="icon-status" id="icon-bonus1">🔒</span>
-                    <span class="aula-title">Gírias Tech (Slangs)</span>
-                    <span class="xp-badge" id="price-bonus1" style="border-color: #ffd700; color: #ffd700;">🪙 50</span>
-                </div>
-
-                <div class="aula-item" id="menu-bonus2" onclick="tentarAbrirBonus('bonus2', 100, 'Inglês para Entrevistas', this)">
-                    <span class="icon-status" id="icon-bonus2">🔒</span>
-                    <span class="aula-title">Inglês para Entrevistas</span>
-                    <span class="xp-badge" id="price-bonus2" style="border-color: #ffd700; color: #ffd700;">🪙 100</span>
-                </div>
             </div>
 
             <div class="right-panel" id="right-panel">
@@ -180,13 +149,14 @@
                 <div class="form-group">
                     <label>Escolha a Fase de Destino:</label>
                     <select id="nova-fase" style="cursor: pointer;">
-                        <option value="fase1">Fase 01: Presente e Afirmações</option>
-                        <option value="fase2">Fase 02: Perguntas (Do / Does)</option>
-                        <option value="fase3">Fase 03: Negações e Recusas</option>
-                        <option value="fase4">Fase 04: Futuro Simples (Will)</option>
-                        <option value="fase5">Fase 05: Gerúndio (ING / Endo)</option>
-                        <option value="fase6">Fase 06: Preposições (In, On, At)</option>
-                        <option value="fase7">Fase 07: Passado Simples (Did)</option>
+                        <option value="fase1">Fase 01: Python e Lógica</option>
+                        <option value="fase2">Fase 02: Cibersegurança e LGPD</option>
+                        <option value="fase3">Fase 03: Eng. de Software e Ágil</option>
+                        <option value="fase4">Fase 04: Programação C e Redes</option>
+                        <option value="fase5">Fase 05: Banco de Dados e C#</option>
+                        <option value="fase6">Fase 06: UX/UI e Machine Learning</option>
+                        <option value="fase7">Fase 07: Web .NET e Mobile</option>
+                        <option value="fase8">Fase 08: Cloud Computing e DevOps</option>
                     </select>
                 </div>
                 <div class="form-group"><label>Frente (Português):</label><input type="text" id="nova-frente" placeholder="Ex: O sistema não salva os dados"></div>

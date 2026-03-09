@@ -1,106 +1,171 @@
 // js/data.js
 const bancoDeDados = {
+    // ================= MÓDULO 01 =================
     "fase1": [
-        {"frente": "Eu estudo Análise de Sistemas.", "verso": "I study Systems Analysis.", "dica": "Ação rotineira no presente. Usamos a base do verbo para 'I'."},
-        {"frente": "Ele gosta de programar em Python e C#.", "verso": "He likes to code in Python and C#.", "dica": "Regra de ouro: He, She e It ganham 's' no verbo (likes)."},
-        {"frente": "Nós usamos Linux no trabalho.", "verso": "We use Linux at work.", "dica": "Para 'We', o verbo continua na forma base (use)."},
-        {"frente": "O computador roda jogos pesados muito bem.", "verso": "The computer runs heavy games very well.", "dica": "O computador equivale a 'It', por isso o verbo 'run' vira 'runs'."},
-        {"frente": "Ela viaja para a Alemanha todo ano.", "verso": "She travels to Germany every year.", "dica": "Afirmação no presente com rotina. 'Travel' ganha o 's'."},
-        {"frente": "Eu treino musculação de manhã.", "verso": "I lift weights in the morning.", "dica": "A expressão para puxar ferro/musculação é 'lift weights'."},
-        {"frente": "Meu notebook tem uma placa de vídeo excelente.", "verso": "My notebook has an excellent graphics card.", "dica": "O verbo 'have' (ter) se transforma em 'has' para He/She/It (notebook)."},
-        {"frente": "Minha esposa trabalha com estética.", "verso": "My wife works with esthetics.", "dica": "'Minha esposa' equivale a 'She', então o verbo ganha 's' (works)."},
-        {"frente": "Eu prefiro usar um dual-boot.", "verso": "I prefer to use a dual-boot.", "dica": "Quando temos dois verbos (prefer e use), separamos com 'to'."},
-        {"frente": "Nós comemos sanduíches nos fins de semana.", "verso": "We eat sandwiches on weekends.", "dica": "A preposição correta para fins de semana é 'on' (on weekends)."}
+        {"frente": "O que é uma Variável?", "verso": "Um espaço reservado na memória para armazenar um dado.", "dica": "Disciplina: Lógica com Python."},
+        {"frente": "Para que serve a estrutura 'for' em Python?", "verso": "Para criar um laço de repetição iterável (loop).", "dica": "Percorre listas e sequências."},
+        {"frente": "O que é um Dicionário?", "verso": "Uma estrutura de dados baseada em pares de 'chave: valor'.", "dica": "Usa chaves {}. Ex: {'curso': 'ADS'}"},
+        {"frente": "Qual a diferença entre = e == em programação?", "verso": "= é para Atribuição. == é para Comparação (Verificar se é igual).", "dica": "Erro muito comum em lógica básica."},
+        {"frente": "O que faz a palavra 'def' em Python?", "verso": "Serve para definir/criar uma nova função.", "dica": "Ex: def calcular_media():"}
     ],
     "fase2": [
-        {"frente": "Você joga Valorant todo dia?", "verso": "Do you play Valorant every day?", "dica": "O 'Do' é o auxiliar de pergunta para I, You, We, They."},
-        {"frente": "Ele desenvolve aplicativos em Java?", "verso": "Does he develop apps in Java?", "dica": "Atenção: O 'Does' rouba o 's' do verbo principal! Não diga 'develops'."},
-        {"frente": "Eles entendem de Inteligência Artificial?", "verso": "Do they understand Artificial Intelligence?", "dica": "Como o sujeito é 'They' (Eles), usamos o auxiliar 'Do'."},
-        {"frente": "O notebook precisa de mais memória?", "verso": "Does the notebook need more memory?", "dica": "O notebook é 'It', então usamos 'Does' para fazer a pergunta."},
-        {"frente": "Você quer viajar para Portugal?", "verso": "Do you want to travel to Portugal?", "dica": "Estrutura clássica: Auxiliar (Do) + Sujeito (you) + Verbo (want)."},
-        {"frente": "Ela prefere trabalhar com estética?", "verso": "Does she prefer to work with esthetics?", "dica": "Mais uma vez o 'Does' roubando a cena para o pronome 'She'."},
-        {"frente": "Vocês gostam de investir em NFTs?", "verso": "Do you like to invest in NFTs?", "dica": "'You' pode ser singular (você) ou plural (vocês), o auxiliar é sempre 'Do'."},
-        {"frente": "O sistema suporta banco de dados grandes?", "verso": "Does the system support large databases?", "dica": "Em inglês, o adjetivo (large) vem antes do substantivo (databases)."},
-        {"frente": "Você vai para a faculdade de moto?", "verso": "Do you go to college by motorcycle?", "dica": "Para meios de transporte, usamos a preposição 'by' (by car, by motorcycle)."},
-        {"frente": "O código funciona no Windows?", "verso": "Does the code work on Windows?", "dica": "O código é 'It'. Lembre-se que 'work' também significa funcionar!"}
+        {"frente": "O que é a Média Aritmética?", "verso": "A soma de todos os valores dividida pela quantidade deles.", "dica": "Disciplina: Matemática e Estatística."},
+        {"frente": "O que é a Mediana em um conjunto de dados?", "verso": "É o valor que fica exatamente no meio quando os dados estão em ordem.", "dica": "Não é afetada por valores extremos (outliers)."},
+        {"frente": "O que estuda a Lógica Proposicional?", "verso": "Proposições que podem ser classificadas como Verdadeiras ou Falsas.", "dica": "Base para os operadores AND, OR, NOT na programação."},
+        {"frente": "O que é um Grafo?", "verso": "Conjunto de Vértices (nós) conectados por Arestas (linhas).", "dica": "Usado em GPS, mapas e redes sociais."},
+        {"frente": "O que é o Teorema de Bayes?", "verso": "Fórmula matemática usada para calcular a probabilidade condicional de um evento.", "dica": "Base matemática para IA e Machine Learning."}
     ],
     "fase3": [
-        {"frente": "Eu não jogo no servidor da Europa.", "verso": "I don't play on the Europe server.", "dica": "Negativa no presente para 'I' é 'do not' ou 'don't'."},
-        {"frente": "O programa não compila em C.", "verso": "The program doesn't compile in C.", "dica": "Para 'It' (o programa), usamos 'does not' ou 'doesn't'."},
-        {"frente": "Nós não usamos hardware antigo.", "verso": "We don't use old hardware.", "dica": "Hardware antigo = old hardware (adjetivo sempre primeiro)."},
-        {"frente": "Ela não estuda tecnologia.", "verso": "She doesn't study technology.", "dica": "Como usamos 'doesn't', o verbo 'study' fica na forma base normal."},
-        {"frente": "Eles não investem em criptomoedas.", "verso": "They don't invest in cryptocurrencies.", "dica": "Para They, a negativa é sempre 'don't'."},
-        {"frente": "O Zorin OS não trava no meu SSD.", "verso": "Zorin OS doesn't crash on my SSD.", "dica": "O verbo 'crash' significa travar/dar erro fatal."},
-        {"frente": "Eu não quero comprar uma moto usada.", "verso": "I don't want to buy a used motorcycle.", "dica": "Dois verbos juntos (want / buy) separados pelo 'to'."},
-        {"frente": "O banco de dados não salva arquivos grandes.", "verso": "The database doesn't save large files.", "dica": "Database (banco de dados) equivale a 'It', exigindo o 'doesn't'."},
-        {"frente": "Você não precisa de uma RTX 4060 para estudar.", "verso": "You don't need an RTX 4060 to study.", "dica": "A pronúncia correta da placa seria 'R-T-X forty-sixty'."},
-        {"frente": "Minha classe não tem aulas aos sábados.", "verso": "My class doesn't have classes on Saturdays.", "dica": "Dias da semana em inglês sempre começam com letra maiúscula."}
+        {"frente": "O que é a Placa-Mãe?", "verso": "A placa de circuito principal que conecta todos os componentes do PC.", "dica": "Disciplinas: Infraestrutura e TIC."},
+        {"frente": "Qual a diferença entre RAM e HD/SSD?", "verso": "RAM é memória volátil de curto prazo. HD/SSD é armazenamento permanente.", "dica": "Desligou o PC, a RAM apaga tudo."},
+        {"frente": "O que é um Sistema Operacional (SO)?", "verso": "O software principal que gerencia o hardware e permite executar outros programas.", "dica": "Ex: Windows, Linux, macOS."},
+        {"frente": "Para que serve a CPU?", "verso": "É o cérebro do computador, responsável por processar e executar as instruções.", "dica": "Central Processing Unit."},
+        {"frente": "O que é Virtualização?", "verso": "Criar versões virtuais de recursos físicos (ex: Máquinas Virtuais).", "dica": "A base da Computação em Nuvem."}
     ],
     "fase4": [
-        {"frente": "Eu vou focar em Ciência de Dados.", "verso": "I will focus on Data Science.", "dica": "Futuro simples: Basta colocar 'Will' antes do verbo principal."},
-        {"frente": "Nós vamos lançar o sistema amanhã.", "verso": "We will launch the system tomorrow.", "dica": "'Will' serve para qualquer pessoa, não tem conjugação difícil!"},
-        {"frente": "Ela vai abrir uma clínica de estética.", "verso": "She will open an esthetics clinic.", "dica": "Para falar de planos futuros, o 'will' não altera o verbo."},
-        {"frente": "A Inteligência Artificial vai mudar o mundo.", "verso": "Artificial Intelligence will change the world.", "dica": "Previsão sobre o futuro usando 'will'."},
-        {"frente": "Eles vão viajar para Portugal em breve.", "verso": "They will travel to Portugal soon.", "dica": "'Soon' significa 'em breve' ou 'logo'."},
-        {"frente": "Eu vou fazer um MBA no futuro.", "verso": "I will do an MBA in the future.", "dica": "A pronúncia é 'em-bi-êi'."},
-        {"frente": "Você vai comprar um teclado mecânico novo?", "verso": "Will you buy a new mechanical keyboard?", "dica": "Em perguntas no futuro, o 'Will' pula para antes do sujeito!"},
-        {"frente": "O projeto de UML vai ficar pronto na sexta.", "verso": "The UML project will be ready on Friday.", "dica": "Sempre use 'on' para dias da semana."},
-        {"frente": "Eu vou instalar o Windows 11 mais tarde.", "verso": "I will install Windows 11 later.", "dica": "A expressão 'mais tarde' é apenas 'later'."},
-        {"frente": "Nós vamos preparar sanduíches para o jantar.", "verso": "We will make sandwiches for dinner.", "dica": "O verbo 'make' é usado quando você vai preparar/fabricar algo com as mãos."}
+        {"frente": "O que significa a sigla LGPD?", "verso": "Lei Geral de Proteção de Dados.", "dica": "Disciplinas: Cibersegurança e LGPD."},
+        {"frente": "O que é Phishing?", "verso": "Ataque de engenharia social (e-mails falsos) para roubar dados da vítima.", "dica": "Pense em 'pescar' a senha do usuário."},
+        {"frente": "O que é um Ransomware?", "verso": "Software malicioso que criptografa os dados e exige pagamento de resgate.", "dica": "Ransom = Resgate."},
+        {"frente": "O que são Dados Sensíveis (LGPD)?", "verso": "Dados sobre raça, religião, saúde, biometria e orientação sexual.", "dica": "Exigem proteção extra por causarem discriminação."},
+        {"frente": "O que é um ataque DDoS?", "verso": "Enviar milhares de requisições falsas até derrubar o servidor por sobrecarga.", "dica": "Distributed Denial of Service."}
     ],
     "fase5": [
-        {"frente": "Eu estou codificando um projeto agora.", "verso": "I am coding a project right now.", "dica": "Ação no momento (Present Continuous). Verbo To Be + verbo com ING."},
-        {"frente": "Eles estão configurando o banco de dados.", "verso": "They are configuring the database.", "dica": "Palavras terminadas em 'e' (configure) perdem o 'e' antes do ING."},
-        {"frente": "O servidor está rodando perfeitamente.", "verso": "The server is running perfectly.", "dica": "Regra CVC: Consoante-Vogal-Consoante (run). Dobra-se a última letra (running)."},
-        {"frente": "Nós estamos estudando inglês para a nossa carreira.", "verso": "We are studying English for our career.", "dica": "Verbos terminados em 'y' (study) apenas recebem o ING na frente."},
-        {"frente": "Ela está aprendendo novas técnicas.", "verso": "She is learning new techniques.", "dica": "A pronúncia correta é 'ték-níks'."},
-        {"frente": "O meu ping está subindo muito no Valorant.", "verso": "My ping is rising a lot in Valorant.", "dica": "O verbo 'rise' (subir/aumentar) vira 'rising'."},
-        {"frente": "Eu estou procurando uma moto econômica.", "verso": "I am looking for an economical motorcycle.", "dica": "O phrasal verb 'look for' significa procurar algo."},
-        {"frente": "O sistema está processando os dados na blockchain.", "verso": "The system is processing the data on the blockchain.", "dica": "Como blockchain é uma 'rede/superfície', usamos a preposição 'on'."},
-        {"frente": "Eu estou atualizando os drivers da placa de vídeo.", "verso": "I am updating the graphics card drivers.", "dica": "Update + ING = Updating."},
-        {"frente": "Nós estamos criando uma interface gráfica em Python.", "verso": "We are creating a graphical interface in Python.", "dica": "Sempre que falamos de linguagem de programação, usamos 'in' (in Python)."}
+        {"frente": "O que é a Inclusão Digital?", "verso": "Garantir que todas as pessoas tenham acesso às tecnologias da informação.", "dica": "Disciplinas: Ética e Direitos Humanos."},
+        {"frente": "Qual o pilar da Sustentabilidade na TI?", "verso": "Reduzir o impacto ambiental (lixo eletrônico) e o consumo de energia dos datacenters.", "dica": "Green IT (TI Verde)."},
+        {"frente": "O que é Propriedade Intelectual em Software?", "verso": "O direito legal do criador sobre o código, layout ou algoritmo de um sistema.", "dica": "Protegido por direitos autorais e patentes."},
+        {"frente": "O que é o Viés Algorítmico (Bias)?", "verso": "Quando uma Inteligência Artificial toma decisões preconceituosas baseadas em dados históricos falhos.", "dica": "Ex: IA de recrutamento que descarta mulheres."},
+        {"frente": "Como a LGPD apoia os Direitos Humanos?", "verso": "Garantindo o direito fundamental à privacidade e à liberdade de escolha do cidadão.", "dica": "O titular é o dono do próprio dado."}
     ],
+
+    // ================= MÓDULO 02 =================
     "fase6": [
-        {"frente": "O erro está na linha quarenta.", "verso": "The error is on line forty.", "dica": "Preposições de lugar e posição: 'on' para superfícies e linhas."},
-        {"frente": "Eu trabalho bem à noite.", "verso": "I work well at night.", "dica": "Uma exceção clássica: dizemos 'in the morning', mas 'at night'."},
-        {"frente": "Nós vamos para a Alemanha em 2026.", "verso": "We are going to Germany in 2026.", "dica": "Para anos, meses e estações, usamos a preposição 'in'."},
-        {"frente": "Eu vou para o trabalho de moto.", "verso": "I go to work by motorcycle.", "dica": "Meios de transporte sempre levam a preposição 'by'."},
-        {"frente": "Esse tutorial é do YouTube.", "verso": "This tutorial is from YouTube.", "dica": "'From' indica a origem de algo."},
-        {"frente": "O evento de tecnologia começa às 9 horas.", "verso": "The tech event starts at 9 o'clock.", "dica": "Para horas exatas no relógio, a preposição obrigatória é 'at'."},
-        {"frente": "Meu notebook está na mesa.", "verso": "My notebook is on the desk.", "dica": "Como ele está sobre uma superfície, usamos 'on'."},
-        {"frente": "Eu nasci no Brasil.", "verso": "I was born in Brazil.", "dica": "Para países e cidades, sempre usamos a preposição 'in'."},
-        {"frente": "A atualização estará disponível na segunda-feira.", "verso": "The update will be available on Monday.", "dica": "Regra rígida: Para dias da semana, sempre usamos 'on'."},
-        {"frente": "O código foi escrito por mim.", "verso": "The code was written by me.", "dica": "'By' também é usado para indicar o autor de uma ação na voz passiva."}
+        {"frente": "O que é a estrutura de dados Pilha (Stack)?", "verso": "O último elemento a entrar é o primeiro a sair (LIFO).", "dica": "Disciplina: Algoritmos e Dados em Python. Ex: Botão 'Desfazer'."},
+        {"frente": "O que é a Fila (Queue)?", "verso": "O primeiro a entrar é o primeiro a sair (FIFO).", "dica": "Ex: Fila de impressão na impressora."},
+        {"frente": "O que é um Algoritmo de Ordenação?", "verso": "Um método para organizar dados em sequência (ex: Bubble Sort, Quick Sort).", "dica": "Coloca números em ordem crescente."},
+        {"frente": "O que é a Complexidade 'Big O'?", "verso": "Uma notação para medir a eficiência de um algoritmo (tempo e memória) quando os dados crescem.", "dica": "O(1) é excelente, O(n²) é lento."},
+        {"frente": "O que é uma Árvore Binária?", "verso": "Estrutura de dados onde cada nó tem no máximo dois filhos (esquerda e direita).", "dica": "Excelente para buscas rápidas."}
     ],
     "fase7": [
-        {"frente": "Eu instalei o Linux ontem.", "verso": "I installed Linux yesterday.", "dica": "Passado simples. Para verbos regulares, basta adicionar 'ed' no final."},
-        {"frente": "Você configurou o dual-boot?", "verso": "Did you configure the dual-boot?", "dica": "No passado, o auxiliar de pergunta muda de 'Do/Does' para 'Did'."},
-        {"frente": "Nós fomos para a academia cedo.", "verso": "We went to the gym early.", "dica": "O verbo ir (go) é irregular. O passado dele é 'went'."},
-        {"frente": "Ela não comprou os produtos de estética.", "verso": "She didn't buy the esthetics products.", "dica": "Para negativas no passado, usamos 'didn't'. O verbo volta para a base (buy)."},
-        {"frente": "O professor passou um projeto de banco de dados.", "verso": "The teacher gave a database project.", "dica": "O verbo dar/passar (give) no passado vira 'gave'."},
-        {"frente": "Eu perdi a partida de Valorant.", "verso": "I lost the Valorant match.", "dica": "Verbo irregular: Lose (perder) vira 'Lost' no passado."},
-        {"frente": "Você fez o backup do SSD?", "verso": "Did you back up the SSD?", "dica": "Observe como o 'Did' mostra que a pergunta inteira está no passado."},
-        {"frente": "Eu representei minha turma no último semestre.", "verso": "I represented my class last semester.", "dica": "Adiciona-se 'ed' no final do verbo regular 'represent'."},
-        {"frente": "O aplicativo funcionou sem bugs.", "verso": "The application worked without bugs.", "dica": "A pronúncia do passado de 'work' soa como um 'T' no final (work-t)."},
-        {"frente": "Eles escreveram o código em C.", "verso": "They wrote the code in C.", "dica": "O passado do verbo escrever (write) é 'wrote'."}
+        {"frente": "O que são Ponteiros em C?", "verso": "Variáveis que armazenam o endereço de memória de outra variável.", "dica": "Disciplina: Programação C."},
+        {"frente": "Como incluir a biblioteca de entrada e saída em C?", "verso": "#include <stdio.h>", "dica": "Obrigatório para printf() e scanf()."},
+        {"frente": "Para que serve a função malloc()?", "verso": "Para alocar blocos de memória dinamicamente enquanto o programa roda.", "dica": "Memória sob demanda."},
+        {"frente": "O que a função free() faz?", "verso": "Libera a memória que foi alocada dinamicamente, devolvendo ao sistema.", "dica": "Se não usar, causa 'Memory Leak'."},
+        {"frente": "O que é um Struct em C?", "verso": "Agrupa variáveis de tipos diferentes sob um único nome.", "dica": "É o 'avô' dos objetos na POO."}
     ],
-        "bonus1": [
-        {"frente": "AFK (Away From Keyboard)", "verso": "Longe do teclado / Ausente.", "dica": "Usado quando você vai sair do pc por um momento."},
-        {"frente": "BRB (Be Right Back)", "verso": "Volto já / Já volto.", "dica": "Muito comum em chats de jogos e trabalho."},
-        {"frente": "ASAP (As Soon As Possible)", "verso": "O mais rápido possível.", "dica": "Quando o chefe pede algo 'pra ontem'."},
-        {"frente": "FYI (For Your Information)", "verso": "Para sua informação.", "dica": "Usado em e-mails para encaminhar algo útil."},
-        {"frente": "Bug", "verso": "Falha ou erro no código.", "dica": "Não é um erro, é uma feature não documentada (brincadeira)."},
-        {"frente": "Feature", "verso": "Funcionalidade ou recurso novo.", "dica": "Algo que foi planejado para o sistema."},
-        {"frente": "Deploy", "verso": "Implantar / Colocar no ar.", "dica": "O ato de publicar o site para o mundo."},
-        {"frente": "Commit", "verso": "Salvar alterações no código.", "dica": "O que você faz no Git para guardar o progresso."}
+    "fase8": [
+        {"frente": "O que são Requisitos Funcionais?", "verso": "Descrevem o que o sistema DEVE FAZER (funções). Ex: 'O sistema deve emitir NF'.", "dica": "Disciplina: Análise e Eng. de Sistemas."},
+        {"frente": "O que são Requisitos Não Funcionais?", "verso": "Descrevem COMO o sistema deve ser. Ex: 'O sistema deve carregar em 1 seg'.", "dica": "Foca em performance, segurança, design."},
+        {"frente": "O que é um Diagrama de Casos de Uso (UML)?", "verso": "Um desenho que mostra as interações entre os Usuários (Atores) e o Sistema.", "dica": "Foca nas ações principais, não no código."},
+        {"frente": "Qual a diferença entre Metodologia Ágil e Cascata?", "verso": "Ágil é flexível/iterativo. Cascata é linear, rígida e testa só no final.", "dica": "Ágil entrega valor aos poucos."},
+        {"frente": "O que é um Diagrama de Classes?", "verso": "Diagrama UML que mapeia a estrutura orientada a objetos (atributos e métodos) do sistema.", "dica": "É a planta baixa dos desenvolvedores C#."}
+    ],
+    "fase9": [
+        {"frente": "O que é um endereço IP?", "verso": "Identificador numérico exclusivo de um dispositivo na rede.", "dica": "Disciplina: Redes e Sist. Distribuídos."},
+        {"frente": "Para que serve o DNS?", "verso": "Traduz nomes de sites (google.com) para endereços IP numéricos.", "dica": "A lista telefônica da web."},
+        {"frente": "Qual a diferença entre TCP e UDP?", "verso": "TCP garante a entrega dos dados. UDP é rápido mas não verifica se o dado chegou.", "dica": "TCP: Arquivos. UDP: Jogos/Vídeo."},
+        {"frente": "O que é um Sistema Distribuído?", "verso": "Vários computadores na rede trabalhando juntos como se fossem um único sistema.", "dica": "A base da computação em nuvem."},
+        {"frente": "O que faz um Load Balancer?", "verso": "Distribui o tráfego de rede igualmente entre vários servidores para evitar sobrecarga.", "dica": "Salva o site na Black Friday."}
+    ],
+    "fase10": [
+        {"frente": "O que é o Teste de Turing?", "verso": "Um teste para verificar se uma máquina consegue exibir comportamento inteligente indistinguível do humano.", "dica": "Disciplina: IA e Inovação."},
+        {"frente": "O que são Agentes Inteligentes?", "verso": "Sistemas que percebem o ambiente via sensores e agem para maximizar seus objetivos.", "dica": "Ex: Um robô aspirador de pó."},
+        {"frente": "O que é uma Heurística em IA?", "verso": "Uma 'regra de ouro' ou atalho mental usado pela IA para encontrar boas soluções rapidamente.", "dica": "Não garante a perfeição, mas é rápida."},
+        {"frente": "O que é NLP?", "verso": "Processamento de Linguagem Natural. Área da IA que entende a linguagem humana.", "dica": "Como o ChatGPT ou a Alexa funcionam."},
+        {"frente": "Qual a diferença entre Inovação Incremental e Disruptiva?", "verso": "Incremental melhora algo existente (iPhone 14 -> 15). Disruptiva cria um novo mercado (Táxi -> Uber).", "dica": "Disrupção muda as regras do jogo."}
+    ],
+
+    // ================= MÓDULO 03 =================
+    "fase11": [
+        {"frente": "O que é uma Chave Primária (PK)?", "verso": "Um campo que identifica de forma exclusiva uma linha na tabela. Ex: CPF.", "dica": "Disciplina: Banco de Dados e NoSQL."},
+        {"frente": "Qual a diferença entre SQL e NoSQL?", "verso": "SQL é relacional (tabelas rígidas). NoSQL usa documentos flexíveis (JSON).", "dica": "MongoDB é NoSQL."},
+        {"frente": "O que significa CRUD?", "verso": "Create (Criar), Read (Ler), Update (Atualizar), Delete (Apagar).", "dica": "As 4 ações básicas do banco."},
+        {"frente": "Para que serve a cláusula JOIN no SQL?", "verso": "Para unir dados de duas ou mais tabelas baseando-se em uma coluna em comum.", "dica": "Une clientes aos seus pedidos."},
+        {"frente": "O que é o processo de Normalização?", "verso": "Organizar as tabelas para eliminar dados redundantes/repetidos.", "dica": "Economiza espaço e evita inconsistências."}
+    ],
+    "fase12": [
+        {"frente": "O que é uma Classe?", "verso": "Um molde que define os atributos e comportamentos de um objeto.", "dica": "Disciplina: POO com C#."},
+        {"frente": "O que é Herança em POO?", "verso": "Quando uma classe filha recebe as características de uma classe pai.", "dica": "Promove o reaproveitamento de código."},
+        {"frente": "O que é Polimorfismo?", "verso": "Capacidade de um método ter diferentes comportamentos dependendo do objeto que o chama.", "dica": "Ex: 'Falar()' -> Gato mia, Cachorro late."},
+        {"frente": "O que é Encapsulamento?", "verso": "Esconder variáveis internas da classe (private) e expô-las apenas via Get/Set.", "dica": "Protege os dados contra alterações indevidas."},
+        {"frente": "Qual a diferença entre Interface e Classe Abstrata?", "verso": "A Interface é 100% vazia (um contrato). A Abstrata pode conter código pronto.", "dica": "Uma classe herda 1 abstrata, mas implementa N interfaces."}
+    ],
+    "fase13": [
+        {"frente": "Qual a diferença entre UX e UI?", "verso": "UX = Jornada e sentimento do usuário. UI = Cores, botões e design da tela.", "dica": "Disciplina: Web Responsivo e UX/UI."},
+        {"frente": "O que é Design Responsivo?", "verso": "Páginas que se adaptam perfeitamente a PCs, Tablets e Celulares.", "dica": "Feito usando Media Queries no CSS."},
+        {"frente": "O que é 'Mobile First'?", "verso": "Estratégia de desenhar o site primeiro para o celular e depois para monitores maiores.", "dica": "Aprovado pelo Google."},
+        {"frente": "Para que serve o CSS Flexbox?", "verso": "Organizar, alinhar e distribuir espaço entre itens em uma linha ou coluna.", "dica": "É o que usamos para dividir este app."},
+        {"frente": "O que é um Wireframe?", "verso": "O 'esqueleto' ou rascunho visual da tela, sem cores ou imagens finais.", "dica": "A planta-baixa do site."}
+    ],
+    "fase14": [
+        {"frente": "O que é Machine Learning (ML)?", "verso": "Sistemas que aprendem a identificar padrões em dados sem serem explicitamente programados.", "dica": "Disciplina: Machine Learning."},
+        {"frente": "O que é Aprendizado Supervisionado?", "verso": "Treinar a IA dando os dados de exemplo e a resposta certa (gabarito).", "dica": "Ex: 1000 fotos com a tag 'Cachorro'."},
+        {"frente": "O que é o erro de Overfitting?", "verso": "Quando a IA 'decora' os dados de treino, mas erra muito ao testar dados reais e novos.", "dica": "Falta de generalização."},
+        {"frente": "Qual a diferença entre Regressão e Classificação?", "verso": "Classificação prevê categorias (Spam). Regressão prevê números contínuos (Preço da casa).", "dica": "A regressão desenha uma linha de tendência."},
+        {"frente": "O que são Redes Neurais?", "verso": "Algoritmos em camadas (Input, Ocultas, Output) inspirados no cérebro.", "dica": "Base do Deep Learning."}
+    ],
+    "fase15": [
+        {"frente": "O que é o Scrum?", "verso": "Framework ágil iterativo focado no trabalho em equipe.", "dica": "Disciplina: Eng. Soft. Ágil Aplicada."},
+        {"frente": "O que faz o Product Owner (PO)?", "verso": "Representa o cliente, cria histórias de usuário e prioriza o Backlog.", "dica": "Dono da visão do produto."},
+        {"frente": "O que é uma Sprint?", "verso": "Um ciclo fixo de trabalho (1 a 4 semanas) onde a equipe desenvolve uma entrega funcional.", "dica": "Termina com a Revisão e Retrospectiva."},
+        {"frente": "O que é o Scrum Master?", "verso": "Líder servidor que remove impedimentos e garante que o time siga as regras do Scrum.", "dica": "O 'facilitador'."},
+        {"frente": "Qual o objetivo da Daily Scrum?", "verso": "Reunião de 15 min de alinhamento tático: O que fiz, farei e se há bloqueios.", "dica": "Não é reunião para resolver problemas profundos."}
+    ],
+
+    // ================= MÓDULO 04 =================
+    "fase16": [
+        {"frente": "O que é o .NET Core?", "verso": "Framework open-source e multiplataforma (Windows/Linux/Mac) da Microsoft.", "dica": "Disciplina: Web e App em .NET."},
+        {"frente": "O que é o Entity Framework Core?", "verso": "Um ORM que permite manipular bancos de dados usando objetos C# ao invés de SQL.", "dica": "Mapeamento Objeto-Relacional."},
+        {"frente": "Para que serve uma API REST?", "verso": "Para comunicar sistemas (Front e Back) trocando dados, geralmente no formato JSON.", "dica": "As requisições usam HTTP (GET, POST, PUT, DELETE)."},
+        {"frente": "O que é Injeção de Dependência (DI)?", "verso": "Técnica onde a classe recebe os objetos que precisa de fora, ao invés de instanciá-los.", "dica": "Facilita testes e desacopla código."},
+        {"frente": "O que é o padrão MVC?", "verso": "Padrão de arquitetura: Model (Dados), View (Tela) e Controller (Lógica).", "dica": "Separa as responsabilidades do sistema."}
+    ],
+    "fase17": [
+        {"frente": "Qual a diferença entre App Nativo e Híbrido/Cross-platform?", "verso": "Nativo usa o código original (Java/Swift). Híbrido escreve um código e exporta para ambos.", "dica": "Disciplina: Dev Mobile."},
+        {"frente": "O que é o .NET MAUI?", "verso": "Framework da Microsoft para criar apps mobile para iOS e Android usando C#.", "dica": "Substituto do Xamarin."},
+        {"frente": "O que é o Ciclo de Vida de uma Activity/Tela?", "verso": "Os estados pelo qual um app passa: Criar, Iniciar, Pausar e Destruir.", "dica": "Evita o app travar ou gastar bateria no fundo."},
+        {"frente": "O que são APIs de Geolocalização?", "verso": "Bibliotecas que permitem ao app acessar o GPS do celular.", "dica": "Usado pelo Uber, iFood, etc."},
+        {"frente": "Para que serve o SQLite no Mobile?", "verso": "É um banco de dados relacional super leve, embutido no próprio celular (offline).", "dica": "Salva dados sem precisar de internet."}
+    ],
+    "fase18": [
+        {"frente": "O que é uma Stored Procedure?", "verso": "Um bloco de código SQL salvo no banco de dados para ser executado várias vezes.", "dica": "Disciplina: Programação de BD."},
+        {"frente": "O que é uma Trigger (Gatilho)?", "verso": "Um código SQL que roda automaticamente APÓS um evento (Insert, Update ou Delete).", "dica": "Útil para gerar logs de auditoria."},
+        {"frente": "Qual a diferença entre VIEW e Tabela?", "verso": "Tabela guarda dados físicos. View é uma 'tabela virtual' criada a partir de um SELECT.", "dica": "A View facilita consultas complexas."},
+        {"frente": "O que é o conceito ACID em Transações?", "verso": "Atomicidade, Consistência, Isolamento e Durabilidade.", "dica": "Garante que o Pix não dê erro no meio do caminho."},
+        {"frente": "Para que serve o comando COMMIT?", "verso": "Confirma e salva permanentemente as alterações de uma transação no banco.", "dica": "Se der erro, usamos o ROLLBACK."}
+    ],
+    "fase19": [
+        {"frente": "O que é Cloud Computing?", "verso": "Acessar servidores, bancos e softwares via internet ao invés de comprar máquinas.", "dica": "Disciplina: Cloud e DevOps."},
+        {"frente": "O que é o Docker?", "verso": "Ferramenta para empacotar o código em contêineres leves e isolados.", "dica": "Acaba com o 'Na minha máquina funcionou'."},
+        {"frente": "Para que serve o Kubernetes?", "verso": "Orquestrar, gerenciar e escalar automaticamente centenas de contêineres.", "dica": "É o comandante do navio."},
+        {"frente": "O que significa CI/CD?", "verso": "Integração Contínua (CI) e Entrega Contínua (CD).", "dica": "Automação de testes e publicação de código."},
+        {"frente": "Defina IaaS, PaaS e SaaS.", "verso": "IaaS (Máquina alugada), PaaS (Ambiente para devs), SaaS (Software pronto pro usuário).", "dica": "AWS EC2 = IaaS, Netflix = SaaS."}
+    ],
+    "fase20": [
+        {"frente": "O que é um MVP (Minimum Viable Product)?", "verso": "A versão mais simples de um produto, lançada rapidamente para testar o mercado.", "dica": "Disciplina: Empreendedorismo e Gestão."},
+        {"frente": "O que é o Kanban?", "verso": "Método visual de gestão de fluxo de trabalho (A Fazer, Fazendo, Feito).", "dica": "Originou-se na Toyota."},
+        {"frente": "O que é Escalabilidade Horizontal?", "verso": "Adicionar MAIS servidores para dividir a carga do sistema (Cloud).", "dica": "Diferente de Vertical, que é botar mais RAM em 1 PC."},
+        {"frente": "Qual o principal objetivo do Empreendedorismo em TI?", "verso": "Resolver problemas e dores do mundo real criando soluções tecnológicas escaláveis.", "dica": "Não é só código, é gerar valor ao cliente."},
+        {"frente": "O que é Infraestrutura como Código (IaC)?", "verso": "Criar e gerenciar servidores escrevendo código/scripts, sem clicar em botões manuais.", "dica": "Ex: Terraform e AWS CloudFormation."}
+    ], 
+    // ================= FASES BÔNUS (PREMIUM) =================
+    "bonus1": [
+        {"frente": "Bônus 01: O que é a 'Deep Web'?", "verso": "A parte da internet que não é indexada por motores de busca como o Google.", "dica": "Não é necessariamente ilegal, apenas oculta (ex: intranets de empresas)."},
+        {"frente": "Bônus 01: O que foi o vírus 'ILOVEYOU' (2000)?", "verso": "Um dos maiores worms de e-mail da história que causou bilhões em prejuízos.", "dica": "Engenharia social pura."},
+        {"frente": "Bônus 01: O que é o Teste de Invasão (PenTest)?", "verso": "Simular um ataque cibernético autorizado para encontrar falhas de segurança.", "dica": "Feito por Hackers Éticos."}
     ],
     "bonus2": [
-        {"frente": "What are your strengths?", "verso": "Quais são seus pontos fortes?", "dica": "Pergunta clássica de RH."},
-        {"frente": "I am a problem solver.", "verso": "Eu sou um solucionador de problemas.", "dica": "Ótima resposta para devs."},
-        {"frente": "I work well in a team.", "verso": "Eu trabalho bem em equipe.", "dica": "Soft skill essencial."},
-        {"frente": "I am willing to learn.", "verso": "Estou disposto a aprender.", "dica": "Mostra humildade e proatividade."},
-        {"frente": "Do you have experience with Scrum?", "verso": "Você tem experiência com Scrum?", "dica": "Metodologia ágil muito usada."},
-        {"frente": "I can handle pressure.", "verso": "Eu consigo lidar com pressão.", "dica": "Importante para prazos apertados."},
-        {"frente": "Where do you see yourself in 5 years?", "verso": "Onde você se vê em 5 anos?", "dica": "Fale sobre crescimento na área técnica."}
+        {"frente": "Bônus 02: O que é um 'Easter Egg' em software?", "verso": "Uma mensagem, piada ou recurso oculto deixado pelos programadores.", "dica": "Muito comum em jogos e no Google."},
+        {"frente": "Bônus 02: O que significa 'RTFM' na cultura Tech?", "verso": "Read The F***ing Manual (Leia o maldito manual).", "dica": "A resposta clássica para perguntas óbvias."},
+        {"frente": "Bônus 02: O que foi a 'Bolha da Internet' (Dot-com bubble)?", "verso": "A crise econômica dos anos 2000 causada pela supervalorização de empresas de internet.", "dica": "Muitas empresas faliram da noite pro dia."}
+    ],
+    "bonus3": [
+        {"frente": "Bônus 03: O que é a síndrome do Impostor?", "verso": "O sentimento de que você não é bom o suficiente e que seu sucesso é apenas sorte.", "dica": "Afeta 80% dos desenvolvedores iniciantes."},
+        {"frente": "Bônus 03: Qual a linguagem de programação que foi para a Lua (Apollo 11)?", "verso": "Assembly, escrito por Margaret Hamilton e sua equipe.", "dica": "O código era literalmente costurado em fios."},
+        {"frente": "Bônus 03: O que é a Lei de Moore?", "verso": "A observação de que o número de transistores em um microchip dobra a cada dois anos.", "dica": "Dita o ritmo da evolução do hardware."}
+    ],
+    "bonus4": [
+        {"frente": "Bônus 04: O que é um 'Unicórnio' no mercado de TI?", "verso": "Uma startup de capital fechado avaliada em mais de 1 bilhão de dólares.", "dica": "Ex: Nubank, iFood e Uber no início."},
+        {"frente": "Bônus 04: Qual a diferença entre Júnior, Pleno e Sênior?", "verso": "Júnior precisa de ajuda. Pleno resolve sozinho. Sênior evita o problema antes dele acontecer.", "dica": "Resumo clássico do mercado."},
+        {"frente": "Bônus 04: O que é a cultura 'Open Source'?", "verso": "O modelo de desenvolvimento de software onde o código-fonte é aberto e colaborativo.", "dica": "O Linux é o maior exemplo mundial."}
     ]
 };

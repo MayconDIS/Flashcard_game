@@ -111,20 +111,29 @@ body {
     width: 100%;
 }
 
-.right-panel {
-    display: none; /* Escondido por padrão */
-    background-color: transparent;
-    border: none;
+/* =========================================
+   ANIMAÇÃO DE 1 SEGUNDO (RIGHT PANEL)
+   ========================================= */
+#right-panel {
+    display: none; 
+    opacity: 0;
+    max-height: 0; 
+    overflow: hidden; 
+    transform: translateY(-15px); 
+    
+    /* MUDANÇA: Todas as transições agora duram exatamente 1 segundo (1s) */
+    transition: max-height 1s ease-in-out, opacity 1s ease-in-out, transform 1s ease-in-out, margin 1s ease-in-out; 
+    
+    margin: 0;
     padding: 0;
-    width: 100%;
-    margin-top: 10px;
-    margin-bottom: 25px; /* Espaço para não grudar na próxima aula */
 }
 
-/* Quando ativado pelo JS, o painel aparece deslizando para baixo */
-.right-panel.active {
-    display: block;
-    animation: slideDownAccordion 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+#right-panel.active {
+    opacity: 1;
+    max-height: 500px; 
+    transform: translateY(0); 
+    margin-top: 15px; 
+    margin-bottom: 30px;
 }
 
 @keyframes slideDownAccordion {
@@ -629,4 +638,20 @@ body {
 /* Remove a margem do topo de QUALQUER módulo quando ele estiver no Modo Foco */
 .left-panel.focus-mode > .dia-header.active-header {
     margin-top: 0 !important;
+}
+
+/* =========================================
+   EFEITO FANTASMA (FADE OUT) DAS FASES
+   ========================================= */
+
+/* Dá a suavidade da transparência para os módulos e aulas */
+.dia-header, .aula-item {
+    transition: opacity 0.7s ease-in-out !important;
+}
+
+/* Quando esta classe for ativada, eles ficam transparentes antes de sumir */
+.left-panel.fade-out-others > .dia-header:not(.active-header),
+.left-panel.fade-out-others > .aula-item:not(.active-lesson) {
+    opacity: 0 !important;
+    pointer-events: none !important; /* Impede o usuário de clicar no item invisível */
 }
