@@ -275,7 +275,7 @@ header {
     .dia-header {
         display: block !important; /* Desliga o flexbox para o texto cair naturalmente */
         line-height: 1.6 !important;
-        margin-top: 30px !important;
+        margin-top: 20px !important;
         padding-bottom: 10px !important;
         border-bottom: 1px dashed #30363d !important; /* Linha de estilo no lugar da barra longa */
     }
