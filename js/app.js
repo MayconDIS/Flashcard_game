@@ -139,22 +139,38 @@ function carregarAula(faseId, nomeAula, elementoClicado) {
         return;
     }
 
-    const mainContent = document.getElementById('main-content');
     const rightPanel = document.getElementById('right-panel');
+    const leftPanel = document.querySelector('.left-panel'); 
 
-    // Mágica do Accordion: Abre e fecha no mesmo lugar
+    // Mágica do Accordion: Se clicar na aula que já está aberta (para fechar)
     if (elementoClicado.classList.contains('active-lesson')) {
         elementoClicado.classList.remove('active-lesson');
+        leftPanel.classList.remove('focus-mode'); 
         rightPanel.classList.remove('active'); 
-        setTimeout(() => { rightPanel.style.display = 'none'; }, 300); // Aguarda a animação
+        setTimeout(() => { rightPanel.style.display = 'none'; }, 300);
         return; 
     }
 
+    // Ativa a nova aula e esconde o resto
     document.querySelectorAll('.aula-item').forEach(el => el.classList.remove('active-lesson'));
     elementoClicado.classList.add('active-lesson');
+    leftPanel.classList.add('focus-mode'); 
+
+    // --- NOVO: Encontra o cabeçalho do módulo atual e mantém ele visível ---
+    document.querySelectorAll('.dia-header').forEach(el => el.classList.remove('active-header'));
+    let prev = elementoClicado.previousElementSibling;
+    while(prev) {
+        if(prev.classList.contains('dia-header')) {
+            prev.classList.add('active-header');
+            break;
+        }
+        prev = prev.previousElementSibling;
+    }
+    // ----------------------------------------------------------------------
+
     document.getElementById('titulo-aula').innerHTML = `Estudo Ativo: <span style="color: var(--alura-cyan)">${nomeAula}</span>`;
 
-    // FEEDBACK 5: O painel é injetado LOGO ABAIXO da aula clicada sempre.
+    // O painel é injetado LOGO ABAIXO da aula clicada sempre
     elementoClicado.after(rightPanel);
     rightPanel.style.display = 'block';
     

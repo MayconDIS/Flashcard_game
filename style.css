@@ -612,3 +612,21 @@ body {
 .left-panel .dia-header:first-child {
     margin-top: 0 !important;
 }
+
+/* =========================================
+   MODO FOCO (Ocultar outras fases)
+   ========================================= */
+.left-panel.focus-mode > .dia-header:not(.active-header),
+.left-panel.focus-mode > .aula-item:not(.active-lesson) {
+    display: none !important;
+}
+
+/* Remove a margem extra do PRIMEIRO módulo (Módulo 01) na visão geral */
+.left-panel .dia-header:first-child {
+    margin-top: 0 !important;
+}
+
+/* Remove a margem do topo de QUALQUER módulo quando ele estiver no Modo Foco */
+.left-panel.focus-mode > .dia-header.active-header {
+    margin-top: 0 !important;
+}
