@@ -573,7 +573,7 @@ header {
     .aula-item {
         flex-wrap: wrap;
         padding: 15px;
-        align-items: flex-start;
+        align-items: center;
     }
     .aula-title {
         font-size: 0.95rem;
@@ -584,9 +584,8 @@ header {
         width: 100%;
         justify-content: flex-end;
         margin-left: 0 !important;
-        margin-top: 10px;
-        border-top: 1px dashed #30363d; 
-        padding-top: 10px;
+        margin-top: 8px; /* Espaço reduzido pois removemos a linha */
+        /* Linha tracejada removida daqui! */
     }
 
     .carta-frente, .carta-verso { padding: 20px; }
@@ -601,20 +600,25 @@ header {
     }
 
     .dia-header {
-        display: block !important; 
-        line-height: 1.6 !important;
-        margin-top: 20px !important;
-        padding-bottom: 10px !important;
-        border-bottom: 1px dashed #30363d !important; 
+        display: flex !important; 
+        align-items: center !important;
+        line-height: 1.4 !important;
+        margin-top: 25px !important;
+        padding-bottom: 0 !important;
+        border-bottom: none !important; /* Remove o pontilhado antigo */
+        font-size: 0.8rem; /* Fonte ligeiramente menor para caber no ecrã */
     }
     
     .dia-header span.tech-font {
-        display: block !important; 
-        margin-bottom: 4px !important;
+        display: inline-block !important; 
+        margin-bottom: 0 !important;
+        white-space: nowrap; /* Impede que a tag [ MOD_01 ] se quebre */
     }
     
-    .dia-line { display: none !important; }
-}
+    .dia-line {
+        display: block !important; /* Traz a linha gradiente de volta à vida! */
+        flex-grow: 1;
+    }
 
 /* =========================================
    BOTÃO FLUTUANTE: VOLTAR AO TOPO

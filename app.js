@@ -248,42 +248,20 @@ function carregarAula(faseId, nomeAula, elementoClicado) {
     const rightPanel = document.getElementById('right-panel');
     const leftPanel = document.querySelector('.left-panel'); 
 
+    // Quando o usuário CLICA PARA FECHAR uma aula que já está aberta
     if (elementoClicado.classList.contains('active-lesson')) {
         elementoClicado.classList.remove('active-lesson');
         leftPanel.classList.remove('focus-mode'); 
+        
+        // MÁGICA AQUI: Força a tela a manter o foco no elemento que acabou de fechar!
+        elementoClicado.scrollIntoView({ block: 'center' });
+
         setTimeout(() => { leftPanel.classList.remove('fade-out-others'); }, 50);
         document.querySelectorAll('.dia-header').forEach(el => el.classList.remove('active-header'));
         rightPanel.classList.remove('active'); 
         setTimeout(() => { rightPanel.style.display = 'none'; }, 1000); 
         return; 
     }
-
-    document.querySelectorAll('.aula-item').forEach(el => el.classList.remove('active-lesson'));
-    elementoClicado.classList.add('active-lesson');
-    
-    leftPanel.classList.add('fade-out-others');
-    document.querySelectorAll('.dia-header').forEach(el => el.classList.remove('active-header'));
-    
-    let prev = elementoClicado.previousElementSibling;
-    while(prev) {
-        if(prev.classList.contains('dia-header')) {
-            prev.classList.add('active-header');
-            break;
-        }
-        prev = prev.previousElementSibling;
-    }
-
-    document.getElementById('titulo-aula').innerHTML = `Processando: <span style="color: var(--alura-cyan)">${nomeAula}</span>`;
-    elementoClicado.after(rightPanel);
-    rightPanel.style.display = 'block';
-    
-    setTimeout(() => { rightPanel.classList.add('active'); }, 50);
-
-    setTimeout(() => {
-        if (elementoClicado.classList.contains('active-lesson')) {
-            leftPanel.classList.add('focus-mode');
-        }
-    }, 1000);
 
     document.getElementById('botoes-jogo').style.display = 'flex';
     document.getElementById('botao-proxima').style.display = 'none';
@@ -531,10 +509,10 @@ function irParaProximaAula() {
         else if (numFase >= 6 && numFase <= 10)  { xpGanho = 10; coinsGanho = 10; } 
         else if (numFase >= 11 && numFase <= 15) { xpGanho = 15; coinsGanho = 10; } 
         else if (numFase >= 16 && numFase <= 20) { xpGanho = 20; coinsGanho = 10; } 
-        else if (numFase >= 21 && numFase <= 22) { xpGanho = 30; coinsGanho = 20; } 
+        // ATUALIZAÇÃO DOS 70 COINS AQUI:
+        else if (numFase >= 21 && numFase <= 22) { xpGanho = 30; coinsGanho = 70; } 
     } else if (faseAtualId.startsWith('bonus')) {
-        xpGanho = 25; 
-        coinsGanho = 15;
+        xpGanho = 25; coinsGanho = 15;
     }
 
     xpTotal += xpGanho;
