@@ -1,19 +1,15 @@
 // js/app.js
 
 // ==========================================
-// 1. INICIALIZAÇÃO MULTI-USUÁRIO E AUTO-CACHE
+// 1. INICIALIZAÇÃO MULTI-USUÁRIO E BANCO DE DADOS
 // ==========================================
 const nomeSalvo = localStorage.getItem('quest_user_name') || 'Desenvolvedor';
 
 const headerUserName = document.getElementById('header-user-name') || document.getElementById('header-user-name-title');
-if (headerUserName) {
-    headerUserName.innerText = nomeSalvo;
-}
+if (headerUserName) headerUserName.innerText = nomeSalvo;
 
 const menuUserName = document.getElementById('menu-user-name');
-if (menuUserName) {
-    menuUserName.innerText = nomeSalvo;
-}
+if (menuUserName) menuUserName.innerText = nomeSalvo;
 
 const userKey = `quest_${nomeSalvo}_`;
 
@@ -26,20 +22,21 @@ let coinsTotal = parseInt(localStorage.getItem(userKey + 'coins')) || 0;
 document.getElementById('xp-display').innerHTML = `<span class="material-symbols-outlined" style="font-size: 1.2rem;">military_tech</span> ${xpTotal} XP`;
 document.getElementById('coin-display').innerHTML = `<span class="material-symbols-outlined" style="font-size: 1.2rem;">toll</span> ${coinsTotal}`;
 
-// 🚨 MÁGICA DO CACHE: Se o banco antigo for menor que o novo, ele força a atualização!
+// Garante o Cache Atualizado
 let meusDecks = JSON.parse(localStorage.getItem(userKey + 'decks'));
 if (!meusDecks || !meusDecks.fase22 || meusDecks.fase22.length < 50) {
     meusDecks = JSON.parse(JSON.stringify(bancoDeDados));
     localStorage.setItem(userKey + 'decks', JSON.stringify(meusDecks));
 }
 
+// NOVA VARIÁVEL: Banco de dados do Algoritmo ANKI (Spaced Repetition)
+let srsData = JSON.parse(localStorage.getItem(userKey + 'srs')) || {};
+
 // ==========================================
 // 2. SISTEMA DE DESBLOQUEIO E LOJA BÔNUS
 // ==========================================
 const ordemFases = [];
-for (let i = 1; i <= 22; i++) { 
-    ordemFases.push('fase' + i); 
-}
+for (let i = 1; i <= 22; i++) { ordemFases.push('fase' + i); }
 
 let fasesDesbloqueadas = JSON.parse(localStorage.getItem(userKey + 'desbloqueadas')) || ['fase1'];
 let bonusDesbloqueados = JSON.parse(localStorage.getItem(userKey + 'bonus_unlocked')) || [];
@@ -52,15 +49,11 @@ function atualizarFasesVisuais() {
         if (fasesDesbloqueadas.includes(fase)) {
             elementoFase.classList.remove('aula-locked-item');
             const icon = elementoFase.querySelector('.icon-status');
-            if (icon && icon.innerText === 'lock') {
-                icon.innerText = 'check_circle';
-            }
+            if (icon && icon.innerText === 'lock') icon.innerText = 'check_circle';
         } else {
             elementoFase.classList.add('aula-locked-item');
             const icon = elementoFase.querySelector('.icon-status');
-            if (icon) {
-                icon.innerText = 'lock';
-            }
+            if (icon) icon.innerText = 'lock';
         }
     });
     
@@ -84,9 +77,7 @@ function atualizarFasesVisuais() {
 
 function tentarAbrirBonus(bonusId, custo, nomeAula, elementoClicado) {
     if (bonusDesbloqueados.includes(bonusId)) {
-        if (!fasesDesbloqueadas.includes(bonusId)) {
-            fasesDesbloqueadas.push(bonusId);
-        }
+        if (!fasesDesbloqueadas.includes(bonusId)) fasesDesbloqueadas.push(bonusId);
         carregarAula(bonusId, nomeAula, elementoClicado);
         return;
     }
@@ -105,9 +96,7 @@ function tentarAbrirBonus(bonusId, custo, nomeAula, elementoClicado) {
             atualizarFasesVisuais();
             alert(`[ SUCESSO ]\nTransação concluída. Acesso concedido.`);
             
-            if (!fasesDesbloqueadas.includes(bonusId)) {
-                fasesDesbloqueadas.push(bonusId);
-            }
+            if (!fasesDesbloqueadas.includes(bonusId)) fasesDesbloqueadas.push(bonusId);
             carregarAula(bonusId, nomeAula, elementoClicado);
         } else {
             alert(`[ ACESSO NEGADO ]\nSaldo insuficiente.\nVocê possui ${coinsTotal} Coins, mas precisa de ${custo}.`);
@@ -157,9 +146,7 @@ function refazerDiagnostico() {
     abrirModal('modalNivelamento');
 }
 
-function iniciarQuizNivelamento() { 
-    renderizarPerguntaNivelamento(); 
-}
+function iniciarQuizNivelamento() { renderizarPerguntaNivelamento(); }
 
 function renderizarPerguntaNivelamento() {
     const body = document.getElementById('nivelamento-body');
@@ -176,17 +163,11 @@ function renderizarPerguntaNivelamento() {
 }
 
 function responderNivelamento(indiceResposta) {
-    if (indiceResposta === quizPerguntas[questaoAtualNivelamento].certa) {
-        acertosNivelamento++;
-    }
-    
+    if (indiceResposta === quizPerguntas[questaoAtualNivelamento].certa) acertosNivelamento++;
     questaoAtualNivelamento++;
     
-    if (questaoAtualNivelamento < quizPerguntas.length) { 
-        renderizarPerguntaNivelamento(); 
-    } else { 
-        finalizarNivelamento(); 
-    }
+    if (questaoAtualNivelamento < quizPerguntas.length) renderizarPerguntaNivelamento(); 
+    else finalizarNivelamento(); 
 }
 
 function finalizarNivelamento() {
@@ -225,14 +206,13 @@ function finalizarNivelamento() {
 }
 
 // ==========================================
-// 4. MOTOR FLASHCARDS E MÚLTIPLA ESCOLHA
+// 4. MOTOR FLASHCARDS ANKI E MÚLTIPLA ESCOLHA
 // ==========================================
 let deckAtual = [];
 let deckRevisao = []; 
 let indiceCarta = 0;
 let faseAtualId = ''; 
 
-// Reseta os botões de controle para o padrão dos Flashcards
 function resetarBotoesJogo() {
     document.getElementById('botoes-jogo').innerHTML = `
         <button class="btn-jogo btn-erro tech-font flex-align-center" onclick="processarResposta('errei')">
@@ -253,12 +233,10 @@ function carregarAula(faseId, nomeAula, elementoClicado) {
     const rightPanel = document.getElementById('right-panel');
     const leftPanel = document.querySelector('.left-panel'); 
 
-    // Quando o usuário CLICA PARA FECHAR uma aula que já está aberta
+    // Lógica para fechar a aula ao clicar na fase aberta
     if (elementoClicado.classList.contains('active-lesson')) {
         elementoClicado.classList.remove('active-lesson');
         leftPanel.classList.remove('focus-mode'); 
-        
-        // MÁGICA AQUI: Força a tela a manter o foco no elemento que acabou de fechar!
         elementoClicado.scrollIntoView({ block: 'center' });
 
         setTimeout(() => { leftPanel.classList.remove('fade-out-others'); }, 50);
@@ -268,38 +246,65 @@ function carregarAula(faseId, nomeAula, elementoClicado) {
         return; 
     }
 
+    // Prepara o layout
     document.querySelectorAll('.aula-item').forEach(el => el.classList.remove('active-lesson'));
     elementoClicado.classList.add('active-lesson');
-    
     leftPanel.classList.add('fade-out-others');
     document.querySelectorAll('.dia-header').forEach(el => el.classList.remove('active-header'));
     
     let prev = elementoClicado.previousElementSibling;
     while(prev) {
-        if(prev.classList.contains('dia-header')) {
-            prev.classList.add('active-header');
-            break;
-        }
+        if(prev.classList.contains('dia-header')) { prev.classList.add('active-header'); break; }
         prev = prev.previousElementSibling;
     }
-
-    document.getElementById('titulo-aula').innerHTML = `Processando: <span style="color: var(--alura-cyan)">${nomeAula}</span>`;
-    elementoClicado.after(rightPanel);
-    rightPanel.style.display = 'block';
-    
-    setTimeout(() => { rightPanel.classList.add('active'); }, 50);
-
-    setTimeout(() => {
-        if (elementoClicado.classList.contains('active-lesson')) {
-            leftPanel.classList.add('focus-mode');
-        }
-    }, 1000);
 
     document.getElementById('botoes-jogo').style.display = 'flex';
     document.getElementById('botao-proxima').style.display = 'none';
 
     faseAtualId = faseId;
-    deckAtual = [...(meusDecks[faseId] || [])]; 
+    let cartasDaFase = [...(meusDecks[faseId] || [])]; 
+    let agora = new Date().getTime();
+
+    // ===============================================
+    // LÓGICA ANKI (1/2): Filtro de Cartas Devidas
+    // ===============================================
+    deckAtual = cartasDaFase.filter(carta => {
+        let infoAnki = srsData[carta.frente];
+        if (!infoAnki) return true; // É carta nova (nunca vista)
+        return infoAnki.next <= agora; // A data de revisão chegou ou já passou
+    });
+
+    // Se o filtro zerar as cartas (todas já foram revisadas e agendadas pro futuro)
+    if (deckAtual.length === 0) {
+        // Reverte todo o efeito de layout
+        elementoClicado.classList.remove('active-lesson');
+        leftPanel.classList.remove('focus-mode'); 
+        leftPanel.classList.remove('fade-out-others');
+        document.querySelectorAll('.dia-header').forEach(el => el.classList.remove('active-header'));
+        
+        alert("✅ [ SISTEMA ANKI: REVISÃO EM DIA ]\n\nVocê já estudou todo o conteúdo desta disciplina por hoje!\n\nSeu cérebro precisa de descanso para fixar a memória. Volte amanhã para novas revisões espaçadas.");
+        
+        rightPanel.classList.remove('active'); 
+        setTimeout(() => { rightPanel.style.display = 'none'; }, 1000); 
+        return;
+    }
+
+    // ===============================================
+    // LÓGICA ANKI (2/2): Embaralhador de Cartas
+    // ===============================================
+    for (let i = deckAtual.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [deckAtual[i], deckAtual[j]] = [deckAtual[j], deckAtual[i]];
+    }
+
+    // Prossegue com a UI Normal
+    document.getElementById('titulo-aula').innerHTML = `Processando: <span style="color: var(--alura-cyan)">${nomeAula}</span>`;
+    elementoClicado.after(rightPanel);
+    rightPanel.style.display = 'block';
+    
+    setTimeout(() => { rightPanel.classList.add('active'); }, 50);
+    setTimeout(() => { if (elementoClicado.classList.contains('active-lesson')) leftPanel.classList.add('focus-mode'); }, 1000);
+
     deckRevisao = []; 
     indiceCarta = 0;
     
@@ -309,7 +314,7 @@ function carregarAula(faseId, nomeAula, elementoClicado) {
 function mostrarCartaAtual() {
     const cardInner = document.getElementById('meuCard');
     cardInner.classList.remove('flipped'); 
-    resetarBotoesJogo(); // Garante que os botões padrão voltem
+    resetarBotoesJogo(); 
 
     const carta = deckAtual[indiceCarta];
     if (!carta) return; 
@@ -317,24 +322,21 @@ function mostrarCartaAtual() {
     const frenteEl = document.getElementById('texto-frente');
     const versoEl = document.getElementById('texto-verso');
 
-    // ==========================================
     // MODO ENADE (Múltipla Escolha)
-    // ==========================================
     if (carta.opcoes) {
         frenteEl.style.textAlign = 'left';
         versoEl.style.textAlign = 'left';
         
+        // CORREÇÃO DO EVENT BUBBLING: 'event.stopPropagation()' impede o clique de virar a carta indevidamente
         let htmlOpcoes = carta.opcoes.map((op, idx) => 
-            `<button class="btn-opcao" onclick="verificarEnade(${idx}, ${carta.correta})">${op}</button>`
+            `<button class="btn-opcao" onclick="event.stopPropagation(); verificarEnade(${idx}, ${carta.correta})">${op}</button>`
         ).join('');
 
-        // FRENTE: Mostra a Questão e os Botões
         frenteEl.innerHTML = `
             <div style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px;">${carta.frente}</div>
             <div class="opcoes-container">${htmlOpcoes}</div>
         `;
         
-        // VERSO (A MÁGICA AQUI): Injeta a Questão no topo do Verso com uma linha divisória
         versoEl.innerHTML = `
             <div style="font-size: 0.95rem; color: #8b92a5; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dashed #30363d; width: 100%; text-align: left; line-height: 1.5;">
                 <strong style="color: var(--alura-cyan);">Relembrando a Questão:</strong><br><br>${carta.frente}
@@ -350,17 +352,12 @@ function mostrarCartaAtual() {
         
         document.getElementById('botoes-jogo').style.display = 'none';
     } 
-    // ==========================================
-    // MODO FLASHCARD NORMAL (Módulos 1 ao 4)
-    // ==========================================
+    // MODO FLASHCARD NORMAL
     else {
         frenteEl.style.fontSize = '1.5rem';
         frenteEl.style.textAlign = 'center';
         
-        // FRENTE: Apenas a Pergunta
         frenteEl.innerHTML = carta.frente;
-
-        // VERSO (A MÁGICA AQUI): Injeta a Pergunta no topo com linha divisória
         versoEl.innerHTML = `
             <div style="font-size: 0.95rem; color: #8b92a5; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px dashed #30363d; width: 100%; text-align: center;">
                 <strong style="color: var(--alura-cyan);">Pergunta Original:</strong><br><br>${carta.frente}
@@ -373,21 +370,18 @@ function mostrarCartaAtual() {
         document.getElementById('dica-frente').innerText = "Aperte [ESPAÇO] para debugar";
         document.getElementById('dica-verso').innerText = carta.dica || ""; 
         document.getElementById('contador-cartas').innerText = `Item ${indiceCarta + 1}/${deckAtual.length}`;
-        
         document.getElementById('botoes-jogo').style.display = 'flex';
     }
 }
 
+// CORREÇÃO: Impede virar a carta enquanto a animação do ENADE está ocorrendo
 function virarCarta() {
     const isEnade = deckAtual[indiceCarta] && deckAtual[indiceCarta].opcoes;
 
     if (isEnade) {
-        // Verifica se a questão já foi respondida (olhando se os botões estão desativados)
-        const primeiraOpcao = document.querySelector('.btn-opcao');
-        const jaRespondido = primeiraOpcao ? primeiraOpcao.disabled : false;
-
-        // Se for ENADE e AINDA NÃO respondeu, bloqueia o giro (não pode espiar a resposta!)
-        if (!jaRespondido) return;
+        // Se os botões (Erro/Acerto) ainda não apareceram na tela, a carta está bloqueada para giro
+        const botoesVisiveis = document.getElementById('botoes-jogo').style.display === 'flex';
+        if (!botoesVisiveis) return;
     }
 
     if (deckAtual.length > 0 && indiceCarta < deckAtual.length) {
@@ -400,35 +394,21 @@ document.addEventListener('keydown', function(e) {
     if (!isPlaying) return;
 
     const isEnade = deckAtual[indiceCarta] && deckAtual[indiceCarta].opcoes;
-    let jaRespondido = false;
-    
-    if (isEnade) {
-        const primeiraOpcao = document.querySelector('.btn-opcao');
-        jaRespondido = primeiraOpcao ? primeiraOpcao.disabled : false;
-    }
+    if (isEnade) return; // Desativa os atalhos de teclado no modo ENADE para evitar bugs
 
     if (e.code === 'Space') {
         e.preventDefault();
-        
-        // Se for ENADE e ainda não respondeu, a barra de espaço não faz nada
-        if (isEnade && !jaRespondido) return;
-        
         const card = document.getElementById('meuCard');
-        
-        // Permite virar se já respondeu o ENADE ou se for um flashcard normal (frente)
-        if (jaRespondido || (!card.classList.contains('flipped') && document.getElementById('botoes-jogo').style.display !== 'none')) {
+        if (!card.classList.contains('flipped') && document.getElementById('botoes-jogo').style.display !== 'none') {
             virarCarta();
         }
     } else if (e.code === 'ArrowRight' || e.key === 'd') {
-        if (isEnade) return; // No ENADE, obriga o aluno a clicar no botão "CONTINUAR" na tela
         if (document.getElementById('meuCard').classList.contains('flipped')) processarResposta('acertei');
     } else if (e.code === 'ArrowLeft' || e.key === 'a') {
-        if (isEnade) return; // No ENADE, obriga o aluno a clicar no botão "CONTINUAR" na tela
         if (document.getElementById('meuCard').classList.contains('flipped')) processarResposta('errei');
     }
 });
 
-// NOVA FUNÇÃO: Animação de estrelas
 function soltarEstrelas(botaoElement) {
     for (let i = 0; i < 8; i++) {
         let star = document.createElement('div');
@@ -437,47 +417,70 @@ function soltarEstrelas(botaoElement) {
         star.style.left = (Math.random() * 80 + 10) + '%'; 
         star.style.animationDelay = (Math.random() * 0.3) + 's';
         botaoElement.appendChild(star);
-        
         setTimeout(() => star.remove(), 1000);
     }
 }
 
-// NOVA FUNÇÃO: Lógica de responder o ENADE com tempo de leitura maior
 function verificarEnade(escolhida, correta) {
     const botoes = document.querySelectorAll('.btn-opcao');
-    // Bloqueia todos os botões para não clicar de novo
     botoes.forEach(b => b.disabled = true);
 
     if (escolhida === correta) {
         botoes[escolhida].classList.add('opcao-correta');
         soltarEstrelas(botoes[escolhida]);
         
-        // Espera 2.5 segundos (2500ms) para o utilizador ler antes de virar
+        // Mantive os 3000ms. Agora funciona perfeitamente por conta do event.stopPropagation()
         setTimeout(() => {
             document.getElementById('meuCard').classList.add('flipped');
             document.getElementById('botoes-jogo').innerHTML = `<button class="btn-jogo btn-acerto tech-font flex-align-center" style="width:100%" onclick="processarResposta('acertei')">CONTINUAR</button>`;
             document.getElementById('botoes-jogo').style.display = 'flex';
-        }, 2500);
+        }, 3000);
 
     } else {
         botoes[escolhida].classList.add('opcao-errada');
-        botoes[correta].classList.add('opcao-correta'); // Mostra qual era a certa
+        botoes[correta].classList.add('opcao-correta'); 
         
-        // Espera 2.5 segundos (2500ms) para o utilizador ler antes de virar
         setTimeout(() => {
             document.getElementById('meuCard').classList.add('flipped');
             document.getElementById('botoes-jogo').innerHTML = `<button class="btn-jogo btn-erro tech-font flex-align-center" style="width:100%" onclick="processarResposta('errei')">CONTINUAR (ERROU)</button>`;
             document.getElementById('botoes-jogo').style.display = 'flex';
-        }, 2500);
+        }, 3000);
     }
 }
 
 function processarResposta(resultado) {
     if (deckAtual.length === 0 || indiceCarta >= deckAtual.length) return;
     
-    if (resultado === 'errei') { 
-        deckRevisao.push(deckAtual[indiceCarta]); 
+    let cartaAtual = deckAtual[indiceCarta];
+    let idCarta = cartaAtual.frente; // A frente atua como ID único para gravar no localStorage
+
+    // ===============================================
+    // LÓGICA SM-2 ANKI: Curva de Esquecimento
+    // ===============================================
+    let dataSrs = srsData[idCarta] || { rep: 0, interval: 0, ease: 2.5, next: 0 };
+    let agora = new Date().getTime();
+
+    if (resultado === 'acertei') {
+        // Aumenta o intervalo (1 dia -> 6 dias -> multiplicador de facilidade)
+        if (dataSrs.rep === 0) dataSrs.interval = 1;
+        else if (dataSrs.rep === 1) dataSrs.interval = 6;
+        else dataSrs.interval = Math.round(dataSrs.interval * dataSrs.ease);
+        
+        dataSrs.rep++;
+    } else if (resultado === 'errei') {
+        // A carta vai pro fim da fila na sessão atual para rever
+        deckRevisao.push(cartaAtual); 
+        
+        // Zera as repetições e agrava a curva
+        dataSrs.rep = 0;
+        dataSrs.interval = 1;
+        dataSrs.ease = Math.max(1.3, dataSrs.ease - 0.2);
     }
+
+    // Calcula quando você verá a carta novamente (dias em milissegundos)
+    dataSrs.next = agora + (dataSrs.interval * 86400000); 
+    srsData[idCarta] = dataSrs;
+    localStorage.setItem(userKey + 'srs', JSON.stringify(srsData));
     
     indiceCarta++;
     document.getElementById('meuCard').classList.remove('flipped');
@@ -499,30 +502,6 @@ function processarResposta(resultado) {
     }, 300); 
 }
 
-document.addEventListener('keydown', function(e) {
-    const isPlaying = document.getElementById('right-panel').classList.contains('active');
-    if (!isPlaying) return;
-
-    const isEnade = deckAtual[indiceCarta] && deckAtual[indiceCarta].opcoes;
-    if (isEnade) return; // Desativa os atalhos de teclado no modo ENADE
-
-    if (e.code === 'Space') {
-        e.preventDefault();
-        const card = document.getElementById('meuCard');
-        if (!card.classList.contains('flipped') && document.getElementById('botoes-jogo').style.display !== 'none') {
-            virarCarta();
-        }
-    } else if (e.code === 'ArrowRight' || e.key === 'd') {
-        if (document.getElementById('meuCard').classList.contains('flipped')) {
-            processarResposta('acertei');
-        }
-    } else if (e.code === 'ArrowLeft' || e.key === 'a') {
-        if (document.getElementById('meuCard').classList.contains('flipped')) {
-            processarResposta('errei');
-        }
-    }
-});
-
 function finalizarDeck() {
     document.getElementById('texto-frente').innerText = "Rotina Concluída 🎉";
     document.getElementById('texto-verso').innerText = "Código executado com sucesso!";
@@ -542,7 +521,6 @@ function irParaProximaAula() {
         else if (numFase >= 6 && numFase <= 10)  { xpGanho = 10; coinsGanho = 10; } 
         else if (numFase >= 11 && numFase <= 15) { xpGanho = 15; coinsGanho = 10; } 
         else if (numFase >= 16 && numFase <= 20) { xpGanho = 20; coinsGanho = 10; } 
-        // ATUALIZAÇÃO DOS 70 COINS AQUI:
         else if (numFase >= 21 && numFase <= 22) { xpGanho = 30; coinsGanho = 70; } 
     } else if (faseAtualId.startsWith('bonus')) {
         xpGanho = 25; coinsGanho = 15;
@@ -581,9 +559,7 @@ function irParaProximaAula() {
 // ==========================================
 // 5. MODAIS E CONFIGURAÇÕES
 // ==========================================
-function toggleMenu() { 
-    document.getElementById('dropdownMenu').classList.toggle('show'); 
-}
+function toggleMenu() { document.getElementById('dropdownMenu').classList.toggle('show'); }
 
 document.addEventListener('click', function(event) {
     const menu = document.getElementById('dropdownMenu');
@@ -596,14 +572,10 @@ document.addEventListener('click', function(event) {
 function abrirModal(idModal) {
     document.getElementById(idModal).classList.add('show');
     const menu = document.getElementById('dropdownMenu');
-    if (menu) {
-        menu.classList.remove('show'); 
-    }
+    if (menu) menu.classList.remove('show'); 
 }
 
-function fecharModal(idModal) { 
-    document.getElementById(idModal).classList.remove('show'); 
-}
+function fecharModal(idModal) { document.getElementById(idModal).classList.remove('show'); }
 
 function salvarFlashcard() {
     const fase = document.getElementById('nova-fase').value.trim().toLowerCase();
@@ -611,10 +583,7 @@ function salvarFlashcard() {
     const verso = document.getElementById('nova-verso').value.trim();
     const dica = document.getElementById('nova-dica').value.trim();
 
-    if (!fase || !frente || !verso) { 
-        alert("[ AVISO ]\nPor favor, preencha Frente e Verso!"); 
-        return; 
-    }
+    if (!fase || !frente || !verso) { alert("[ AVISO ]\nPor favor, preencha Frente e Verso!"); return; }
 
     if (!meusDecks[fase]) meusDecks[fase] = [];
     meusDecks[fase].push({ frente, verso, dica });
@@ -630,9 +599,7 @@ function salvarFlashcard() {
 
 function mostrarProgresso() {
     let totalCartas = 0;
-    for (const cartas of Object.values(meusDecks)) { 
-        totalCartas += cartas.length; 
-    }
+    for (const cartas of Object.values(meusDecks)) { totalCartas += cartas.length; }
     const conteudo = `
         <div class="stat-box highlight">Nível Acadêmico <span class="tech-font">${xpTotal} XP</span></div>
         <div class="stat-box highlight" style="border-color: #ffd700; background-color: rgba(255, 215, 0, 0.05);">Coins <span class="tech-font">🪙 ${coinsTotal}</span></div>
@@ -643,7 +610,7 @@ function mostrarProgresso() {
 }
 
 function resetarProgresso() {
-    const certeza = confirm(`[ AVISO CRÍTICO DE SISTEMA ]\n\nUsuário logado: ${nomeSalvo}\nAção solicitada: Formatação de Save Data\n\nIsso apagará permanentemente TODO o seu histórico de XP, Coins e permissões de acesso às fases.\n\nTem certeza absoluta que deseja prosseguir com a exclusão?`);
+    const certeza = confirm(`[ AVISO CRÍTICO DE SISTEMA ]\n\nUsuário logado: ${nomeSalvo}\nAção solicitada: Formatação de Save Data\n\nIsso apagará permanentemente TODO o seu histórico de XP, Coins e permissões.\n\nTem certeza absoluta?`);
     if (certeza) {
         localStorage.removeItem(userKey + 'xp');
         localStorage.removeItem(userKey + 'coins');
@@ -652,6 +619,7 @@ function resetarProgresso() {
         localStorage.removeItem(userKey + 'bonus_unlocked');
         localStorage.removeItem(userKey + 'decks');
         localStorage.removeItem(userKey + 'rank');
+        localStorage.removeItem(userKey + 'srs'); // Apaga o log do Anki
         
         window.location.href = 'login.html'; 
     }
@@ -667,13 +635,28 @@ function deslogar() {
 window.onload = verificarNivelamento;
 
 // ==========================================
-// 6. EFEITO SCROLL: BOTÃO VOLTAR AO TOPO
+// 6. EFEITO SCROLL: BOTÃO VOLTAR AO TOPO E OCULTAMENTO MOBILE
 // ==========================================
 window.addEventListener('scroll', function() {
     const btnTopo = document.getElementById('btn-voltar-topo');
-    if (window.scrollY > 300) {
+    const rightPanel = document.getElementById('right-panel');
+    
+    // Verifica se está num ecrã de telemóvel E se está a jogar uma fase
+    const isMobilePlaying = window.innerWidth <= 600 && rightPanel.classList.contains('active');
+
+    // Se desceu o ecrã E NÃO está a jogar no telemóvel, exibe o botão
+    if (window.scrollY > 300 && !isMobilePlaying) {
         btnTopo.style.display = 'flex';
     } else {
         btnTopo.style.display = 'none';
     }
+});
+
+// Esconde o botão de voltar ao topo instantaneamente ao clicar numa fase no telemóvel
+document.querySelectorAll('.aula-item').forEach(item => {
+    item.addEventListener('click', () => {
+        if (window.innerWidth <= 600) {
+            document.getElementById('btn-voltar-topo').style.display = 'none';
+        }
+    });
 });
