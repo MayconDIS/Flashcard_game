@@ -105,7 +105,6 @@ header {
     text-shadow: 0 0 5px rgba(0, 230, 230, 0.5); 
 }
 
-/* Menu Hambúrguer */
 .hamburger-menu { position: relative; }
 
 .hamburger-btn { 
@@ -219,7 +218,7 @@ header {
 }
 
 /* =========================================
-   MÓDULOS COM EFEITO NEON E FANTASMA
+   MÓDULOS E FASES (WEB PADRÃO)
    ========================================= */
 .left-panel { 
     display: flex; 
@@ -228,30 +227,24 @@ header {
 }
 
 .dia-header {
-        display: block !important; /* Muda de flex para bloco para a linha cair */
-        line-height: 1.4 !important;
-        margin-top: 35px !important; /* Espaçamento padrão entre os módulos */
-        padding-bottom: 0 !important;
-        border-bottom: none !important;
-        font-size: 0.95rem !important;
-    }
-    
-    /* CORREÇÃO DO ESPAÇO GIGANTE: Aplica-se apenas ao primeiro módulo (MOD_01) */
-    .left-panel .dia-header:first-child {
-        margin-top: 10px !important; 
-    }
-    
-    .dia-header span.tech-font {
-        display: inline !important; /* Garante que o [ MOD_01 ] e o Título ficam na mesma linha */
-        margin-right: 5px;
-    }
-    
-    .dia-line {
-        display: block !important; /* Força a linha a ir para baixo do texto */
-        width: 100% !important; /* Faz a linha esticar de ponta a ponta */
-        height: 1.5px !important; /* Altura da linha (um pouco mais visível no telemóvel) */
-        margin-top: 10px !important; /* O espaço entre o texto e a linha gradiente */
-    }
+    display: flex; /* Na Web, ficam na mesma linha */
+    align-items: center;
+    gap: 15px;
+    font-size: 0.9rem; 
+    font-weight: bold; 
+    color: #fff; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    margin-top: 35px; 
+    margin-bottom: 10px; 
+}
+
+.left-panel .dia-header:first-child { margin-top: 0; }
+
+.dia-line {
+    flex-grow: 1; /* Na Web, ocupa apenas o espaço restante ao lado do nome */
+    height: 1px; 
+}
 
 .aula-item {
     background-color: var(--alura-card); 
@@ -280,45 +273,19 @@ header {
     box-shadow: -8px 0 20px rgba(0, 230, 230, 0.15) !important; 
 }
 
-.aula-locked-item { 
-    opacity: 0.5; 
-    cursor: not-allowed; 
-}
+.aula-locked-item { opacity: 0.5; cursor: not-allowed; }
+.icon-status { color: #8b92a5; min-width: 25px; text-align: center; }
+.aula-title { font-weight: 500; color: #fff; font-size: 1.05rem; }
 
-.icon-status { 
-    color: #8b92a5; 
-    min-width: 25px; 
-    text-align: center; 
-}
-
-.aula-title { 
-    font-weight: 500; 
-    color: #fff; 
-    font-size: 1.05rem; 
-}
-
-/* Fantasma */
-.dia-header, .aula-item { 
-    transition: opacity 0.7s ease-in-out !important; 
-}
-
+.dia-header, .aula-item { transition: opacity 0.7s ease-in-out !important; }
 .left-panel.fade-out-others > .dia-header:not(.active-header), 
-.left-panel.fade-out-others > .aula-item:not(.active-lesson) { 
-    opacity: 0 !important; 
-    pointer-events: none !important; 
-}
-
+.left-panel.fade-out-others > .aula-item:not(.active-lesson) { opacity: 0 !important; pointer-events: none !important; }
 .left-panel.focus-mode > .dia-header:not(.active-header), 
-.left-panel.focus-mode > .aula-item:not(.active-lesson) { 
-    display: none !important; 
-}
-
-.left-panel.focus-mode > .dia-header.active-header { 
-    margin-top: 0 !important; 
-}
+.left-panel.focus-mode > .aula-item:not(.active-lesson) { display: none !important; }
+.left-panel.focus-mode > .dia-header.active-header { margin-top: 0 !important; }
 
 /* =========================================
-   PAINEL JOGO (RIGHT PANEL)
+   PAINEL JOGO (RIGHT PANEL) & FLASHCARDS
    ========================================= */
 #right-panel {
     display: none; 
@@ -327,206 +294,120 @@ header {
     overflow: hidden; 
     transform: translateY(-15px); 
     transition: max-height 1s ease-in-out, opacity 1s ease-in-out, transform 1s ease-in-out, margin 1s ease-in-out; 
-    margin: 0; 
-    padding: 0;
+    margin: 0; padding: 0;
 }
 
 #right-panel.active { 
-    opacity: 1; 
-    max-height: 1000px; 
-    transform: translateY(0); 
-    margin-top: 15px; 
-    margin-bottom: 30px; 
+    opacity: 1; max-height: 1000px; transform: translateY(0); margin-top: 15px; margin-bottom: 30px; 
 }
 
 .painel-header { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    margin-bottom: 20px; 
-    border-bottom: 1px solid #30363d; 
-    padding-bottom: 15px; 
+    display: flex; justify-content: space-between; align-items: center; 
+    margin-bottom: 20px; border-bottom: 1px solid #30363d; padding-bottom: 15px; 
 }
 
 #titulo-aula { font-size: 1.2rem; font-weight: bold; color: #fff; }
-
 #contador-cartas { color: var(--alura-cyan); font-size: 0.9rem; }
 
-/* Cartas 3D */
 .card-container { 
-    perspective: 1000px; 
-    width: 100%; 
-    min-height: 350px; /* Agora é min-height, ou seja, pode crescer! */
-    cursor: pointer; 
-    position: relative; 
+    perspective: 1000px; width: 100%; min-height: 350px; cursor: pointer; position: relative; 
 }
 
 .card-inner { 
-    width: 100%; 
-    min-height: 100%;
-    transition: transform 0.6s; 
-    transform-style: preserve-3d; 
-    display: grid; /* O segredo da inteligência: Sobrepõe sem usar absolute */
+    width: 100%; min-height: 100%; transition: transform 0.6s; transform-style: preserve-3d; display: grid; 
 }
 
 .card-inner.flipped { transform: rotateY(180deg); }
 
 .carta-frente, .carta-verso {
-    grid-area: 1 / 1; /* Força os dois lados a ocuparem o mesmo espaço */
-    width: 100%; 
-    min-height: 350px; /* Mantém o tamanho base */
-    backface-visibility: hidden; 
-    border-radius: 12px;
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center; /* Centraliza verticalmente se a carta for pequena */
-    align-items: center; 
-    padding: 40px 30px; /* Aumentei o respiro interno para ficar mais elegante */
-    text-align: center; 
-    border: 2px solid #30363d;
-    /* Removemos o height: 100%, position: absolute e overflow-y: auto! */
+    grid-area: 1 / 1; width: 100%; min-height: 350px; backface-visibility: hidden; 
+    border-radius: 12px; display: flex; flex-direction: column; justify-content: center; 
+    align-items: center; padding: 40px 30px; text-align: center; border: 2px solid #30363d;
 }
 
-.carta-frente { 
-    background-color: var(--alura-card); 
-    color: #fff; 
-}
+.carta-frente { background-color: var(--alura-card); color: #fff; }
+.carta-verso { background-color: #0b0c10; color: #fff; transform: rotateY(180deg); border-color: var(--alura-cyan); box-shadow: 0 0 20px rgba(0, 230, 230, 0.1) inset; }
+.carta-texto { margin-bottom: 20px; font-weight: 500; width: 100%; }
+.carta-dica { font-size: 0.85rem; color: #8b92a5; margin-top: auto; padding-top: 20px; }
 
-.carta-verso { 
-    background-color: #0b0c10; 
-    color: #fff; 
-    transform: rotateY(180deg); 
-    border-color: var(--alura-cyan); 
-    box-shadow: 0 0 20px rgba(0, 230, 230, 0.1) inset; 
-}
-
-.carta-texto { 
-    margin-bottom: 20px; 
-    font-weight: 500; 
-    width: 100%; /* Garante que o texto do ENADE ocupe a largura toda */
-}
-
-.carta-dica { 
-    font-size: 0.85rem; 
-    color: #8b92a5; 
-    margin-top: auto; 
-    padding-top: 20px;
-}
-
-/* Botões de Ação */
+/* =========================================
+   ESTILOS PARA O MODO ENADE E BOTÕES
+   ========================================= */
 .game-controls { display: flex; gap: 15px; margin-top: 25px; }
 
 .btn-jogo { 
-    flex: 1; 
-    padding: 15px; 
-    border-radius: 8px; 
-    border: none; 
-    font-size: 1rem; 
-    font-weight: bold; 
-    cursor: pointer; 
-    transition: all 0.3s ease; 
+    flex: 1; padding: 15px; border-radius: 8px; border: none; font-size: 1rem; 
+    font-weight: bold; cursor: pointer; transition: all 0.3s ease; 
 }
 
 .btn-erro { background-color: transparent; border: 1px solid #ff5555; color: #ff5555; }
 .btn-erro:hover { background-color: rgba(255, 85, 85, 0.1); box-shadow: 0 0 15px rgba(255, 85, 85, 0.2); }
-
 .btn-acerto { background-color: transparent; border: 1px solid var(--alura-green); color: var(--alura-green); }
 .btn-acerto:hover { background-color: rgba(0, 255, 136, 0.1); box-shadow: 0 0 15px rgba(0, 255, 136, 0.2); }
 
-.btn-proxima { 
-    background-color: var(--alura-card); 
-    color: var(--alura-cyan); 
-    border: 1px solid var(--alura-cyan); 
-    width: 100%; 
-    margin-top: 25px; 
+.btn-proxima { background-color: var(--alura-card); color: var(--alura-cyan); border: 1px solid var(--alura-cyan); width: 100%; margin-top: 25px; }
+
+.opcoes-container { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; width: 100%; }
+
+.btn-opcao {
+    background-color: #0d1117; border: 1px solid #30363d; color: #c5c6c7; padding: 12px 15px;
+    border-radius: 8px; font-size: 1rem; text-align: left; cursor: pointer; transition: all 0.3s ease;
+    position: relative; overflow: hidden; 
 }
+
+.btn-opcao:hover:not(:disabled) { border-color: var(--alura-cyan); background-color: rgba(0, 230, 230, 0.05); }
+.opcao-correta { border-color: var(--alura-green) !important; background-color: rgba(0, 255, 136, 0.1) !important; color: #fff !important; }
+.opcao-errada { border-color: #ff5555 !important; background-color: rgba(255, 85, 85, 0.1) !important; color: #fff !important; }
+
+.star-anim { position: absolute; bottom: 0; font-size: 1.5rem; animation: flyUp 1s ease-out forwards; pointer-events: none; }
+@keyframes flyUp { 0% { transform: translateY(0) scale(0.5) rotate(0deg); opacity: 1; } 100% { transform: translateY(-80px) scale(1.5) rotate(180deg); opacity: 0; } }
 
 /* =========================================
    MODAIS E POP-UPS
    ========================================= */
-.modal-overlay { 
-    display: none; 
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%; 
-    background: rgba(0, 0, 0, 0.8); 
-    z-index: 1000; 
-    justify-content: center; 
-    align-items: center; 
-    padding: 20px; 
-    backdrop-filter: blur(3px); 
-}
-
+.modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 1000; justify-content: center; align-items: center; padding: 20px; backdrop-filter: blur(3px); }
 .modal-overlay.show { display: flex; }
-
-.modal-content { 
-    background: var(--alura-card); 
-    width: 100%; 
-    max-width: 500px; 
-    border-radius: 12px; 
-    border: 1px solid #30363d; 
-    box-shadow: 0 0 30px rgba(0,0,0,0.8); 
-}
-
-.modal-header { 
-    padding: 20px; 
-    border-bottom: 1px solid #30363d; 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-}
-
+.modal-content { background: var(--alura-card); width: 100%; max-width: 500px; border-radius: 12px; border: 1px solid #30363d; box-shadow: 0 0 30px rgba(0,0,0,0.8); }
+.modal-header { padding: 20px; border-bottom: 1px solid #30363d; display: flex; justify-content: space-between; align-items: center; }
 .modal-header h2 { color: #fff; font-size: 1.3rem; }
-
-.btn-close { 
-    background: none; 
-    border: none; 
-    color: #8b92a5; 
-    font-size: 1.5rem; 
-    cursor: pointer; 
-}
-
+.btn-close { background: none; border: none; color: #8b92a5; font-size: 1.5rem; cursor: pointer; }
 .modal-body { padding: 30px; }
-
 .input-group { margin-bottom: 15px; }
 .input-group label { display: block; color: #8b92a5; margin-bottom: 5px; font-size: 0.9rem; }
-.input-group input, .input-group select, .input-group textarea { 
-    width: 100%; 
-    padding: 12px; 
-    background: #0d1117; 
-    border: 1px solid #30363d; 
-    border-radius: 6px; 
-    color: #fff; 
-    font-size: 1rem; 
-    outline: none; 
-}
-
-.input-group input:focus, .input-group select:focus, .input-group textarea:focus { 
-    border-color: var(--alura-cyan); 
-    box-shadow: 0 0 10px rgba(0, 230, 230, 0.1); 
-}
-
+.input-group input, .input-group select, .input-group textarea { width: 100%; padding: 12px; background: #0d1117; border: 1px solid #30363d; border-radius: 6px; color: #fff; font-size: 1rem; outline: none; }
+.input-group input:focus, .input-group select:focus, .input-group textarea:focus { border-color: var(--alura-cyan); box-shadow: 0 0 10px rgba(0, 230, 230, 0.1); }
 .btn-right { display: block; margin-left: auto; }
+.stat-box { background: #0d1117; padding: 15px; border-radius: 8px; border: 1px solid #30363d; margin-bottom: 10px; display: flex; justify-content: space-between; color: #c5c6c7; font-weight: bold; }
+.stat-box span { color: var(--alura-cyan); }
+.stat-box.highlight { border-color: var(--alura-green); background-color: rgba(0, 255, 136, 0.05); }
 
-.stat-box { 
-    background: #0d1117; 
-    padding: 15px; 
-    border-radius: 8px; 
-    border: 1px solid #30363d; 
-    margin-bottom: 10px; 
-    display: flex; 
-    justify-content: space-between; 
-    color: #c5c6c7; 
-    font-weight: bold; 
+/* =========================================
+   BOTÃO FLUTUANTE: VOLTAR AO TOPO (WEB)
+   ========================================= */
+#btn-voltar-topo {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;  /* Na WEB fica na DIREITA */
+    width: 55px !important;
+    height: 55px !important;
+    border-radius: 50% !important; /* Força o botão a ser SEMPRE REDONDO */
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 999; 
+    padding: 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    opacity: 0.8;
+    cursor: pointer;
+    background-color: var(--alura-card); 
+    color: var(--alura-cyan); 
+    border: 1px solid var(--alura-cyan);
 }
 
-.stat-box span { color: var(--alura-cyan); }
-
-.stat-box.highlight { 
-    border-color: var(--alura-green); 
-    background-color: rgba(0, 255, 136, 0.05); 
+#btn-voltar-topo:hover {
+    opacity: 1;
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 25px rgba(0, 230, 230, 0.4);
 }
 
 /* =========================================
@@ -539,170 +420,64 @@ header {
         justify-content: space-between;
         align-items: center;
     }
-    .logo {
-        font-size: 1.3rem;
-        justify-content: flex-start; 
-    }
+    .logo { font-size: 1.3rem; justify-content: flex-start; }
     .logo span:nth-of-type(3) { display: none; }
     
-    .header-right {
-        width: auto;
-        justify-content: flex-end; 
-        gap: 15px; 
-    }
-    .header-right .btn-action {
-        font-size: 0.85rem;
-        padding: 8px 12px;
-    }
+    .header-right { width: auto; justify-content: flex-end; gap: 15px; }
+    .header-right .btn-action { font-size: 0.85rem; padding: 8px 12px; }
     
-    .container {
-        padding: 0 10px;
-        margin: 20px auto;
-    }
-    .dashboard-header { 
-        flex-direction: column; 
-        align-items: flex-start; 
-        text-align: left; 
-        padding: 20px;
-    }
+    .container { padding: 0 10px; margin: 20px auto; }
+    .dashboard-header { flex-direction: column; align-items: flex-start; text-align: left; padding: 20px; }
     .welcome-text h1 { font-size: 1.4rem; }
-    
-    .xp-wrapper { 
-        width: 100%;
-        justify-content: center; 
-        margin-top: 15px; 
-        border-top: 1px solid #30363d;
-        padding-top: 15px;
-    }
+    .xp-wrapper { width: 100%; justify-content: center; margin-top: 15px; border-top: 1px solid #30363d; padding-top: 15px; }
 
-    .aula-item {
-        flex-wrap: wrap;
-        padding: 15px;
-        align-items: center;
-    }
-    .aula-title {
-        font-size: 0.95rem;
-        flex: 1;
-        line-height: 1.4;
-    }
-    .aula-item > div {
-        width: 100%;
-        justify-content: flex-end;
-        margin-left: 0 !important;
-        margin-top: 8px; /* Espaço reduzido pois removemos a linha */
-        /* Linha tracejada removida daqui! */
-    }
+    .aula-item { flex-wrap: wrap; padding: 15px; align-items: center; }
+    .aula-title { font-size: 0.95rem; flex: 1; line-height: 1.4; }
+    .aula-item > div { width: 100%; justify-content: flex-end; margin-left: 0 !important; margin-top: 8px; }
 
     .carta-frente, .carta-verso { padding: 20px; }
     #titulo-aula { font-size: 1rem; }
     .btn-jogo { font-size: 0.85rem; padding: 12px 10px; }
 
-    #btn-voltar-topo {
-        bottom: 20px;
-        right: 20px;
-        width: 45px;
-        height: 45px;
-    }
-
+    /* ============================================
+       CABEÇALHOS DE MÓDULOS - VERSÃO MOBILE FIX
+       ============================================ */
     .dia-header {
-        display: flex !important; 
+        display: flex !important;
+        flex-wrap: wrap !important; /* Permite a linha quebrar e cair para baixo */
         align-items: center !important;
+        gap: 5px !important; /* Distância entre o [ MOD_01 ] e o Texto */
         line-height: 1.4 !important;
-        margin-top: 25px !important;
+        margin-top: 35px !important;
         padding-bottom: 0 !important;
-        border-bottom: none !important; /* Remove o pontilhado antigo */
-        font-size: 0.8rem; /* Fonte ligeiramente menor para caber no ecrã */
+        border-bottom: none !important;
+        font-size: 0.95rem !important;
+    }
+    
+    .left-panel .dia-header:first-child {
+        margin-top: 10px !important; /* Remove o espaço gigante do topo */
     }
     
     .dia-header span.tech-font {
-        display: inline-block !important; 
         margin-bottom: 0 !important;
-        white-space: nowrap; /* Impede que a tag [ MOD_01 ] se quebre */
     }
     
     .dia-line {
-        display: block !important; /* Traz a linha gradiente de volta à vida! */
-        flex-grow: 1;
+        display: block !important;
+        width: 100% !important; /* Faz a linha gradiente esticar e ir para a linha de baixo */
+        flex-grow: 0 !important; 
+        height: 2px !important; 
+        margin-top: 8px !important; /* Espaço entre o título do módulo e a linha deitada */
     }
 
-/* =========================================
-   BOTÃO FLUTUANTE: VOLTAR AO TOPO
-   ========================================= */
-#btn-voltar-topo {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%; 
-    display: none; 
-    justify-content: center;
-    align-items: center;
-    z-index: 999; 
-    padding: 0;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    opacity: 0.8;
-}
-
-#btn-voltar-topo:hover {
-    opacity: 1;
-    transform: translateY(-5px); 
-    box-shadow: 0 8px 25px rgba(0, 230, 230, 0.4);
-}
-
-/* =========================================
-   ESTILOS PARA O MODO ENADE (Múltipla Escolha)
-   ========================================= */
-.opcoes-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 20px;
-    width: 100%;
-}
-
-.btn-opcao {
-    background-color: #0d1117;
-    border: 1px solid #30363d;
-    color: #c5c6c7;
-    padding: 12px 15px;
-    border-radius: 8px;
-    font-size: 1rem;
-    text-align: left;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden; /* Impede que a animação da estrela saia do botão */
-}
-
-.btn-opcao:hover:not(:disabled) {
-    border-color: var(--alura-cyan);
-    background-color: rgba(0, 230, 230, 0.05);
-}
-
-.opcao-correta {
-    border-color: var(--alura-green) !important;
-    background-color: rgba(0, 255, 136, 0.1) !important;
-    color: #fff !important;
-}
-
-.opcao-errada {
-    border-color: #ff5555 !important;
-    background-color: rgba(255, 85, 85, 0.1) !important;
-    color: #fff !important;
-}
-
-/* Animação das Estrelinhas do ENADE */
-.star-anim {
-    position: absolute;
-    bottom: 0;
-    font-size: 1.5rem;
-    animation: flyUp 1s ease-out forwards;
-    pointer-events: none;
-}
-
-@keyframes flyUp {
-    0% { transform: translateY(0) scale(0.5) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(-80px) scale(1.5) rotate(180deg); opacity: 0; }
-}
+    /* ============================================
+       BOTÃO AO TOPO - VERSÃO MOBILE FIX
+       ============================================ */
+    #btn-voltar-topo {
+        bottom: 20px !important;
+        left: 20px !important; /* No MOBILE fica na ESQUERDA */
+        right: auto !important; /* Anula o comportamento da direita */
+        width: 50px !important;
+        height: 50px !important;
+    }
 }
