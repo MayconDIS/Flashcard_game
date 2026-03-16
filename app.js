@@ -442,7 +442,7 @@ function soltarEstrelas(botaoElement) {
     }
 }
 
-// NOVA FUNÇÃO: Lógica de responder o ENADE
+// NOVA FUNÇÃO: Lógica de responder o ENADE com tempo de leitura maior
 function verificarEnade(escolhida, correta) {
     const botoes = document.querySelectorAll('.btn-opcao');
     // Bloqueia todos os botões para não clicar de novo
@@ -452,22 +452,23 @@ function verificarEnade(escolhida, correta) {
         botoes[escolhida].classList.add('opcao-correta');
         soltarEstrelas(botoes[escolhida]);
         
-        // Espera as estrelinhas e vira a carta
+        // Espera 2.5 segundos (2500ms) para o utilizador ler antes de virar
         setTimeout(() => {
             document.getElementById('meuCard').classList.add('flipped');
             document.getElementById('botoes-jogo').innerHTML = `<button class="btn-jogo btn-acerto tech-font flex-align-center" style="width:100%" onclick="processarResposta('acertei')">CONTINUAR</button>`;
             document.getElementById('botoes-jogo').style.display = 'flex';
-        }, 1200);
+        }, 2500);
 
     } else {
         botoes[escolhida].classList.add('opcao-errada');
         botoes[correta].classList.add('opcao-correta'); // Mostra qual era a certa
         
+        // Espera 2.5 segundos (2500ms) para o utilizador ler antes de virar
         setTimeout(() => {
             document.getElementById('meuCard').classList.add('flipped');
             document.getElementById('botoes-jogo').innerHTML = `<button class="btn-jogo btn-erro tech-font flex-align-center" style="width:100%" onclick="processarResposta('errei')">CONTINUAR (ERROU)</button>`;
             document.getElementById('botoes-jogo').style.display = 'flex';
-        }, 1200);
+        }, 2500);
     }
 }
 
