@@ -725,3 +725,9 @@ function toggleAltoContraste() {
     document.body.classList.toggle('high-contrast-mode', isHighContrast);
     localStorage.setItem('quest_high_contrast', isHighContrast);
 }
+
+// --- Lógica de Abrir/Fechar Menu de Acessibilidade ---
+function toggleA11yMenu() {
+    const widget = document.getElementById('a11y-widget');
+    widget.classList.toggle('open');
+}
