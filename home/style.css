@@ -66,6 +66,11 @@ header {
     z-index: 100;
 }
 
+/* Esconde a acessibilidade do menu no Desktop (pois já temos a bolinha flutuante) */
+.mobile-a11y {
+    display: none !important;
+}
+
 .logo { 
     font-size: 1.4rem; 
     font-weight: bold; 
@@ -806,14 +811,17 @@ body.high-contrast-mode .xp-badge {
         padding: 0 12px !important;
     }
 
-    /* Ajuste da Acessibilidade Retrátil no Mobile */
-    .a11y-widget {
-        bottom: 80px !important; 
-        left: 20px !important;
+    /* =======================================
+       AJUSTES DE ACESSIBILIDADE NO MOBILE 
+       ======================================= */
+    /* 1. Faz a opção aparecer dentro do menu hambúrguer */
+    .mobile-a11y {
+        display: flex !important;
     }
-    .a11y-toggle {
-        width: 50px !important;
-        height: 50px !important;
+
+    /* 2. Esconde completamente a bolinha flutuante no ecrã principal */
+    .a11y-widget {
+        display: none !important;
     }
 
     /* Ajustes do Rodapé no Mobile */

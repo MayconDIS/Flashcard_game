@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
     
-    <link rel="stylesheet" href="style.css?v=7">
+    <link rel="stylesheet" href="style.css?v=8">
 </head>
 <body>
 
@@ -43,6 +43,26 @@
                     </a>
                     <a class="dropdown-item flex-align" onclick="mostrarProgresso()">
                         <span class="material-symbols-outlined">monitoring</span> Minhas Estatísticas
+                    </a>
+                    <a class="dropdown-item flex-align" onclick="mostrarProgresso()">
+                        <span class="material-symbols-outlined">monitoring</span> Minhas Estatísticas
+                    </a>
+
+                    <div class="dropdown-item mobile-a11y" style="cursor: default; flex-direction: column; align-items: flex-start; gap: 10px;">
+                        <span class="flex-align" style="color: var(--alura-cyan); font-weight: bold;">
+                            <span class="material-symbols-outlined">accessibility_new</span> Acessibilidade
+                        </span>
+                        <div style="display: flex; gap: 5px; width: 100%;">
+                            <button class="btn-action tech-font flex-align-center" onclick="mudarZoom(-1)" style="flex: 1; padding: 6px;">A-</button>
+                            <button class="btn-action tech-font flex-align-center" onclick="mudarZoom(1)" style="flex: 1; padding: 6px;">A+</button>
+                            <button class="btn-action tech-font flex-align-center" onclick="toggleAltoContraste()" style="flex: 1; padding: 6px;" title="Alto Contraste">
+                                <span class="material-symbols-outlined" style="font-size: 1.2rem;">contrast</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <a class="dropdown-item danger flex-align" onclick="resetarProgresso()">
+                        <span class="material-symbols-outlined">warning</span> Formatar Sistema
                     </a>
                     <a class="dropdown-item danger flex-align" onclick="resetarProgresso()">
                         <span class="material-symbols-outlined">warning</span> Formatar Sistema
@@ -323,17 +343,3 @@
     <script src="../js/app.js"></script>
 </body>
 </html>
-    <div class="a11y-widget" id="a11y-widget">
-        <button class="a11y-toggle flex-align-center" onclick="toggleA11yMenu()" title="Acessibilidade">
-            <span class="material-symbols-outlined" style="font-size: 1.6rem;">accessibility_new</span>
-        </button>
-        <div class="a11y-options">
-            <button class="btn-action tech-font flex-align-center" onclick="mudarZoom(-1)" title="Diminuir Texto">A-</button>
-            <button class="btn-action tech-font flex-align-center" onclick="mudarZoom(1)" title="Aumentar Texto">A+</button>
-            <button class="btn-action tech-font flex-align-center" onclick="toggleAltoContraste()" title="Alternar Alto Contraste">
-                <span class="material-symbols-outlined">contrast</span>
-            </button>
-        </div>
-    </div>
-
-    <button id="btn-voltar-topo" class="btn-action flex-align-center" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
