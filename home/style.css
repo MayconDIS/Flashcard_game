@@ -618,8 +618,8 @@ body.high-contrast-mode .xp-badge {
 .main-footer {
     background-color: #0b0c10;
     border-top: 1px solid #30363d;
-    /* O padding-bottom de 100px garante que o rodapé não fica escondido atrás dos botões flutuantes! */
-    padding: 60px 40px 100px 40px; 
+    /* Reduzimos o espaço inferior de 100px para 40px para remover o buraco vazio */
+    padding: 60px 40px 40px 40px; 
     margin-top: 60px;
     position: relative;
     z-index: 10;
@@ -816,9 +816,9 @@ body.high-contrast-mode .xp-badge {
         height: 50px !important;
     }
 
-    /* Ajustes do Rodapé no Mobile (Agora sim, fechados corretamente dentro do mobile!) */
+    /* Ajustes do Rodapé no Mobile */
     .main-footer {
-        padding: 40px 20px 120px 20px; 
+        padding: 40px 20px 90px 20px; /* Reduzido de 120px para 90px */
     }
     .footer-content {
         flex-direction: column !important; 

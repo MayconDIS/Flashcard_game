@@ -731,3 +731,9 @@ function toggleA11yMenu() {
     const widget = document.getElementById('a11y-widget');
     widget.classList.toggle('open');
 }
+
+// --- Lógica para Links em Desenvolvimento ---
+function emDesenvolvimento(event) {
+    event.preventDefault(); // Impede que o ecrã salte para o topo ao clicar no link vazio
+    alert("[ SISTEMA ]\n\nMódulo em desenvolvimento.\nEsta funcionalidade será liberada nas próximas atualizações!");
+}
