@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>PIM III - Nex_TI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="page">
+        <img src="Logo UNIP.png" alt="Logo UNIP" class="logo-unip" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/UNIP_Logo.svg/1200px-UNIP_Logo.svg.png'">
+        
+        <div class="capa-header uppercase">
+            UNIVERSIDADE PAULISTA<br>
+            ICET - INSTITUTO DE CIÊNCIAS EXATAS E TECNOLOGIA<br>
+            CURSO SUPERIOR DE TECNOLOGIA EM ANÁLISE E DESENVOLVIMENTO DE SISTEMAS<br><br><br>
+            PROJETO INTEGRADO MULTIDISCIPLINAR<br>
+            PIM III<br><br><br>
+            Desenvolvimento de um Sistema Acadêmico Colaborativo com Apoio de IA
+        </div>
+        
+        <table class="table-capa">
+            <tr>
+                <th width="70%">Nomes</th>
+                <th width="30%">R.A</th>
+            </tr>
+            <tr><td>Gabriel Alves Moreira</td><td>H67HJI4</td></tr>
+            <tr><td>Maciel Costa da Silva</td><td>R280985</td></tr>
+            <tr><td>Maycon Douglas Inácio Silva</td><td>H719CD3</td></tr>
+            <tr><td>Rafael Mesquita</td><td>H6722I0</td></tr>
+        </table>
+        
+        <div class="capa-footer uppercase">
+            São José dos Campos - SP<br>
+            Novembro/2026
+        </div>
+    </div>
+
+    <div class="page">
+        <table class="table-autores" style="margin-top: 1cm; margin-bottom: 3cm;">
+            <tr>
+                <th width="70%">Nomes</th>
+                <th width="30%">R.A</th>
+            </tr>
+            <tr><td>Gabriel Alves Moreira</td><td>H67HJI4</td></tr>
+            <tr><td>Maciel Costa da Silva</td><td>R280985</td></tr>
+            <tr><td>Maycon Douglas Inácio Silva</td><td>H719CD3</td></tr>
+            <tr><td>Rafael Mesquita</td><td>H6722I0</td></tr>
+        </table>
+        
+        <div class="capa-titulo uppercase">
+            Desenvolvimento de um Sistema Acadêmico Colaborativo com Apoio de IA
+        </div>
+        
+        <div class="recuo-rosto">
+            Projeto Integrado Multidisciplinar (PIM) desenvolvido como exigência parcial dos requisitos obrigatórios à aprovação semestral no Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas da UNIP (Universidade Paulista), orientado pelo corpo docente do curso.
+        </div>
+        
+        <div class="capa-footer uppercase">
+            São José dos Campos - SP<br>
+            Novembro / 2026
+        </div>
+    </div>
+
+    <div class="page">
+        <h2 class="center">RESUMO</h2>
+        <p class="paragrafo">Este documento apresenta a especificação técnica e o escopo de desenvolvimento do Nex_TI, uma plataforma web focada no setor de Tecnologia Educacional (EdTech). O objetivo arquitetural do sistema é solucionar a baixa taxa de retenção de conhecimento técnico por meio de metodologias ativas. Para isso, a arquitetura do software integra o algoritmo SM-2 de repetição espaçada, aliado a um motor de regras de negócio de gamificação que gerencia a distribuição de Pontos de Experiência (XP) e moedas virtuais. O ciclo de vida da aplicação foi conduzido sob os frameworks ágeis Scrum e Kanban, garantindo entregas de alto valor em sprints curtas. A arquitetura de interface foi projetada no modelo Mobile First, enquanto a engenharia de dados priorizou o armazenamento local (LocalStorage) para homologação rápida do Produto Mínimo Viável (MVP). O mapeamento futuro prevê a migração para a Programação Orientada a Objetos em C# e adoção de Banco de Dados Relacional, garantindo a escalabilidade corporativa do produto.</p>
+        <p><br><strong>Palavras-chave:</strong> Arquitetura de Software; Regras de Negócio; Gamificação; Repetição Espaçada.</p>
+    </div>
+
+    <div class="page">
+        <h2 class="center">SUMÁRIO</h2>
+        <table class="sumario-table">
+            <tr><td width="90%">1 INTRODUÇÃO</td><td width="10%" align="right">6</td></tr>
+            <tr><td style="padding-left: 20px;">1.1 Objetivo Geral</td><td align="right">6</td></tr>
+            <tr><td style="padding-left: 20px;">1.2 Objetivos Específicos</td><td align="right">6</td></tr>
+            <tr><td style="padding-left: 20px;">1.3 Contextualização do Projeto</td><td align="right">7</td></tr>
+            <tr><td>2 DESENVOLVIMENTO DO PROJETO</td><td align="right">7</td></tr>
+            <tr><td style="padding-left: 20px;">2.1 Etapa 1 – Caracterização do Negócio</td><td align="right">7</td></tr>
+            <tr><td style="padding-left: 40px;">2.1.1 Regras de Negócio</td><td align="right">8</td></tr>
+            <tr><td style="padding-left: 20px;">2.2 Etapa 2 – Engenharia de Software Ágil</td><td align="right">8</td></tr>
+            <tr><td style="padding-left: 20px;">2.3 Etapa 3 – Modelagem de Banco de Dados</td><td align="right">9</td></tr>
+            <tr><td style="padding-left: 20px;">2.4 Etapa 4 – Programação Orientada a Objetos</td><td align="right">9</td></tr>
+            <tr><td style="padding-left: 20px;">2.5 Etapa 5 – Desenvolvimento Web Responsivo</td><td align="right">10</td></tr>
+            <tr><td style="padding-left: 20px;">2.6 Etapa 6 – UX e UI Design</td><td align="right">10</td></tr>
+            <tr><td style="padding-left: 20px;">2.7 Etapa 7 – Análise de Dados e Inteligência Artificial</td><td align="right">12</td></tr>
+            <tr><td style="padding-left: 20px;">2.8 Etapa 8 – Comunicação, Liderança e Acessibilidade</td><td align="right">12</td></tr>
+            <tr><td style="padding-left: 20px;">2.9 Etapa 9 – Integração e Avaliação Final</td><td align="right">13</td></tr>
+            <tr><td>3 CONCLUSÃO</td><td align="right">16</td></tr>
+            <tr><td>REFERÊNCIAS</td><td align="right">17</td></tr>
+            <tr><td>FICHA DE CONTROLE DO PIM</td><td align="right">18</td></tr>
+        </table>
+    </div>
+
+    <div class="page">
+        <span class="num-pagina">6</span>
+        <h2>1 INTRODUÇÃO</h2>
+        <p class="paragrafo">A digitalização do ambiente corporativo e educacional tem exigido das empresas a criação de plataformas robustas e orientadas a dados. A necessidade de treinamento contínuo de equipes de tecnologia impulsiona o desenvolvimento de sistemas que maximizem a curva de aprendizado. Este documento apresenta a especificação técnica da plataforma Nex_TI, detalhando a sua arquitetura de software, interfaces e processos de modelagem de dados.</p>
+
+        <h3>1.1 Objetivo Geral</h3>
+        <p class="paragrafo">O objetivo geral deste projeto é documentar e desenvolver a prova de conceito de uma plataforma web focada no engajamento por meio de métodos ativos, oferecendo uma arquitetura de software escalável que permita o gerenciamento de perfis de acesso, processamento de métricas de desempenho e fornecimento de feedback em tempo real aos usuários.</p>
+
+        <h3>1.2 Objetivos Específicos</h3>
+        <ul>
+            <li>Definir a arquitetura da aplicação e suas respectivas regras de negócio.</li>
+            <li>Implementar metodologias ágeis (Scrum e Kanban) para controle de versões e rastreabilidade das demandas.</li>
+            <li>Elaborar o design de interface do usuário (UI) focado em usabilidade e responsividade.</li>
+            <li>Modelar os dados e estruturar a base necessária para a aplicação de algoritmos de repetição espaçada.</li>
+            <li>Projetar a base técnica para a futura integração com APIs em C# e banco de dados relacional.</li>
+        </ul>
+    </div>
+
+    <div class="page">
+        <span class="num-pagina">7</span>
+        <h3>1.3 Contextualização do Projeto</h3>
+        <p class="paragrafo">A concepção tecnológica da plataforma Nex_TI foi fortemente influenciada por modelos de sucesso no mercado de educação em tecnologia. Plataformas de ensino como a Alura e o ecossistema do Curso.dev provaram que a organização do conhecimento em trilhas estruturadas aumenta o índice de conclusão dos cursos por parte dos usuários. Inspirado nessas arquiteturas, o sistema proposto busca elevar o padrão de retenção técnica adicionando a camada de gamificação nativa ao código, transformando o fluxo de dados em uma jornada atrativa e metrificável.</p>
+
+        <h2 style="margin-top: 1cm;">2 DESENVOLVIMENTO DO PROJETO</h2>
+        
+        <h3>2.1 Etapa 1 – Caracterização do Negócio</h3>
+        <p class="paragrafo">A Nex_TI atua como uma empresa B2B e B2C no setor de tecnologia educacional. O produto principal é um sistema web responsivo comercializado como Software as a Service (SaaS). A plataforma resolve o gargalo operacional do abandono de cursos de capacitação técnica, problema comum em treinamentos corporativos. O sistema entrega valor através de um painel de indicadores (dashboard) que quantifica a evolução do aprendizado em XP e moedas virtuais, permitindo uma análise clara sobre a proficiência do colaborador ou aluno na tecnologia estudada.</p>
+    </div>
+
+    <div class="page">
+        <span class="num-pagina">8</span>
+        <h4>2.1.1 Regras de Negócio</h4>
+        <p class="paragrafo">Para manter a segurança lógica e a integridade da gamificação, o sistema é regido pelas seguintes regras de negócio (RN):</p>
+        <ul>
+            <li><strong>RN01 - Atribuição de Pontos:</strong> O usuário só recebe a bonificação em XP após a conclusão integral de um módulo de flashcards, não sendo permitido o ganho parcial.</li>
+            <li><strong>RN02 - Níveis de Acesso:</strong> O sistema possui três perfis de autorização estritos: Administrador (gestão total), Tutor (criação de conteúdo e leitura de métricas) e Aluno (consumo de conteúdo e acúmulo de métricas).</li>
+            <li><strong>RN03 - Economia Virtual:</strong> As moedas adquiridas no sistema são vinculadas a um único identificador de usuário no banco de dados e são de uso exclusivo para o desbloqueio de módulos avançados na plataforma, não possuindo valor financeiro externo.</li>
+        </ul>
+
+        <h3>2.2 Etapa 2 – Engenharia de Software Ágil</h3>
+        <p class="paragrafo">A gestão de ciclo de vida da aplicação foi conduzida através das metodologias Scrum e Kanban, garantindo a entrega contínua de funcionalidades. O levantamento de requisitos foi fragmentado em Histórias de Usuário (User Stories), estimadas tecnicamente utilizando a sequência de Fibonacci.</p>
+        <p class="paragrafo">O Product Backlog foi estruturado de modo a priorizar requisitos críticos. O requisito funcional primário mapeado foi a construção do motor do algoritmo de repetição espaçada, estimado em 13 pontos devido ao seu alto custo de processamento lógico. Os requisitos não funcionais englobaram padrões de segurança de sessão e tempos de resposta nas requisições da interface, monitorados rigorosamente no quadro Kanban da equipe.</p>
+    </div>
+
+    <div class="page">
+        <span class="num-pagina">9</span>
+        <h3>2.3 Etapa 3 – Modelagem de Banco de Dados</h3>
+        <p class="paragrafo">A arquitetura de persistência de dados foi projetada para suportar alta concorrência. O Modelo Entidade-Relacionamento do Nex_TI definiu as cardinalidades essenciais: um Tutor gerencia múltiplos Módulos, e cada Módulo possui múltiplos Flashcards. A tabela de Desempenho atua como uma entidade associativa que registra a nota e a data da última revisão do usuário.</p>
+        <p class="paragrafo">Para fins de validação do Produto Mínimo Viável (MVP), os dados foram estruturados temporariamente em coleções JSON utilizando a Web Storage API no navegador, simulando um banco de dados NoSQL. Contudo, o escopo técnico definitivo contempla a migração desses esquemas para um sistema gerenciador de banco de dados relacional, garantindo transações seguras (ACID) em ambiente de produção.</p>
+
+        <h3>2.4 Etapa 4 – Programação Orientada a Objetos</h3>
+        <p class="paragrafo">O núcleo lógico da aplicação exige precisão matemática para calcular os intervalos de revisão. Embora a prova de conceito valide essas funções via JavaScript do lado do cliente, a arquitetura de back-end estabelecida prevê o desenvolvimento de uma API RESTful utilizando a linguagem C# e o framework .NET.</p>
+        <p class="paragrafo">A implementação em C# aplicará estritamente os paradigmas da programação orientada a objetos. O conceito de encapsulamento garantirá que atributos monetários e métricas do usuário sejam manipulados apenas por métodos validados, evitando acessos indevidos na memória. A herança será aplicada na construção da classe raiz Usuario, que servirá de molde para os objetos Aluno e Tutor. O polimorfismo será fundamental para que as interfaces de emissão de relatórios respondam dinamicamente ao tipo de credencial enviada na requisição.</p>
+    </div>
+
+    <div class="page">
+        <span class="num-pagina">10</span>
+        <h3>2.5 Etapa 5 – Desenvolvimento Web Responsivo</h3>
+        <p class="paragrafo">A camada de apresentação (Front-end) foi construída com respeito absoluto aos padrões da W3C, utilizando HTML5 para a semântica dos blocos e CSS3 puro para o controle visual. A estratégia adotada foi o Mobile First, assegurando que o tempo de carregamento e a disposição dos componentes sejam otimizados inicialmente para smartphones.</p>
+        <p class="paragrafo">Por meio de layouts fluidos (Fluid Grids) e Flexbox, os contêineres da aplicação adaptam-se de maneira responsiva a monitores de grande escala, mantendo a integridade do código e evitando a necessidade de manutenção em múltiplas bases de interface.</p>
+
+        <h3>2.6 Etapa 6 – UX e UI Design</h3>
+        <p class="paragrafo">A engenharia de usabilidade aplicou testes de atrito para reduzir a quantidade de cliques entre o login e a ação de estudo. A interface visual adota um padrão de tema escuro (Dark Mode) focado na redução da fadiga visual, utilizando contrastes de cores para guiar a atenção do usuário aos botões de ação principal.</p>
+        <p class="paragrafo">O mapeamento da jornada do usuário foi documentado através do Diagrama de Casos de Uso (Figura 1), ilustrando as permissões de interação de cada ator com o sistema, desde o cadastro inicial até a manipulação avançada de indicadores pelo administrador.</p>
+    </div>
+
+    <div class="page">
+        <span class="num-pagina">11</span>
+        <div class="diagrama-container">
+            <p class="legenda-topo">Figura 1 – Diagrama de Caso de Uso do Sistema Nex_TI</p>
+            <img src="UseCase Diagram Nex_TI.png" alt="Diagrama de Casos de Uso" class="diagrama-img">
+            <p class="legenda-fonte">Fonte: Criado pelos autores, 2026.</p>
+        </div>
+    </div>
+
+    <div class="page">
+        <span class="num-pagina">12</span>
+        <h3>2.7 Etapa 7 – Análise de Dados e Inteligência Artificial</h3>
+        <p class="paragrafo">A arquitetura de retenção de conhecimento do sistema foi estruturada com base na lógica do software ANKI, implementando as equações matemáticas do algoritmo SM-2. Esse sistema analisa em tempo real o histórico de respostas do usuário, ajustando de maneira dinâmica os intervalos de tempo em que cada flashcard deve ser exibido novamente. Cartas marcadas como difíceis são reprocessadas pela fila, enquanto cartas fáceis são enviadas para revisões de longo prazo.</p>
+        <p class="paragrafo">De forma complementar, a aplicação simula o comportamento de um agente especialista. Esse módulo recolhe as métricas globais de acertos e falhas e aplica regras condicionais para gerar relatórios operacionais automáticos, orientando o usuário sobre quais tópicos exigem maior foco e fornecendo dados consolidados à gestão de tutoria.</p>
+
+        <h3>2.8 Etapa 8 – Comunicação, Liderança e Acessibilidade</h3>
+        <p class="paragrafo">A gestão operacional do projeto exigiu comunicação síncrona e documentação assíncrona. O uso diário de práticas ágeis permitiu que a equipe negociasse escopos técnicos de maneira pragmática, priorizando a estabilidade do código entregue no MVP.</p>
+        <p class="paragrafo">Na vertente da acessibilidade e inclusão digital, a interface foi programada para suportar redimensionamento tipográfico sem quebra de contêineres e modos de contraste específicos. O planejamento do ciclo de vida do software prevê ainda a expansão da plataforma para dar suporte a avatares e legendagem com foco na comunidade surda, alinhando a solução tecnológica às diretrizes modernas de diversidade.</p>
+    </div>
+
+    <div class="page">
+        <span class="num-pagina">13</span>
+        <h3>2.9 Etapa 9 – Integração e Avaliação Final</h3>
+        <p class="paragrafo">A fase final do desenvolvimento atestou o sucesso da comunicação entre as camadas de interface gráfica e os controladores lógicos do algoritmo de gamificação. A taxonomia e o relacionamento das entidades desenvolvidas estão documentados no Diagrama de Classes (Figura 2), comprovando a estrutura sólida projetada para o banco de dados.</p>
+        <p class="paragrafo">Por fim, a cronologia do processamento de regras de negócio, desde o momento em que o usuário clica para avaliar uma questão até o momento em que os seus pontos de experiência são computados no servidor, encontra-se rigorosamente mapeada no Diagrama de Sequência (Figura 3). Essa documentação garante total previsibilidade e segurança técnica para as etapas subsequentes de codificação da plataforma.</p>
+    </div>
+
+    <div class="page">
+        <span class="num-pagina">14</span>
+        <div class="diagrama-container">
+            <p class="legenda-topo">Figura 2 – Diagrama de Classes do Sistema Nex_TI</p>
+            <img src="Class Diagram Nex_TI.png" alt="Diagrama de Classes" class="diagrama-img">
+            <p class="legenda-fonte">Fonte: Criado pelos autores, 2026.</p>
+        </div>
+    </div>
+
+    <div class="page">
+        <span class="num-pagina">15</span>
+        <div class="diagrama-container">
+            <p class="legenda-topo">Figura 3 – Diagrama de Sequência: Fluxo de Avaliação e Regras de Negócio</p>
+            <img src="Sequence Diagram Nex_TI.png" alt="Diagrama de Sequência" class="diagrama-img">
+            <p class="legenda-fonte">Fonte: Criado pelos autores, 2026.</p>
+        </div>
+    </div>
+
+    <div class="page">
+        <span class="num-pagina">16</span>
+        <h2 style="margin-top: 1cm;">3 CONCLUSÃO</h2>
+        <p class="paragrafo">A especificação e o desenvolvimento da prova de conceito da plataforma Nex_TI demonstraram a eficácia da aplicação rigorosa de metodologias de Engenharia de Software no escopo educacional e corporativo. O projeto validou tecnicamente a hipótese de que a fusão entre algoritmos de repetição espaçada e lógicas de gamificação estruturadas melhora significativamente a curva de interação e o monitoramento do usuário final.</p>
+        <p class="paragrafo">A adoção de arquiteturas orientadas a eventos no front-end, aliada a um design Mobile First, resultou em um Produto Mínimo Viável altamente responsivo. O planejamento da transição da persistência de dados em formato JSON para um ambiente relacional, e a consolidação do back-end em C#, reforçam a escalabilidade e a maturidade técnica do modelo proposto.</p>
+        <p class="paragrafo">Conclui-se que o presente documento atende integralmente aos parâmetros de qualidade exigidos, entregando não apenas o código visual, mas uma documentação arquitetural sistêmica, apta a orientar equipes de desenvolvimento nas futuras implementações e atualizações do software no mercado.</p>
+    </div>
+
+    <div class="page">
+        <span class="num-pagina">17</span>
+        <h2 class="center" style="margin-bottom: 1.5cm;">REFERÊNCIAS</h2>
+        
+        <p>ALURA. <strong>Plataforma de cursos online de tecnologia</strong>. Disponível em: https://www.alura.com.br. Acesso em: 22 mar. 2026.</p>
+        <br>
+        <p>ANKI. <strong>Powerful, intelligent flashcards</strong>. Disponível em: https://apps.ankiweb.net/. Acesso em: 22 mar. 2026.</p>
+        <br>
+        <p>CURSO.DEV. <strong>Aprenda a programar do zero</strong>. Disponível em: https://curso.dev. Acesso em: 22 mar. 2026.</p>
+        <br>
+        <p>ELMASRI, Ramez; NAVATHE, Shamkant B. <strong>Sistemas de Banco de Dados</strong>. 6. ed. São Paulo: Pearson Addison Wesley, 2011.</p>
+        <br>
+        <p>KRUG, Steve. <strong>Não Me Faça Pensar: Uma Abordagem de Bom Senso à Usabilidade na Web</strong>. 3. ed. Rio de Janeiro: Alta Books, 2014.</p>
+        <br>
+        <p>PRESSMAN, Roger S.; MAXIM, Bruce R. <strong>Engenharia de Software: Uma Abordagem Profissional</strong>. 8. ed. Porto Alegre: AMGH, 2016.</p>
+        <br>
+        <p>SCHWABER, Ken; SUTHERLAND, Jeff. <strong>The Scrum Guide: The Definitive Guide to Scrum</strong>. Scrum Guides, 2020. Disponível em: https://scrumguides.org. Acesso em: 15 mar. 2026.</p>
+        <br>
+        <p>SOMMERVILLE, Ian. <strong>Engenharia de Software</strong>. 9. ed. São Paulo: Pearson Prentice Hall, 2011.</p>
+    </div>
+
+    <div class="page">
+        <span class="num-pagina">18</span>
+        <h2 class="center">FICHA DE CONTROLE DO PIM</h2>
+        <p><strong>Grupo Nº:</strong> 02 &nbsp;&nbsp; <strong>Ano:</strong> 2026 &nbsp;&nbsp; <strong>Período:</strong> Diurno</p>
+        <p><strong>Tema:</strong> Desenvolvimento de plataforma web de avaliação e apoio à aprendizagem</p>
+        <br>
+        <p><strong>Alunos:</strong></p>
+        <table>
+            <tr>
+                <th>RA</th>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Curso</th>
+                <th>Visto do aluno</th>
+            </tr>
+            <tr><td>H67HJI4</td><td>Gabriel Alves Moreira</td><td></td><td>ADS</td><td></td></tr>
+            <tr><td>R280985</td><td>Maciel Costa da Silva</td><td>maciel.silva18@aluno.unip.br</td><td>ADS</td><td></td></tr>
+            <tr><td>H719CD3</td><td>Maycon Douglas Inácio Silva</td><td>maycon.silva87@aluno.unip.br</td><td>ADS</td><td></td></tr>
+            <tr><td>H6722I0</td><td>Rafael Mesquita</td><td></td><td>ADS</td><td></td></tr>
+        </table>
+
+        <br>
+        <p><strong>Registros:</strong></p>
+        <table>
+            <tr>
+                <th width="20%">Data do encontro</th>
+                <th width="80%">Observações</th>
+            </tr>
+            <tr><td>05/03</td><td>1ª Reunião: Leitura do Manual do PIM III e definição do escopo técnico do Nex_TI.</td></tr>
+            <tr><td>12/03</td><td>2ª Reunião: Criação do Backlog do Produto, regras de negócio e Casos de Uso.</td></tr>
+            <tr><td>18/03</td><td>3ª Reunião: Modelagem de persistência de dados e aprovação de Diagramas.</td></tr>
+            <tr><td>22/03</td><td>4ª Reunião: Homologação corporativa do documento HTML/CSS nos padrões ABNT.</td></tr>
+        </table>
+    </div>
+
+</body>
+</html>
