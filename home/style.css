@@ -785,7 +785,9 @@ body.high-contrast-mode .xp-badge {
     .header-right { width: auto; justify-content: flex-end; gap: 15px; }
     .header-right .btn-action { font-size: 0.85rem; padding: 8px 12px; }
     
-    .container { padding: 0 10px; margin: 20px auto; }
+    /* MARGEM SUPERIOR AMPLIADA PARA DESCOLAR O TERMINAL DO HEADER */
+    .container { padding: 0 10px; margin: 40px auto 20px auto; }
+    
     .dashboard-header { flex-direction: column; align-items: flex-start; text-align: left; padding: 20px; }
     .welcome-text h1 { font-size: 1.4rem; }
     .xp-wrapper { width: 100%; justify-content: center; margin-top: 15px; border-top: 1px solid #30363d; padding-top: 15px; }
