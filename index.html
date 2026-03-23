@@ -8,28 +8,68 @@
     <meta http-equiv="refresh" content="3; url=login/login.html">
     
     <script>
-        // O JavaScript também aguarda 4000 milissegundos (4 segundos) antes de redirecionar
+        // O JavaScript aguarda 4000 milissegundos (4 segundos) antes de redirecionar
         setTimeout(function() {
             window.location.href = "login/login.html";
         }, 4000);
     </script>
 
     <style>
+        /* Reset e organização do CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             background-color: #0b0c10; 
             color: #00e6e6; 
             font-family: 'Courier New', Courier, monospace; 
+            
+            /* Uso de Flexbox para alinhamento (Feedback Prof. Flávio) */
             display: flex; 
+            flex-direction: column;
             justify-content: center; 
             align-items: center; 
             height: 100vh; 
-            margin: 0; 
-            flex-direction: column;
-            /* A mágica do fundo quadriculado acontece aqui: */
+            
+            /* Fundo quadriculado (Matriz) */
             background-image: 
                 linear-gradient(rgba(0, 230, 230, 0.03) 1px, transparent 1px), 
                 linear-gradient(90deg, rgba(0, 230, 230, 0.03) 1px, transparent 1px);
             background-size: 30px 30px;
+            text-align: center;
+        }
+
+        .splash-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .splash-text {
+            font-weight: normal; 
+            letter-spacing: 2px;
+            font-size: 1.5rem;
+        }
+
+        .cursor {
+            animation: blink 1s infinite;
+        }
+
+        /* Utilitário de Acessibilidade para Leitores de Ecrã (WAI-ARIA) */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
         }
 
         @keyframes blink {
@@ -37,13 +77,34 @@
             50% { opacity: 0; }
             100% { opacity: 1; }
         }
+
+        /* Media Queries para Responsividade Mobile (Feedback Prof. Flávio) */
+        @media screen and (max-width: 600px) {
+            .splash-text {
+                font-size: 1.2rem;
+                letter-spacing: 1px;
+            }
+            body {
+                background-size: 20px 20px;
+            }
+        }
     </style>
 </head>
 <body>
     
-    <h2 style="font-weight: normal; letter-spacing: 2px;">
-        [ SISTEMA ] Inicializando Nex_TI<span style="animation: blink 1s infinite;">_</span>
-    </h2>
+    <main role="main" aria-label="Ecrã de inicialização do sistema">
+        
+        <section class="splash-container" aria-live="polite" aria-atomic="true">
+            
+            <h1 class="splash-text">
+                [ SISTEMA ] Inicializando Nex_TI<span class="cursor" aria-hidden="true">_</span>
+            </h1>
+            
+            <p class="sr-only">Aguarde. O sistema irá redirecionar para o ecrã de autenticação em quatro segundos.</p>
+
+        </section>
+        
+    </main>
 
 </body>
 </html>

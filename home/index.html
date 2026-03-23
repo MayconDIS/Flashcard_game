@@ -16,172 +16,172 @@
 </head>
 <body>
 
-    <header>
-        <div class="logo tech-font" onclick="window.scrollTo({top: 0, behavior: 'smooth'});" style="cursor: pointer;">
+    <header role="banner">
+        <div class="logo tech-font" onclick="window.scrollTo({top: 0, behavior: 'smooth'});" style="cursor: pointer;" tabindex="0" role="button" aria-label="Voltar ao topo">
             <span style="color: #fff;">Nex_</span><span class="tech-text">TI</span>
         </div>
         <div class="header-right">
-            <button class="btn-action tech-font flex-align" onclick="abrirModal('modalCriacao')">
-                <span class="material-symbols-outlined">add_box</span> Criar Carta
+            <button class="btn-action tech-font flex-align" onclick="abrirModal('modalCriacao')" aria-label="Criar nova carta flashcard">
+                <span class="material-symbols-outlined" aria-hidden="true">add_box</span> Criar Carta
             </button>
-            <div class="hamburger-menu">
-                <button class="hamburger-btn flex-align" onclick="toggleMenu()">
-                    <span class="material-symbols-outlined" style="font-size: 2rem;">menu</span>
+            <nav class="hamburger-menu" aria-label="Menu principal do utilizador">
+                <button class="hamburger-btn flex-align" onclick="toggleMenu()" aria-haspopup="menu" aria-expanded="false" aria-label="Abrir menu de opções">
+                    <span class="material-symbols-outlined" style="font-size: 2rem;" aria-hidden="true">menu</span>
                 </button>
-                <div class="dropdown-content" id="dropdownMenu">
+                <div class="dropdown-content" id="dropdownMenu" role="menu">
                     <div class="dropdown-header">
-                        <div class="avatar tech-font flex-align">
+                        <div class="avatar tech-font flex-align" aria-hidden="true">
                             <span class="material-symbols-outlined">terminal</span>
                         </div>
                         <div>
                             <div style="color: #fff; font-weight: bold;" id="menu-user-name">Aluno</div>
-                            <div style="color: var(--alura-cyan); font-size: 0.8rem;" class="tech-font" id="menu-user-level">Rank: Pendente</div>
+                            <div style="color: var(--alura-cyan); font-size: 0.8rem;" class="tech-font" id="menu-user-level" aria-live="polite">Rank: Pendente</div>
                         </div>
                     </div>
-                    <a class="dropdown-item flex-align" onclick="refazerDiagnostico()">
-                        <span class="material-symbols-outlined">radar</span> Refazer Diagnóstico
+                    <a class="dropdown-item flex-align" onclick="refazerDiagnostico()" role="menuitem" tabindex="0">
+                        <span class="material-symbols-outlined" aria-hidden="true">radar</span> Refazer Diagnóstico
                     </a>
-                    <a class="dropdown-item flex-align" onclick="mostrarProgresso()">
-                        <span class="material-symbols-outlined">monitoring</span> Minhas Estatísticas
+                    <a class="dropdown-item flex-align" onclick="mostrarProgresso()" role="menuitem" tabindex="0">
+                        <span class="material-symbols-outlined" aria-hidden="true">monitoring</span> Minhas Estatísticas
                     </a>
-                    <a class="dropdown-item danger flex-align" onclick="resetarProgresso()">
-                        <span class="material-symbols-outlined">warning</span> Formatar Sistema
+                    <a class="dropdown-item danger flex-align" onclick="resetarProgresso()" role="menuitem" tabindex="0">
+                        <span class="material-symbols-outlined" aria-hidden="true">warning</span> Formatar Sistema
                     </a>
-                    <div class="dropdown-item mobile-a11y" style="cursor: default; flex-direction: column; align-items: flex-start; gap: 10px;">
+                    <div class="dropdown-item mobile-a11y" style="cursor: default; flex-direction: column; align-items: flex-start; gap: 10px;" role="none">
                         <span class="flex-align" style="color: var(--alura-cyan); font-weight: bold;">
-                            <span class="material-symbols-outlined">accessibility_new</span> Acessibilidade
+                            <span class="material-symbols-outlined" aria-hidden="true">accessibility_new</span> Acessibilidade
                         </span>
                         <div style="display: flex; gap: 5px; width: 100%;">
-                            <button class="btn-action tech-font flex-align-center" onclick="mudarZoom(-1)" style="flex: 1; padding: 6px;">A-</button>
-                            <button class="btn-action tech-font flex-align-center" onclick="mudarZoom(1)" style="flex: 1; padding: 6px;">A+</button>
-                            <button class="btn-action tech-font flex-align-center" onclick="toggleAltoContraste()" style="flex: 1; padding: 6px;" title="Alto Contraste">
-                                <span class="material-symbols-outlined" style="font-size: 1.2rem;">contrast</span>
+                            <button class="btn-action tech-font flex-align-center" onclick="mudarZoom(-1)" style="flex: 1; padding: 6px;" aria-label="Diminuir tamanho do texto">A-</button>
+                            <button class="btn-action tech-font flex-align-center" onclick="mudarZoom(1)" style="flex: 1; padding: 6px;" aria-label="Aumentar tamanho do texto">A+</button>
+                            <button class="btn-action tech-font flex-align-center" onclick="toggleAltoContraste()" style="flex: 1; padding: 6px;" title="Alto Contraste" aria-label="Alternar modo de alto contraste">
+                                <span class="material-symbols-outlined" style="font-size: 1.2rem;" aria-hidden="true">contrast</span>
                             </button>
                         </div>
                     </div>
-                    <a class="dropdown-item flex-align" onclick="deslogar()">
-                        <span class="material-symbols-outlined">logout</span> Logout
+                    <a class="dropdown-item flex-align" onclick="deslogar()" role="menuitem" tabindex="0">
+                        <span class="material-symbols-outlined" aria-hidden="true">logout</span> Logout
                     </a>
                 </div>
-            </div>
+            </nav>
         </div>
     </header>
 
-    <div class="container">
+    <main class="container" role="main">
         
-        <div class="dashboard-header">
+        <section class="dashboard-header" aria-label="Resumo do Perfil">
             <div class="welcome-text">
                 <h1>Terminal | Usuário: <span class="tech-text" id="header-user-name">Aluno</span></h1>
                 <p>Status da missão ENADE: <span style="color: var(--alura-green);">Online</span></p>
             </div>
-            <div class="xp-wrapper" style="display: flex; gap: 20px; align-items: center;">
+            <div class="xp-wrapper" style="display: flex; gap: 20px; align-items: center;" aria-live="polite">
                 <div style="display: flex; flex-direction: column; align-items: center;">
                     <span class="xp-badge tech-font flex-align" id="xp-display" style="font-size: 1rem; padding: 8px 15px; margin: 0;">
-                        <span class="material-symbols-outlined" style="font-size: 1.2rem;">military_tech</span> 0 XP
+                        <span class="material-symbols-outlined" style="font-size: 1.2rem;" aria-hidden="true">military_tech</span> 0 XP
                     </span>
-                    <span style="font-size: 0.75rem; letter-spacing: 1.5px; margin-top: 6px; color: #8b92a5; font-weight: bold; text-transform: uppercase;">Nível</span>
+                    <span style="font-size: 0.75rem; letter-spacing: 1.5px; margin-top: 6px; color: #8b92a5; font-weight: bold; text-transform: uppercase;" aria-hidden="true">Nível</span>
                 </div>
                 <div style="display: flex; flex-direction: column; align-items: center;">
                     <span class="xp-badge tech-font flex-align" id="coin-display" style="font-size: 1rem; padding: 8px 15px; margin: 0; border-color: #ffd700; color: #ffd700; background-color: rgba(255, 215, 0, 0.05);">
-                        <span class="material-symbols-outlined" style="font-size: 1.2rem;">toll</span> 0
+                        <span class="material-symbols-outlined" style="font-size: 1.2rem;" aria-hidden="true">toll</span> 0
                     </span>
-                    <span style="font-size: 0.75rem; letter-spacing: 1.5px; margin-top: 6px; color: #8b92a5; font-weight: bold; text-transform: uppercase;">Coins</span>
+                    <span style="font-size: 0.75rem; letter-spacing: 1.5px; margin-top: 6px; color: #8b92a5; font-weight: bold; text-transform: uppercase;" aria-hidden="true">Coins</span>
                 </div>
             </div>
-        </div>
+        </section>
 
         <div class="main-content">
-            <div class="left-panel">
+            <nav class="left-panel" aria-label="Trilhas de Conhecimento">
                 
-                <div class="dia-header mod-01"><span class="tech-font">[ Mod_01 ]</span> Fundamentos Algorítmicos<div class="dia-line"></div></div>
-                <div class="aula-item" id="menu-fase1" onclick="carregarAula('fase1', 'Lógica com Python', this)"><span class="icon-status material-symbols-outlined">check_circle</span><span class="aula-title">Fase 01: Lógica com Python</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">5xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;">toll</span> 10</span></div></div>
-                <div class="aula-item" id="menu-fase2" onclick="carregarAula('fase2', 'Matemática e Estatística', this)"><span class="icon-status material-symbols-outlined">play_circle</span><span class="aula-title">Fase 02: Matemática e Estatística</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">5xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;">toll</span> 10</span></div></div>
-                <div class="aula-item" id="menu-fase3" onclick="carregarAula('fase3', 'Infraestrutura e Tecnologia da Informação', this)"><span class="icon-status material-symbols-outlined">play_circle</span><span class="aula-title">Fase 03: Infraestrutura e Tecnologia</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">5xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;">toll</span> 10</span></div></div>
-                <div class="aula-item" id="menu-fase4" onclick="carregarAula('fase4', 'Cibersegurança e Proteção de Dados', this)"><span class="icon-status material-symbols-outlined">play_circle</span><span class="aula-title">Fase 04: Cibersegurança e Proteção de Dados</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">5xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;">toll</span> 10</span></div></div>
-                <div class="aula-item" id="menu-fase5" onclick="carregarAula('fase5', 'Ética e Humanidades', this)"><span class="icon-status material-symbols-outlined">play_circle</span><span class="aula-title">Fase 05: Ética e Humanidades</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">5xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;">toll</span> 10</span></div></div>
-                <div class="aula-item" id="menu-bonus1" onclick="tentarAbrirBonus('bonus1', 50, 'Curiosidades e Hackers', this)"><span class="icon-status material-symbols-outlined" id="icon-bonus1">lock</span><span class="aula-title" style="color: #ffd700;">[ BÔNUS ] Curiosidades e Hackers</span><div style="margin-left: auto;"><span class="xp-badge tech-font flex-align" id="price-bonus1" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;">toll</span> 50</span></div></div>
+                <h2 class="dia-header mod-01"><span class="tech-font">[ Mod_01 ]</span> Fundamentos Algorítmicos<div class="dia-line"></div></h2>
+                <div class="aula-item" id="menu-fase1" onclick="carregarAula('fase1', 'Lógica com Python', this)" role="button" tabindex="0"><span class="icon-status material-symbols-outlined" aria-hidden="true">check_circle</span><span class="aula-title">Fase 01: Lógica com Python</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">5xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;" aria-hidden="true">toll</span> 10</span></div></div>
+                <div class="aula-item" id="menu-fase2" onclick="carregarAula('fase2', 'Matemática e Estatística', this)" role="button" tabindex="0"><span class="icon-status material-symbols-outlined" aria-hidden="true">play_circle</span><span class="aula-title">Fase 02: Matemática e Estatística</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">5xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;" aria-hidden="true">toll</span> 10</span></div></div>
+                <div class="aula-item" id="menu-fase3" onclick="carregarAula('fase3', 'Infraestrutura e Tecnologia da Informação', this)" role="button" tabindex="0"><span class="icon-status material-symbols-outlined" aria-hidden="true">play_circle</span><span class="aula-title">Fase 03: Infraestrutura e Tecnologia</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">5xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;" aria-hidden="true">toll</span> 10</span></div></div>
+                <div class="aula-item" id="menu-fase4" onclick="carregarAula('fase4', 'Cibersegurança e Proteção de Dados', this)" role="button" tabindex="0"><span class="icon-status material-symbols-outlined" aria-hidden="true">play_circle</span><span class="aula-title">Fase 04: Cibersegurança e Proteção de Dados</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">5xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;" aria-hidden="true">toll</span> 10</span></div></div>
+                <div class="aula-item" id="menu-fase5" onclick="carregarAula('fase5', 'Ética e Humanidades', this)" role="button" tabindex="0"><span class="icon-status material-symbols-outlined" aria-hidden="true">play_circle</span><span class="aula-title">Fase 05: Ética e Humanidades</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">5xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;" aria-hidden="true">toll</span> 10</span></div></div>
+                <div class="aula-item" id="menu-bonus1" onclick="tentarAbrirBonus('bonus1', 50, 'Curiosidades e Hackers', this)" role="button" tabindex="0" aria-label="Desbloquear Bônus 1"><span class="icon-status material-symbols-outlined" id="icon-bonus1" aria-hidden="true">lock</span><span class="aula-title" style="color: #ffd700;">[ BÔNUS ] Curiosidades e Hackers</span><div style="margin-left: auto;"><span class="xp-badge tech-font flex-align" id="price-bonus1" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;" aria-hidden="true">toll</span> 50</span></div></div>
 
-                <div class="dia-header mod-02"><span class="tech-font">[ Mod_02 ]</span> Engenharia e Estruturas<div class="dia-line"></div></div>
-                <div class="aula-item" id="menu-fase6" onclick="carregarAula('fase6', 'Algoritmos em Python', this)"><span class="icon-status material-symbols-outlined">play_circle</span><span class="aula-title">Fase 06: Algoritmos em Python</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">10xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;">toll</span> 10</span></div></div>
-                <div class="aula-item" id="menu-fase7" onclick="carregarAula('fase7', 'Programação em C', this)"><span class="icon-status material-symbols-outlined">play_circle</span><span class="aula-title">Fase 07: Programação em C</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">10xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;">toll</span> 10</span></div></div>
-                <div class="aula-item" id="menu-fase8" onclick="carregarAula('fase8', 'Análise e Engenharia de Sistemas', this)"><span class="icon-status material-symbols-outlined">play_circle</span><span class="aula-title">Fase 08: Análise e Engenharia de Sistemas</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">10xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;">toll</span> 10</span></div></div>
-                <div class="aula-item" id="menu-fase9" onclick="carregarAula('fase9', 'Redes e Sistemas Distribuídos', this)"><span class="icon-status material-symbols-outlined">play_circle</span><span class="aula-title">Fase 09: Redes de Computadores</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">10xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;">toll</span> 10</span></div></div>
-                <div class="aula-item" id="menu-fase10" onclick="carregarAula('fase10', 'Inteligência Artificial', this)"><span class="icon-status material-symbols-outlined">play_circle</span><span class="aula-title">Fase 10: Inteligência Artificial</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">10xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;">toll</span> 10</span></div></div>
-                <div class="aula-item" id="menu-bonus2" onclick="tentarAbrirBonus('bonus2', 50, 'História e Cultura da Tecnologia', this)"><span class="icon-status material-symbols-outlined" id="icon-bonus2">lock</span><span class="aula-title" style="color: #ffd700;">[ BÔNUS ] História e Cultura da Tecnologia</span><div style="margin-left: auto;"><span class="xp-badge tech-font flex-align" id="price-bonus2" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;">toll</span> 50</span></div></div>
+                <h2 class="dia-header mod-02"><span class="tech-font">[ Mod_02 ]</span> Engenharia e Estruturas<div class="dia-line"></div></h2>
+                <div class="aula-item" id="menu-fase6" onclick="carregarAula('fase6', 'Algoritmos em Python', this)" role="button" tabindex="0"><span class="icon-status material-symbols-outlined" aria-hidden="true">play_circle</span><span class="aula-title">Fase 06: Algoritmos em Python</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">10xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;" aria-hidden="true">toll</span> 10</span></div></div>
+                <div class="aula-item" id="menu-fase7" onclick="carregarAula('fase7', 'Programação em C', this)" role="button" tabindex="0"><span class="icon-status material-symbols-outlined" aria-hidden="true">play_circle</span><span class="aula-title">Fase 07: Programação em C</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">10xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;" aria-hidden="true">toll</span> 10</span></div></div>
+                <div class="aula-item" id="menu-fase8" onclick="carregarAula('fase8', 'Análise e Engenharia de Sistemas', this)" role="button" tabindex="0"><span class="icon-status material-symbols-outlined" aria-hidden="true">play_circle</span><span class="aula-title">Fase 08: Análise e Engenharia de Sistemas</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">10xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;" aria-hidden="true">toll</span> 10</span></div></div>
+                <div class="aula-item" id="menu-fase9" onclick="carregarAula('fase9', 'Redes e Sistemas Distribuídos', this)" role="button" tabindex="0"><span class="icon-status material-symbols-outlined" aria-hidden="true">play_circle</span><span class="aula-title">Fase 09: Redes de Computadores</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">10xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;" aria-hidden="true">toll</span> 10</span></div></div>
+                <div class="aula-item" id="menu-fase10" onclick="carregarAula('fase10', 'Inteligência Artificial', this)" role="button" tabindex="0"><span class="icon-status material-symbols-outlined" aria-hidden="true">play_circle</span><span class="aula-title">Fase 10: Inteligência Artificial</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">10xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;" aria-hidden="true">toll</span> 10</span></div></div>
+                <div class="aula-item" id="menu-bonus2" onclick="tentarAbrirBonus('bonus2', 50, 'História e Cultura da Tecnologia', this)" role="button" tabindex="0"><span class="icon-status material-symbols-outlined" id="icon-bonus2" aria-hidden="true">lock</span><span class="aula-title" style="color: #ffd700;">[ BÔNUS ] História e Cultura da Tecnologia</span><div style="margin-left: auto;"><span class="xp-badge tech-font flex-align" id="price-bonus2" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;" aria-hidden="true">toll</span> 50</span></div></div>
 
-                <div class="dia-header mod-03"><span class="tech-font">[ Mod_03 ]</span> Desenvolvimento Profissional<div class="dia-line"></div></div>
-                <div class="aula-item" id="menu-fase11" onclick="carregarAula('fase11', 'Banco de Dados e NoSQL', this)"><span class="icon-status material-symbols-outlined">play_circle</span><span class="aula-title">Fase 11: Banco de Dados</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">15xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;">toll</span> 10</span></div></div>
-                <div class="aula-item" id="menu-fase12" onclick="carregarAula('fase12', 'Programação Orientada a Objetos com C#', this)"><span class="icon-status material-symbols-outlined">play_circle</span><span class="aula-title">Fase 12: Programação Orientada a Objetos</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">15xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;">toll</span> 10</span></div></div>
-                <div class="aula-item" id="menu-fase13" onclick="carregarAula('fase13', 'Web Responsivo e UX/UI Design', this)"><span class="icon-status material-symbols-outlined">play_circle</span><span class="aula-title">Fase 13: Web Responsivo e UX/UI Design</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">15xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;">toll</span> 10</span></div></div>
-                <div class="aula-item" id="menu-fase14" onclick="carregarAula('fase14', 'Aprendizado de Máquina (Machine Learning)', this)"><span class="icon-status material-symbols-outlined">play_circle</span><span class="aula-title">Fase 14: Machine Learning</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">15xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;">toll</span> 10</span></div></div>
-                <div class="aula-item" id="menu-fase15" onclick="carregarAula('fase15', 'Engenharia de Software Ágil', this)"><span class="icon-status material-symbols-outlined">play_circle</span><span class="aula-title">Fase 15: Engenharia de Software Ágil</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">15xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;">toll</span> 10</span></div></div>
-                <div class="aula-item" id="menu-bonus3" onclick="tentarAbrirBonus('bonus3', 50, 'Carreira e Mercado', this)"><span class="icon-status material-symbols-outlined" id="icon-bonus3">lock</span><span class="aula-title" style="color: #ffd700;">[ BÔNUS ] Carreira e Mercado</span><div style="margin-left: auto;"><span class="xp-badge tech-font flex-align" id="price-bonus3" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;">toll</span> 50</span></div></div>
+                <h2 class="dia-header mod-03"><span class="tech-font">[ Mod_03 ]</span> Desenvolvimento Profissional<div class="dia-line"></div></h2>
+                <div class="aula-item" id="menu-fase11" onclick="carregarAula('fase11', 'Banco de Dados e NoSQL', this)" role="button" tabindex="0"><span class="icon-status material-symbols-outlined" aria-hidden="true">play_circle</span><span class="aula-title">Fase 11: Banco de Dados</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">15xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;" aria-hidden="true">toll</span> 10</span></div></div>
+                <div class="aula-item" id="menu-fase12" onclick="carregarAula('fase12', 'Programação Orientada a Objetos com C#', this)" role="button" tabindex="0"><span class="icon-status material-symbols-outlined" aria-hidden="true">play_circle</span><span class="aula-title">Fase 12: Programação Orientada a Objetos</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">15xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;" aria-hidden="true">toll</span> 10</span></div></div>
+                <div class="aula-item" id="menu-fase13" onclick="carregarAula('fase13', 'Web Responsivo e UX/UI Design', this)" role="button" tabindex="0"><span class="icon-status material-symbols-outlined" aria-hidden="true">play_circle</span><span class="aula-title">Fase 13: Web Responsivo e UX/UI Design</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">15xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;" aria-hidden="true">toll</span> 10</span></div></div>
+                <div class="aula-item" id="menu-fase14" onclick="carregarAula('fase14', 'Aprendizado de Máquina (Machine Learning)', this)" role="button" tabindex="0"><span class="icon-status material-symbols-outlined" aria-hidden="true">play_circle</span><span class="aula-title">Fase 14: Machine Learning</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">15xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;" aria-hidden="true">toll</span> 10</span></div></div>
+                <div class="aula-item" id="menu-fase15" onclick="carregarAula('fase15', 'Engenharia de Software Ágil', this)" role="button" tabindex="0"><span class="icon-status material-symbols-outlined" aria-hidden="true">play_circle</span><span class="aula-title">Fase 15: Engenharia de Software Ágil</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">15xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;" aria-hidden="true">toll</span> 10</span></div></div>
+                <div class="aula-item" id="menu-bonus3" onclick="tentarAbrirBonus('bonus3', 50, 'Carreira e Mercado', this)" role="button" tabindex="0"><span class="icon-status material-symbols-outlined" id="icon-bonus3" aria-hidden="true">lock</span><span class="aula-title" style="color: #ffd700;">[ BÔNUS ] Carreira e Mercado</span><div style="margin-left: auto;"><span class="xp-badge tech-font flex-align" id="price-bonus3" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;" aria-hidden="true">toll</span> 50</span></div></div>
 
-                <div class="dia-header mod-04"><span class="tech-font">[ Mod_04 ]</span> Tecnologias Avançadas<div class="dia-line"></div></div>
-                <div class="aula-item" id="menu-fase16" onclick="carregarAula('fase16', 'Web e Aplicativos com .NET', this)"><span class="icon-status material-symbols-outlined">play_circle</span><span class="aula-title">Fase 16: Web e Aplicativos .NET</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">20xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;">toll</span> 10</span></div></div>
-                <div class="aula-item" id="menu-fase17" onclick="carregarAula('fase17', 'Desenvolvimento Mobile', this)"><span class="icon-status material-symbols-outlined">play_circle</span><span class="aula-title">Fase 17: Desenvolvimento Mobile</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">20xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;">toll</span> 10</span></div></div>
-                <div class="aula-item" id="menu-fase18" onclick="carregarAula('fase18', 'Programação de Banco de Dados', this)"><span class="icon-status material-symbols-outlined">play_circle</span><span class="aula-title">Fase 18: Programação de Banco de Dados</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">20xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;">toll</span> 10</span></div></div>
-                <div class="aula-item" id="menu-fase19" onclick="carregarAula('fase19', 'Cloud Computing e DevOps', this)"><span class="icon-status material-symbols-outlined">play_circle</span><span class="aula-title">Fase 19: Cloud Computing e DevOps</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">20xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;">toll</span> 10</span></div></div>
-                <div class="aula-item" id="menu-fase20" onclick="carregarAula('fase20', 'Empreendedorismo em Tecnologia', this)"><span class="icon-status material-symbols-outlined">play_circle</span><span class="aula-title">Fase 20: Empreendedorismo em Tecnologia</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">20xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;">toll</span> 10</span></div></div>
-                <div class="aula-item" id="menu-bonus4" onclick="tentarAbrirBonus('bonus4', 50, 'Mercado das Startups', this)"><span class="icon-status material-symbols-outlined" id="icon-bonus4">lock</span><span class="aula-title" style="color: #ffd700;">[ BÔNUS ] Mercado das Startups</span><div style="margin-left: auto;"><span class="xp-badge tech-font flex-align" id="price-bonus4" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;">toll</span> 50</span></div></div>
+                <h2 class="dia-header mod-04"><span class="tech-font">[ Mod_04 ]</span> Tecnologias Avançadas<div class="dia-line"></div></h2>
+                <div class="aula-item" id="menu-fase16" onclick="carregarAula('fase16', 'Web e Aplicativos com .NET', this)" role="button" tabindex="0"><span class="icon-status material-symbols-outlined" aria-hidden="true">play_circle</span><span class="aula-title">Fase 16: Web e Aplicativos .NET</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">20xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;" aria-hidden="true">toll</span> 10</span></div></div>
+                <div class="aula-item" id="menu-fase17" onclick="carregarAula('fase17', 'Desenvolvimento Mobile', this)" role="button" tabindex="0"><span class="icon-status material-symbols-outlined" aria-hidden="true">play_circle</span><span class="aula-title">Fase 17: Desenvolvimento Mobile</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">20xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;" aria-hidden="true">toll</span> 10</span></div></div>
+                <div class="aula-item" id="menu-fase18" onclick="carregarAula('fase18', 'Programação de Banco de Dados', this)" role="button" tabindex="0"><span class="icon-status material-symbols-outlined" aria-hidden="true">play_circle</span><span class="aula-title">Fase 18: Programação de Banco de Dados</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">20xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;" aria-hidden="true">toll</span> 10</span></div></div>
+                <div class="aula-item" id="menu-fase19" onclick="carregarAula('fase19', 'Cloud Computing e DevOps', this)" role="button" tabindex="0"><span class="icon-status material-symbols-outlined" aria-hidden="true">play_circle</span><span class="aula-title">Fase 19: Cloud Computing e DevOps</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">20xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;" aria-hidden="true">toll</span> 10</span></div></div>
+                <div class="aula-item" id="menu-fase20" onclick="carregarAula('fase20', 'Empreendedorismo em Tecnologia', this)" role="button" tabindex="0"><span class="icon-status material-symbols-outlined" aria-hidden="true">play_circle</span><span class="aula-title">Fase 20: Empreendedorismo em Tecnologia</span><div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font">20xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;" aria-hidden="true">toll</span> 10</span></div></div>
+                <div class="aula-item" id="menu-bonus4" onclick="tentarAbrirBonus('bonus4', 50, 'Mercado das Startups', this)" role="button" tabindex="0"><span class="icon-status material-symbols-outlined" id="icon-bonus4" aria-hidden="true">lock</span><span class="aula-title" style="color: #ffd700;">[ BÔNUS ] Mercado das Startups</span><div style="margin-left: auto;"><span class="xp-badge tech-font flex-align" id="price-bonus4" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;" aria-hidden="true">toll</span> 50</span></div></div>
 
-                <div class="dia-header mod-05"><span class="tech-font">[ Mod_05 ]</span> Preparatório ENADE<div class="dia-line"></div></div>
-                <div class="aula-item" id="menu-fase21" onclick="carregarAula('fase21', 'ENADE: Conhecimentos Gerais e Negócios', this)">
-                    <span class="icon-status material-symbols-outlined">play_circle</span><span class="aula-title">Fase 21: ENADE Conhecimentos Gerais</span>
-                    <div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font" style="border-color: #ff4500; color: #ff4500;">30xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;">toll</span> 70</span></div>
+                <h2 class="dia-header mod-05"><span class="tech-font">[ Mod_05 ]</span> Preparatório ENADE<div class="dia-line"></div></h2>
+                <div class="aula-item" id="menu-fase21" onclick="carregarAula('fase21', 'ENADE: Conhecimentos Gerais e Negócios', this)" role="button" tabindex="0">
+                    <span class="icon-status material-symbols-outlined" aria-hidden="true">play_circle</span><span class="aula-title">Fase 21: ENADE Conhecimentos Gerais</span>
+                    <div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font" style="border-color: #ff4500; color: #ff4500;">30xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;" aria-hidden="true">toll</span> 70</span></div>
                 </div>
-                <div class="aula-item" id="menu-fase22" onclick="carregarAula('fase22', 'ENADE: Específicos de Análise e Desenvolvimento de Sistemas', this)">
-                    <span class="icon-status material-symbols-outlined">play_circle</span><span class="aula-title">Fase 22: ENADE Análise e Desenvolvimento de Sistemas</span>
-                    <div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font" style="border-color: #ff4500; color: #ff4500;">30xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;">toll</span> 70</span></div>
+                <div class="aula-item" id="menu-fase22" onclick="carregarAula('fase22', 'ENADE: Específicos de Análise e Desenvolvimento de Sistemas', this)" role="button" tabindex="0">
+                    <span class="icon-status material-symbols-outlined" aria-hidden="true">play_circle</span><span class="aula-title">Fase 22: ENADE Análise e Desenvolvimento de Sistemas</span>
+                    <div style="display: flex; gap: 5px; margin-left: auto;"><span class="xp-badge tech-font" style="border-color: #ff4500; color: #ff4500;">30xp</span><span class="xp-badge tech-font flex-align" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05);"><span class="material-symbols-outlined" style="font-size: 1rem;" aria-hidden="true">toll</span> 70</span></div>
                 </div>
 
-            </div> 
+            </nav> 
             
-            <div id="right-panel">
-                <div class="painel-header">
-                    <div id="titulo-aula">Running Script...</div>
-                    <div id="contador-cartas" class="tech-font">Item 1/X</div>
-                </div>
+            <section id="right-panel" aria-label="Painel de Estudo Interativo" aria-live="polite">
+                <header class="painel-header">
+                    <h3 id="titulo-aula">Running Script...</h3>
+                    <div id="contador-cartas" class="tech-font" aria-atomic="true">Item 1/X</div>
+                </header>
 
-                <div class="card-container" onclick="virarCarta()">
+                <article class="card-container" onclick="virarCarta()" role="button" aria-label="Flashcard de estudo. Clique para virar a carta" tabindex="0">
                     <div class="card-inner" id="meuCard">
-                        <div class="carta-frente">
+                        <div class="carta-frente" aria-hidden="false">
                             <div class="carta-texto" id="texto-frente">Texto Frente</div>
                             <div class="carta-dica tech-font" id="dica-frente">Aperte [ESPAÇO] para debugar</div>
                         </div>
-                        <div class="carta-verso">
+                        <div class="carta-verso" aria-hidden="true">
                             <div class="carta-texto" id="texto-verso">Texto Verso</div>
                             <div class="carta-dica tech-font" id="dica-verso">Dica extra aqui</div>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <div class="game-controls" id="botoes-jogo">
-                    <button class="btn-jogo btn-erro tech-font flex-align-center" onclick="processarResposta('errei')">
-                        <span class="material-symbols-outlined" style="margin-right:5px;">close</span> ERRO
+                <nav class="game-controls" id="botoes-jogo" aria-label="Ações do flashcard">
+                    <button class="btn-jogo btn-erro tech-font flex-align-center" onclick="processarResposta('errei')" aria-label="Marcar como incorreta">
+                        <span class="material-symbols-outlined" style="margin-right:5px;" aria-hidden="true">close</span> ERRO
                     </button>
-                    <button class="btn-jogo btn-acerto tech-font flex-align-center" onclick="processarResposta('acertei')">
-                        <span class="material-symbols-outlined" style="margin-right:5px;">check</span> SUCESSO
+                    <button class="btn-jogo btn-acerto tech-font flex-align-center" onclick="processarResposta('acertei')" aria-label="Marcar como correta">
+                        <span class="material-symbols-outlined" style="margin-right:5px;" aria-hidden="true">check</span> SUCESSO
                     </button>
-                </div>
+                </nav>
                 
-                <button class="btn-action btn-proxima tech-font flex-align-center" id="botao-proxima" style="display: none;" onclick="irParaProximaAula()">
-                    <span class="material-symbols-outlined" style="margin-right:5px;">keyboard_double_arrow_right</span> CONCLUIR_ROTINA()
+                <button class="btn-action btn-proxima tech-font flex-align-center" id="botao-proxima" style="display: none;" onclick="irParaProximaAula()" aria-label="Avançar para a próxima fase">
+                    <span class="material-symbols-outlined" style="margin-right:5px;" aria-hidden="true">keyboard_double_arrow_right</span> CONCLUIR_ROTINA()
                 </button>
-            </div>
+            </section>
         </div> 
-    </div>
+    </main>
 
-    <div class="modal-overlay" id="modalCriacao">
+    <dialog class="modal-overlay" id="modalCriacao" aria-labelledby="modalCriacaoLabel" aria-modal="true">
         <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="flex-align"><span class="material-symbols-outlined" style="margin-right:10px;">add_box</span> Criar Flashcard</h2>
-                <button class="btn-close flex-align" onclick="fecharModal('modalCriacao')"><span class="material-symbols-outlined">close</span></button>
-            </div>
-            <div class="modal-body">
+            <header class="modal-header">
+                <h2 class="flex-align" id="modalCriacaoLabel"><span class="material-symbols-outlined" style="margin-right:10px;" aria-hidden="true">add_box</span> Criar Flashcard</h2>
+                <button class="btn-close flex-align" onclick="fecharModal('modalCriacao')" aria-label="Fechar janela"><span class="material-symbols-outlined" aria-hidden="true">close</span></button>
+            </header>
+            <form class="modal-body" onsubmit="event.preventDefault(); salvarFlashcard();">
                 <div class="input-group">
-                    <label>Disciplina de Destino</label>
-                    <select id="nova-fase" style="cursor: pointer;">
+                    <label for="nova-fase">Disciplina de Destino</label>
+                    <select id="nova-fase" style="cursor: pointer;" aria-required="true">
                         <option value="fase1">Fase 01: Lógica com Python</option>
                         <option value="fase2">Fase 02: Matemática e Estatística</option>
                         <option value="fase3">Fase 03: Infraestrutura e Tecnologia</option>
@@ -211,68 +211,66 @@
                     </select>
                 </div>
                 <div class="input-group">
-                    <label>Frente da Carta (Pergunta/Termo)</label>
-                    <textarea id="nova-frente" rows="2" placeholder="Ex: O que é..."></textarea>
+                    <label for="nova-frente">Frente da Carta (Pergunta/Termo)</label>
+                    <textarea id="nova-frente" rows="2" placeholder="Ex: O que é..." aria-required="true"></textarea>
                 </div>
                 <div class="input-group">
-                    <label>Verso da Carta (Resposta/Explicação)</label>
-                    <textarea id="nova-verso" rows="3" placeholder="Ex: É um sistema..."></textarea>
+                    <label for="nova-verso">Verso da Carta (Resposta/Explicação)</label>
+                    <textarea id="nova-verso" rows="3" placeholder="Ex: É um sistema..." aria-required="true"></textarea>
                 </div>
                 <div class="input-group">
-                    <label>Dica (Opcional)</label>
+                    <label for="nova-dica">Dica (Opcional)</label>
                     <input type="text" id="nova-dica" placeholder="Ex: Lembre-se da regra X">
                 </div>
-                <button class="btn-action btn-right tech-font flex-align" onclick="salvarFlashcard()">
-                    <span class="material-symbols-outlined" style="margin-right: 5px;">save</span> Salvar_Dado()
+                <button type="submit" class="btn-action btn-right tech-font flex-align" aria-label="Guardar flashcard">
+                    <span class="material-symbols-outlined" style="margin-right: 5px;" aria-hidden="true">save</span> Salvar_Dado()
                 </button>
-            </div>
+            </form>
         </div>
-    </div>
+    </dialog>
 
-    <div class="modal-overlay" id="modalProgresso">
+    <dialog class="modal-overlay" id="modalProgresso" aria-labelledby="modalProgressoLabel" aria-modal="true">
         <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="flex-align"><span class="material-symbols-outlined" style="margin-right:10px;">monitoring</span> Seu Histórico Acadêmico</h2>
-                <button class="btn-close flex-align" onclick="fecharModal('modalProgresso')"><span class="material-symbols-outlined">close</span></button>
-            </div>
-            <div class="modal-body" id="progresso-body">
+            <header class="modal-header">
+                <h2 class="flex-align" id="modalProgressoLabel"><span class="material-symbols-outlined" style="margin-right:10px;" aria-hidden="true">monitoring</span> Seu Histórico Acadêmico</h2>
+                <button class="btn-close flex-align" onclick="fecharModal('modalProgresso')" aria-label="Fechar janela"><span class="material-symbols-outlined" aria-hidden="true">close</span></button>
+            </header>
+            <div class="modal-body" id="progresso-body" aria-live="polite">
             </div>
         </div>
-    </div>
+    </dialog>
 
-    <div class="modal-overlay" id="modalNivelamento" style="background: rgba(0,0,0,0.95);">
+    <dialog class="modal-overlay" id="modalNivelamento" style="background: rgba(0,0,0,0.95);" aria-labelledby="modalNivelamentoLabel" aria-modal="true">
         <div class="modal-content" style="max-width: 600px; border-color: var(--alura-cyan);">
-            <div class="modal-header" style="border-bottom-color: var(--alura-cyan);">
-                <h2 style="color: var(--alura-cyan);" class="flex-align"><span class="material-symbols-outlined" style="margin-right:10px;">radar</span> Executar Diagnóstico</h2>
-            </div>
+            <header class="modal-header" style="border-bottom-color: var(--alura-cyan);">
+                <h2 style="color: var(--alura-cyan);" class="flex-align" id="modalNivelamentoLabel"><span class="material-symbols-outlined" style="margin-right:10px;" aria-hidden="true">radar</span> Executar Diagnóstico</h2>
+            </header>
             <div class="modal-body" id="nivelamento-body">
                 <p style="color: #c5c6c7; font-size: 1.1rem; margin-bottom: 20px;">
                     Iniciando protocolo de avaliação. Para calibrarmos sua árvore de habilidades, responda às 10 questões técnicas abaixo.
                 </p>
                 <button class="btn-action btn-right tech-font flex-align-center" style="width: 100%; padding: 15px; justify-content: center;" onclick="iniciarQuizNivelamento()">
-                    <span class="material-symbols-outlined" style="margin-right:5px;">play_arrow</span> START_SCAN()
+                    <span class="material-symbols-outlined" style="margin-right:5px;" aria-hidden="true">play_arrow</span> START_SCAN()
                 </button>
             </div>
         </div>
-    </div>
+    </dialog>
 
-    <footer class="main-footer">
+    <footer class="main-footer" role="contentinfo">
         <div class="footer-content">
-            <div class="footer-brand">
+            <section class="footer-brand">
                 <div class="logo tech-font">
                     <span style="color: #fff;">Nex_</span><span class="tech-text">TI</span>
                 </div>
                 <p class="footer-desc">A plataforma definitiva para acelerar a sua jornada acadêmica e profissional em Tecnologia da Informação.</p>
-                <div class="social-icons">
-                    <a href="#" onclick="emDesenvolvimento(event)" class="social-link" title="LinkedIn"><span class="material-symbols-outlined">work</span></a>
-                    
-                    <a href="https://github.com/MayconDIS/PIM_III" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub"><span class="material-symbols-outlined">code</span></a>
-                    
-                    <a href="#" onclick="emDesenvolvimento(event)" class="social-link" title="YouTube"><span class="material-symbols-outlined">play_circle</span></a>
-                </div>
-            </div>
+                <nav class="social-icons" aria-label="Redes sociais">
+                    <a href="#" onclick="emDesenvolvimento(event)" class="social-link" title="LinkedIn" aria-label="Página do LinkedIn"><span class="material-symbols-outlined" aria-hidden="true">work</span></a>
+                    <a href="https://github.com/MayconDIS/PIM_III" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub" aria-label="Repositório no GitHub"><span class="material-symbols-outlined" aria-hidden="true">code</span></a>
+                    <a href="#" onclick="emDesenvolvimento(event)" class="social-link" title="YouTube" aria-label="Canal do YouTube"><span class="material-symbols-outlined" aria-hidden="true">play_circle</span></a>
+                </nav>
+            </section>
 
-            <div class="footer-links">
+            <nav class="footer-links" aria-label="Links institucionais">
                 <h3 class="footer-title tech-font">Institucional</h3>
                 <ul>
                     <li><a href="#" onclick="emDesenvolvimento(event)">Sobre a Nex_TI</a></li>
@@ -280,9 +278,9 @@
                     <li><a href="#" onclick="emDesenvolvimento(event)">Manifesto Open Source</a></li>
                     <li><a href="#" onclick="emDesenvolvimento(event)">Carreiras & Vagas</a></li>
                 </ul>
-            </div>
+            </nav>
 
-            <div class="footer-links">
+            <nav class="footer-links" aria-label="Links do ecossistema">
                 <h3 class="footer-title tech-font">Ecossistema</h3>
                 <ul>
                     <li><a href="#" onclick="emDesenvolvimento(event)">Trilhas e Disciplinas</a></li>
@@ -290,9 +288,9 @@
                     <li><a href="#" onclick="emDesenvolvimento(event)">Comunidade Devs</a></li>
                     <li><a href="#" onclick="emDesenvolvimento(event)">Loja de Bônus (Coins)</a></li>
                 </ul>
-            </div>
+            </nav>
 
-            <div class="footer-links">
+            <nav class="footer-links" aria-label="Links de suporte">
                 <h3 class="footer-title tech-font">Suporte & Legal</h3>
                 <ul>
                     <li><a href="#" onclick="emDesenvolvimento(event)">Central de Ajuda (FAQ)</a></li>
@@ -300,7 +298,7 @@
                     <li><a href="#" onclick="emDesenvolvimento(event)">Aviso de Privacidade</a></li>
                     <li><a href="#" onclick="emDesenvolvimento(event)">Contato</a></li>
                 </ul>
-            </div>
+            </nav>
         </div>
 
         <div class="footer-bottom">
@@ -308,27 +306,27 @@
                 &copy; 2026 Nex_TI Academy. Todos os direitos reservados.
             </div>
             <div class="footer-badges flex-align">
-                <span class="material-symbols-outlined" style="color: var(--alura-green); font-size: 1.2rem;">verified_user</span> 
+                <span class="material-symbols-outlined" style="color: var(--alura-green); font-size: 1.2rem;" aria-hidden="true">verified_user</span> 
                 <span style="font-size: 0.85rem; color: #8b92a5; font-weight: 500;">Ambiente Seguro & LGPD Compliant</span>
             </div>
         </div>
     </footer>
 
-    <div class="a11y-widget" id="a11y-widget">
-        <button class="a11y-toggle flex-align-center" onclick="toggleA11yMenu()" title="Acessibilidade">
-            <span class="material-symbols-outlined" style="font-size: 1.6rem;">accessibility_new</span>
+    <aside class="a11y-widget" id="a11y-widget" aria-label="Ferramentas de acessibilidade">
+        <button class="a11y-toggle flex-align-center" onclick="toggleA11yMenu()" title="Acessibilidade" aria-haspopup="true" aria-expanded="false">
+            <span class="material-symbols-outlined" style="font-size: 1.6rem;" aria-hidden="true">accessibility_new</span>
         </button>
-        <div class="a11y-options">
-            <button class="btn-action tech-font flex-align-center" onclick="mudarZoom(-1)" title="Diminuir Texto">A-</button>
-            <button class="btn-action tech-font flex-align-center" onclick="mudarZoom(1)" title="Aumentar Texto">A+</button>
-            <button class="btn-action tech-font flex-align-center" onclick="toggleAltoContraste()" title="Alternar Alto Contraste">
-                <span class="material-symbols-outlined">contrast</span>
+        <div class="a11y-options" role="group" aria-label="Opções de contraste e zoom">
+            <button class="btn-action tech-font flex-align-center" onclick="mudarZoom(-1)" title="Diminuir Texto" aria-label="Diminuir texto">A-</button>
+            <button class="btn-action tech-font flex-align-center" onclick="mudarZoom(1)" title="Aumentar Texto" aria-label="Aumentar texto">A+</button>
+            <button class="btn-action tech-font flex-align-center" onclick="toggleAltoContraste()" title="Alternar Alto Contraste" aria-label="Alternar modo de alto contraste">
+                <span class="material-symbols-outlined" aria-hidden="true">contrast</span>
             </button>
         </div>
-    </div>
+    </aside>
 
-    <button id="btn-voltar-topo" class="btn-action flex-align-center" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
-        <span class="material-symbols-outlined" style="font-size: 1.8rem;">keyboard_arrow_up</span>
+    <button id="btn-voltar-topo" class="btn-action flex-align-center" onclick="window.scrollTo({top: 0, behavior: 'smooth'});" aria-label="Voltar para o topo da página">
+        <span class="material-symbols-outlined" style="font-size: 1.8rem;" aria-hidden="true">keyboard_arrow_up</span>
     </button>
 
     <script src="../js/data.js"></script>
