@@ -316,18 +316,15 @@ header {
 .icon-status { color: #8b92a5; min-width: 25px; text-align: center; }
 .aula-title { font-weight: 500; color: #fff; font-size: 1.05rem; }
 
-.dia-header, .aula-item { 
-    transition: opacity 0.5s ease-in-out !important; 
-}
+.dia-header, .aula-item { transition: opacity 0.5s ease-in-out !important; }
 
-/* A MÁGICA AQUI: O til (~) seleciona APENAS os elementos que vêm DEPOIS da aula ativa */
+/* O til (~) esconde apenas as fases abaixo da clicada */
 .left-panel.fade-out-others > .active-lesson ~ .dia-header, 
 .left-panel.fade-out-others > .active-lesson ~ .aula-item { 
     opacity: 0 !important; 
     pointer-events: none !important; 
 }
 
-/* Quando entra no modo foco (após 1 segundo), retira os de baixo do fluxo da tela */
 .left-panel.focus-mode > .active-lesson ~ .dia-header, 
 .left-panel.focus-mode > .active-lesson ~ .aula-item { 
     display: none !important; 
@@ -449,21 +446,10 @@ header {
 /* =========================================
    BOTÃO FLUTUANTE E ACESSIBILIDADE
    ========================================= */
-
-/* 1. Animação de flutuação e brilho contínuo */
 @keyframes floatButton {
-    0% { 
-        transform: translateY(0); 
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); 
-    }
-    50% { 
-        transform: translateY(-8px); 
-        box-shadow: 0 15px 25px rgba(0, 230, 230, 0.3); 
-    }
-    100% { 
-        transform: translateY(0); 
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); 
-    }
+    0% { transform: translateY(0); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); }
+    50% { transform: translateY(-8px); box-shadow: 0 15px 25px rgba(0, 230, 230, 0.3); }
+    100% { transform: translateY(0); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); }
 }
 
 #btn-voltar-topo {
@@ -484,20 +470,17 @@ header {
     background-color: var(--alura-card); 
     color: var(--alura-cyan); 
     border: 1px solid var(--alura-cyan);
-    
-    /* Adicionada a animação e a transição suave */
     animation: floatButton 3s ease-in-out infinite;
     transition: all 0.2s ease;
 }
 
 #btn-voltar-topo:hover {
     opacity: 1;
-    animation: none; /* Pausa a animação ao passar o mouse */
-    transform: translateY(-5px) scale(1.1); /* Dá um ligeiro zoom */
-    box-shadow: 0 8px 25px rgba(0, 230, 230, 0.6); /* Brilho neon mais forte */
+    animation: none; 
+    transform: translateY(-5px) scale(1.1); 
+    box-shadow: 0 8px 25px rgba(0, 230, 230, 0.6); 
 }
 
-/* Efeito de clique físico (afundar) */
 #btn-voltar-topo:active {
     transform: translateY(2px) scale(0.95); 
     box-shadow: 0 2px 10px rgba(0, 230, 230, 0.4);
@@ -797,7 +780,7 @@ body.high-contrast-mode .xp-badge {
 /* =========================================
    RESPONSIVIDADE E LINHAS PONTILHADAS MOBILE
    ========================================= */
-@media (max-width: 800px) {
+@media (max-width: 600px) {
     header {
         padding: 15px 15px;
         flex-direction: row; 
@@ -815,33 +798,25 @@ body.high-contrast-mode .xp-badge {
     .welcome-text h1 { font-size: 1.4rem; }
     .xp-wrapper { width: 100%; justify-content: center; margin-top: 15px; border-top: 1px solid #30363d; padding-top: 15px; }
 
-    /* ESTILIZAÇÃO GARANTIDA DAS FASES NO MOBILE */
+    /* ESTILIZAÇÃO E LINHAS PONTILHADAS DAS FASES (MOBILE) */
     .aula-item { 
-        flex-wrap: wrap !important; 
-        padding: 15px !important; 
-        align-items: center !important; 
-        position: relative !important;
-        margin-bottom: 30px !important; /* Espaço forçado para a linha pontilhada respirar */
+        flex-wrap: wrap; 
+        padding: 15px; 
+        align-items: center; 
+        margin-bottom: 15px; 
     }
     
-    /* A MÁGICA DA LINHA PONTILHADA RESTAURADA E REFORÇADA */
-    .aula-item::after {
-        content: '' !important;
-        position: absolute !important;
-        bottom: -15px !important;
-        left: 20px !important; 
-        right: 20px !important;
-        border-bottom: 3px dotted #8b92a5 !important; /* 3px para garantir visibilidade */
-        opacity: 0.8 !important;
-    }
-    
-    /* Remove a linha da última fase para não sobrar espaço morto */
-    .aula-item:last-of-type::after {
-        display: none !important;
+    /* A LINHA PONTILHADA EXATA DA IMAGEM FICA AQUI */
+    .aula-item > div { 
+        width: 100% !important; 
+        justify-content: flex-end !important; 
+        margin-left: 0 !important; 
+        margin-top: 12px !important; 
+        padding-top: 12px !important; 
+        border-top: 1px dashed rgba(139, 146, 165, 0.3) !important; /* Linha sutil interna */
     }
 
     .aula-title { font-size: 0.95rem; flex: 1; line-height: 1.4; }
-    .aula-item > div { width: 100%; justify-content: flex-end; margin-left: 0 !important; margin-top: 8px; }
 
     .carta-frente, .carta-verso { padding: 20px; }
     #titulo-aula { font-size: 1rem; }
