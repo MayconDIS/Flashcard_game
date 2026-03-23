@@ -255,12 +255,12 @@ function carregarAula(faseId, nomeAula, elementoClicado) {
     const rightPanel = document.getElementById('right-panel');
     const leftPanel = document.querySelector('.left-panel'); 
 
-    // Lógica para FECHAR a fase se já estiver aberta
+    // Fechar fase se já estiver aberta
     if (elementoClicado.classList.contains('active-lesson')) {
         elementoClicado.classList.remove('active-lesson');
         leftPanel.classList.remove('focus-mode'); 
         
-        // Retorna o scroll um pouco para cima para visualizar o menu
+        // Retorna o scroll um pouco para cima
         const y = elementoClicado.getBoundingClientRect().top + window.pageYOffset - 120;
         window.scrollTo({ top: y, behavior: 'smooth' });
 
@@ -271,7 +271,7 @@ function carregarAula(faseId, nomeAula, elementoClicado) {
         return; 
     }
 
-    // Lógica para ABRIR a fase
+    // Abrir Fase
     document.querySelectorAll('.aula-item').forEach(el => el.classList.remove('active-lesson'));
     elementoClicado.classList.add('active-lesson');
     leftPanel.classList.add('fade-out-others');
@@ -290,7 +290,7 @@ function carregarAula(faseId, nomeAula, elementoClicado) {
     let cartasDaFase = [...(meusDecks[faseId] || [])]; 
     let agora = new Date().getTime();
 
-    // Filtro Anki
+    // Filtro ANKI
     deckAtual = cartasDaFase.filter(carta => {
         let infoAnki = srsData[carta.frente];
         if (!infoAnki) return true; // Nova
@@ -321,26 +321,35 @@ function carregarAula(faseId, nomeAula, elementoClicado) {
     rightPanel.style.display = 'block';
     
     setTimeout(() => { rightPanel.classList.add('active'); }, 50);
-    
-    // Animações e SCROLL AUTOMÁTICO PARA ENQUADRAR O FLASHCARD
-    setTimeout(() => { 
+
+    // ===============================================
+    // LÓGICA BLINDADA DE SCROLL MOBILE E DESKTOP
+    // ===============================================
+    setTimeout(() => {
         if (elementoClicado.classList.contains('active-lesson')) {
+            // 1. Primeiro oculta as outras fases para a tela encolher e estabilizar
             leftPanel.classList.add('focus-mode');
-            
-            // Lógica do Scroll Suave para a fase ativa
+
+            // 2. Aguarda um instante para o navegador calcular a nova altura do documento
             setTimeout(() => {
-                const headerFixHeight = 80; // Altura do cabeçalho fixo superior
-                const elementTop = elementoClicado.getBoundingClientRect().top;
-                const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-                const targetPosition = scrollY + elementTop - headerFixHeight - 10;
+                const headerObj = document.querySelector('header');
+                const headerFixHeight = headerObj ? headerObj.offsetHeight : 80;
                 
+                // 3. No Mobile, rola a tela apontando diretamente para o Flashcard (Right Panel)
+                // Assim o botão "Mostrar Resposta" e o texto ficam sempre enquadrados!
+                const targetBox = window.innerWidth <= 800 ? document.getElementById('right-panel') : elementoClicado;
+                
+                const elementTop = targetBox.getBoundingClientRect().top;
+                const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+                const targetPosition = scrollY + elementTop - headerFixHeight - 15;
+
                 window.scrollTo({
                     top: targetPosition,
                     behavior: "smooth"
                 });
-            }, 100); 
+            }, 100); // 100ms garante que o layout do 'focus-mode' foi atualizado
         }
-    }, 700); // 700ms sincronizado com a animação CSS
+    }, 700); // 700ms acompanha a transição de abertura do rightPanel
 
     deckRevisao = []; 
     indiceCarta = 0;
@@ -599,14 +608,7 @@ function irParaProximaAula() {
         alert(`[ BÔNUS ]\nConhecimento extra rendeu +${xpGanho} XP e +${coinsGanho} Coins!`);
     }
 
-    // Ao invés de clicar (o que fecharia a aba), fazemos o reset manual e scroll para cima
-    document.getElementById('right-panel').classList.remove('active');
-    setTimeout(() => { document.getElementById('right-panel').style.display = 'none'; }, 500);
-    document.querySelectorAll('.aula-item').forEach(el => el.classList.remove('active-lesson'));
-    document.querySelector('.left-panel').classList.remove('focus-mode', 'fade-out-others');
-    document.querySelectorAll('.dia-header').forEach(el => el.classList.remove('active-header'));
-    
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.getElementById('menu-' + faseAtualId).click(); 
 }
 
 // ==========================================
