@@ -348,7 +348,7 @@ header {
 #contador-cartas { color: var(--alura-cyan); font-size: 0.9rem; }
 
 .card-container { 
-    perspective: 1000px; width: 100%; min-height: 350px; cursor: pointer; position: relative; 
+    perspective: 1000px; width: 100%; min-height: 320px; cursor: pointer; position: relative; 
 }
 
 .card-inner { 
@@ -358,7 +358,7 @@ header {
 .card-inner.flipped { transform: rotateY(180deg); }
 
 .carta-frente, .carta-verso {
-    grid-area: 1 / 1; width: 100%; min-height: 350px; backface-visibility: hidden; 
+    grid-area: 1 / 1; width: 100%; min-height: 320px; backface-visibility: hidden; 
     border-radius: 12px; display: flex; flex-direction: column; justify-content: center; 
     align-items: center; padding: 40px 30px; text-align: center; border: 2px solid #30363d;
 }
@@ -797,7 +797,7 @@ body.high-contrast-mode .xp-badge {
         flex-wrap: wrap !important; 
         padding: 15px !important; 
         align-items: center !important; 
-        margin-bottom: 0 !important; /* Zero margem extra! O gap do painel cuida disso */
+        margin-bottom: 0 !important; 
     }
     
     /* LINHA PONTILHADA INTERNA IDÊNTICA À FOTO */
@@ -810,12 +810,17 @@ body.high-contrast-mode .xp-badge {
         border-top: 1px dashed rgba(139, 146, 165, 0.4) !important; 
     }
 
-    /* Removemos permanentemente as sobras do código antigo */
     .aula-item::after { display: none !important; }
-
     .aula-title { font-size: 0.95rem; flex: 1; line-height: 1.4; }
 
-    .carta-frente, .carta-verso { padding: 20px; }
+    /* REDUÇÃO NO TAMANHO DO CARTÃO PARA O MOBILE ENCAIXAR TUDO NO ECRÃ */
+    .card-container, .carta-frente, .carta-verso { 
+        min-height: 280px !important; 
+    }
+    .carta-frente, .carta-verso { 
+        padding: 15px !important; 
+    }
+    
     #titulo-aula { font-size: 1rem; }
     .btn-jogo { font-size: 0.85rem; padding: 12px 10px; }
 
@@ -826,8 +831,8 @@ body.high-contrast-mode .xp-badge {
         align-items: center !important;
         gap: 5px !important; 
         line-height: 1.4 !important;
-        margin-top: 25px !important; /* Reduzido o buraco acima do título */
-        margin-bottom: 5px !important; /* Reduzido o buraco abaixo do título */
+        margin-top: 25px !important; 
+        margin-bottom: 5px !important; 
         padding-bottom: 0 !important;
         border-bottom: none !important;
         font-size: 0.95rem !important;
@@ -849,6 +854,7 @@ body.high-contrast-mode .xp-badge {
     .anki-label { font-size: 0.8rem; }
     .anki-time { font-size: 0.75rem; }
 
+    /* BOTOES FLUTUANTES NO MOBILE */
     #btn-voltar-topo {
         bottom: 20px !important;
         left: 20px !important; 
@@ -866,10 +872,28 @@ body.high-contrast-mode .xp-badge {
         padding: 0 12px !important;
     }
 
-    .mobile-a11y { display: flex !important; }
-    .a11y-widget { display: none !important; }
+    /* =======================================
+       AJUSTES DE ACESSIBILIDADE NO MOBILE 
+       ======================================= */
+    .mobile-a11y {
+        display: flex !important;
+    }
 
-    .main-footer { padding: 40px 20px 90px 20px; }
-    .footer-content { flex-direction: column !important; gap: 30px; }
-    .footer-bottom { flex-direction: column; text-align: center; justify-content: center; }
+    .a11y-widget {
+        display: none !important;
+    }
+
+    /* Ajustes do Rodapé no Mobile */
+    .main-footer {
+        padding: 40px 20px 90px 20px; 
+    }
+    .footer-content {
+        flex-direction: column !important; 
+        gap: 30px;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+    }
 }
