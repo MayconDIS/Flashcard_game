@@ -3,49 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>PIM III - Nex_TI</title>
+    <!-- CSS Arquitetado em ficheiro separado -->
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* FEEDBACK PROF. FLÁVIO: Implementação de Media Queries, Flexbox e Grid */
-        @media screen and (max-width: 800px) {
-            body { display: flex; flex-direction: column; align-items: center; padding: 10px; background: white; }
-            .page { width: 100%; padding: 1.5cm; min-height: auto; page-break-after: auto; box-shadow: none; }
-            .sumario-item { display: flex; flex-direction: column; margin-bottom: 10px; }
-            .sumario-pontos { display: none; }
-            .table-autores, .table-capa { display: grid; grid-template-columns: 1fr; width: 100%; }
-        }
-        
-        .code-box {
-            background-color: #f4f4f4;
-            border-left: 5px solid #333;
-            padding: 15px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 10pt;
-            overflow-x: auto;
-            margin-bottom: 1cm;
-        }
-
-        /* ESTILO PARA O SUMÁRIO CLICÁVEL (Mantendo o padrão ABNT) */
-        .sumario-link {
-            text-decoration: none;
-            color: inherit;
-            display: block; 
-            width: 100%;
-        }
-        
-        .sumario-link:hover .sumario-titulo {
-            text-decoration: underline;
-            cursor: pointer;
-        }
-
-        /* ESTILO PARA LINKS DAS REFERÊNCIAS */
-        .ref-link {
-            color: inherit;
-            transition: color 0.2s;
-        }
-        .ref-link:hover {
-            color: #2f81f7;
-        }
-    </style>
 </head>
 <body>
 
@@ -63,10 +22,7 @@
         </header>
         
         <table class="table-capa" aria-label="Tabela de Autores">
-            <tr>
-                <th width="70%">Nomes</th>
-                <th width="30%">R.A</th>
-            </tr>
+            <tr><th width="70%">Nomes</th><th width="30%">R.A</th></tr>
             <tr><td>Gabriel Alves Moreira</td><td>H67HJI4</td></tr>
             <tr><td>Maciel Costa da Silva</td><td>R280985</td></tr>
             <tr><td>Maycon Douglas Inácio Silva</td><td>H719CD3</td></tr>
@@ -74,17 +30,13 @@
         </table>
         
         <footer class="capa-footer uppercase">
-            São José dos Campos - SP<br>
-            Novembro/2026
+            São José dos Campos - SP<br>Novembro/2026
         </footer>
     </section>
 
     <section class="page" aria-label="Folha de Rosto">
         <table class="table-autores" style="margin-top: 1cm; margin-bottom: 3cm;">
-            <tr>
-                <th width="70%">Nomes</th>
-                <th width="30%">R.A</th>
-            </tr>
+            <tr><th width="70%">Nomes</th><th width="30%">R.A</th></tr>
             <tr><td>Gabriel Alves Moreira</td><td>H67HJI4</td></tr>
             <tr><td>Maciel Costa da Silva</td><td>R280985</td></tr>
             <tr><td>Maycon Douglas Inácio Silva</td><td>H719CD3</td></tr>
@@ -100,89 +52,48 @@
         </div>
         
         <footer class="capa-footer uppercase">
-            São José dos Campos - SP<br>
-            Novembro / 2026
+            São José dos Campos - SP<br>Novembro / 2026
         </footer>
     </section>
 
     <section class="page" aria-label="Resumo">
         <h2 class="center">RESUMO</h2>
         <p class="paragrafo">Este documento apresenta a especificação técnica da Nex_TI, uma plataforma web de avaliação e apoio à aprendizagem desenvolvida para uma empresa fictícia de tecnologia educacional, com foco em Estudo Ativo, Repetição Espaçada e Gamificação. O objetivo arquitetural é solucionar a baixa retenção de conhecimento técnico em treinamentos corporativos e acadêmicos. A arquitetura de análise incorpora o algoritmo SM-2 para intervalos de revisão e um motor que distribui pontos de experiência e moedas virtuais. O ciclo de vida do projeto foi conduzido sob Scrum e Kanban, com práticas aderentes ao MPS.BR. Nesta etapa do projeto, a interface foi projetada no modelo Mobile First utilizando prototipagem de alta fidelidade na ferramenta Figma, atendendo à ISO/IEC 25010 e aplicando o HTML semântico com WAI-ARIA para acessibilidade e CSS Grid/Flexbox para responsividade. A engenharia de requisitos validou os fluxos baseados em heurísticas de usabilidade, e o mapeamento técnico estruturou o desenvolvimento das classes via Programação Orientada a Objetos em C# e modelagem de tabelas para o banco de dados SQL Server, em conformidade com a LGPD, previstas para a codificação completa no quarto semestre.</p>
-        <p><br>Palavras-chave: Arquitetura de Software; Alta Fidelidade; Gamificação; Repetição Espaçada.</p>
+        <p><br>Palavras-chave: Arquitetura de Software; Alta Fidelidade; Gamificação; Repetição Espaçada; C#; .NET.</p>
     </section>
 
     <section class="page" aria-label="Abstract">
         <h2 class="center">ABSTRACT</h2>
         <p class="paragrafo">This document presents the technical specification of Nex_TI, a web-based assessment and learning support platform developed for a fictitious educational technology company, focusing on Active Study, Spaced Repetition, and Gamification. The architectural objective is to solve the low retention of technical knowledge in corporate and academic training. The analysis architecture incorporates the SM-2 algorithm for review intervals and an engine that distributes experience points and virtual coins. The project lifecycle was conducted under Scrum and Kanban, with practices adhering to MPS.BR. In this project stage, the interface was designed in the Mobile First model using high-fidelity prototyping in the Figma tool, complying with ISO/IEC 25010 and applying semantic HTML with WAI-ARIA for accessibility and CSS Grid/Flexbox for responsiveness. Requirements engineering validated flows based on usability heuristics, and technical mapping structured the development of classes via Object-Oriented Programming in C# and table modeling for the SQL Server database, in compliance with LGPD, scheduled for full coding in the fourth semester.</p>
-        <p><br>Keywords: Software Architecture; High Fidelity; Gamification; Spaced Repetition.</p>
+        <p><br>Keywords: Software Architecture; High Fidelity; Gamification; Spaced Repetition; C#; .NET.</p>
     </section>
 
     <section class="page" aria-label="Página do Sumário">
         <h2 class="center">SUMÁRIO</h2>
         
         <nav class="sumario-container" role="navigation" aria-label="Navegação do Documento">
-            <a href="#sec-1" class="sumario-link">
-                <div class="sumario-item" role="menuitem"><span class="sumario-titulo">1 INTRODUÇÃO</span><span class="sumario-pontos"></span><span class="sumario-pagina">6</span></div>
-            </a>
-            <a href="#sec-1-1" class="sumario-link">
-                <div class="sumario-item" role="menuitem"><span class="sumario-titulo sumario-recuo-1">1.1 Objetivo Geral</span><span class="sumario-pontos"></span><span class="sumario-pagina">6</span></div>
-            </a>
-            <a href="#sec-1-2" class="sumario-link">
-                <div class="sumario-item" role="menuitem"><span class="sumario-titulo sumario-recuo-1">1.2 Objetivos Específicos</span><span class="sumario-pontos"></span><span class="sumario-pagina">6</span></div>
-            </a>
-            <a href="#sec-1-3" class="sumario-link">
-                <div class="sumario-item" role="menuitem"><span class="sumario-titulo sumario-recuo-1">1.3 Contextualização do Projeto</span><span class="sumario-pontos"></span><span class="sumario-pagina">7</span></div>
-            </a>
+            <a href="#sec-1" class="sumario-link"><div class="sumario-item" role="menuitem"><span class="sumario-titulo">1 INTRODUÇÃO</span><span class="sumario-pontos"></span><span class="sumario-pagina">6</span></div></a>
+            <a href="#sec-1-1" class="sumario-link"><div class="sumario-item" role="menuitem"><span class="sumario-titulo sumario-recuo-1">1.1 Objetivo Geral</span><span class="sumario-pontos"></span><span class="sumario-pagina">6</span></div></a>
+            <a href="#sec-1-2" class="sumario-link"><div class="sumario-item" role="menuitem"><span class="sumario-titulo sumario-recuo-1">1.2 Objetivos Específicos</span><span class="sumario-pontos"></span><span class="sumario-pagina">6</span></div></a>
+            <a href="#sec-1-3" class="sumario-link"><div class="sumario-item" role="menuitem"><span class="sumario-titulo sumario-recuo-1">1.3 Contextualização do Projeto</span><span class="sumario-pontos"></span><span class="sumario-pagina">7</span></div></a>
             
-            <a href="#sec-2" class="sumario-link">
-                <div class="sumario-item" role="menuitem"><span class="sumario-titulo">2 DESENVOLVIMENTO</span><span class="sumario-pontos"></span><span class="sumario-pagina">7</span></div>
-            </a>
-            <a href="#sec-2-1" class="sumario-link">
-                <div class="sumario-item" role="menuitem"><span class="sumario-titulo sumario-recuo-1">2.1 Etapa 1 – Definição e caracterização do negócio fictício</span><span class="sumario-pontos"></span><span class="sumario-pagina">7</span></div>
-            </a>
-            <a href="#sec-2-1-1" class="sumario-link">
-                <div class="sumario-item" role="menuitem"><span class="sumario-titulo sumario-recuo-2">2.1.1 Regras de Negócio</span><span class="sumario-pontos"></span><span class="sumario-pagina">8</span></div>
-            </a>
-            <a href="#sec-2-2" class="sumario-link">
-                <div class="sumario-item" role="menuitem"><span class="sumario-titulo sumario-recuo-1">2.2 Etapa 2 – Engenharia de Software Ágil Aplicada</span><span class="sumario-pontos"></span><span class="sumario-pagina">8</span></div>
-            </a>
-            <a href="#sec-2-2-1" class="sumario-link">
-                <div class="sumario-item" role="menuitem"><span class="sumario-titulo sumario-recuo-2">2.2.1 Requisitos Funcionais e Não Funcionais</span><span class="sumario-pontos"></span><span class="sumario-pagina">9</span></div>
-            </a>
-            <a href="#sec-2-2-2" class="sumario-link">
-                <div class="sumario-item" role="menuitem"><span class="sumario-titulo sumario-recuo-2">2.2.2 Product Backlog e Épicos</span><span class="sumario-pontos"></span><span class="sumario-pagina">10</span></div>
-            </a>
-            <a href="#sec-2-2-3" class="sumario-link">
-                <div class="sumario-item" role="menuitem"><span class="sumario-titulo sumario-recuo-2">2.2.3 Gestão Visual e Quadro Kanban</span><span class="sumario-pontos"></span><span class="sumario-pagina">11</span></div>
-            </a>
-            <a href="#sec-2-3" class="sumario-link">
-                <div class="sumario-item" role="menuitem"><span class="sumario-titulo sumario-recuo-1">2.3 Etapa 3 – Modelagem de Banco de Dados e NoSQL</span><span class="sumario-pontos"></span><span class="sumario-pagina">13</span></div>
-            </a>
-            <a href="#sec-2-4" class="sumario-link">
-                <div class="sumario-item" role="menuitem"><span class="sumario-titulo sumario-recuo-1">2.4 Etapa 4 – Desenvolvimento do sistema com POO (C#)</span><span class="sumario-pontos"></span><span class="sumario-pagina">14</span></div>
-            </a>
-            <a href="#sec-2-5" class="sumario-link">
-                <div class="sumario-item" role="menuitem"><span class="sumario-titulo sumario-recuo-1">2.5 Etapa 5 – Desenvolvimento Web Responsivo</span><span class="sumario-pontos"></span><span class="sumario-pagina">14</span></div>
-            </a>
-            <a href="#sec-2-6" class="sumario-link">
-                <div class="sumario-item" role="menuitem"><span class="sumario-titulo sumario-recuo-1">2.6 Etapa 6 – UX e UI Design</span><span class="sumario-pontos"></span><span class="sumario-pagina">15</span></div>
-            </a>
-            <a href="#sec-2-7" class="sumario-link">
-                <div class="sumario-item" role="menuitem"><span class="sumario-titulo sumario-recuo-1">2.7 Etapa 7 – Machine Learning e Análise de Dados</span><span class="sumario-pontos"></span><span class="sumario-pagina">17</span></div>
-            </a>
-            <a href="#sec-2-8" class="sumario-link">
-                <div class="sumario-item" role="menuitem"><span class="sumario-titulo sumario-recuo-1">2.8 Etapa 8 – Comunicação, Liderança, Negociação e LIBRAS</span><span class="sumario-pontos"></span><span class="sumario-pagina">17</span></div>
-            </a>
-            <a href="#sec-2-9" class="sumario-link">
-                <div class="sumario-item" role="menuitem"><span class="sumario-titulo sumario-recuo-1">2.9 Etapa 9 – Integração e avaliação final</span><span class="sumario-pontos"></span><span class="sumario-pagina">18</span></div>
-            </a>
+            <a href="#sec-2" class="sumario-link"><div class="sumario-item" role="menuitem"><span class="sumario-titulo">2 DESENVOLVIMENTO</span><span class="sumario-pontos"></span><span class="sumario-pagina">7</span></div></a>
+            <a href="#sec-2-1" class="sumario-link"><div class="sumario-item" role="menuitem"><span class="sumario-titulo sumario-recuo-1">2.1 Etapa 1 – Definição e caracterização do negócio fictício</span><span class="sumario-pontos"></span><span class="sumario-pagina">7</span></div></a>
+            <a href="#sec-2-1-1" class="sumario-link"><div class="sumario-item" role="menuitem"><span class="sumario-titulo sumario-recuo-2">2.1.1 Regras de Negócio</span><span class="sumario-pontos"></span><span class="sumario-pagina">8</span></div></a>
+            <a href="#sec-2-2" class="sumario-link"><div class="sumario-item" role="menuitem"><span class="sumario-titulo sumario-recuo-1">2.2 Etapa 2 – Engenharia de Software Ágil Aplicada</span><span class="sumario-pontos"></span><span class="sumario-pagina">8</span></div></a>
+            <a href="#sec-2-2-1" class="sumario-link"><div class="sumario-item" role="menuitem"><span class="sumario-titulo sumario-recuo-2">2.2.1 Requisitos Funcionais e Não Funcionais</span><span class="sumario-pontos"></span><span class="sumario-pagina">9</span></div></a>
+            <a href="#sec-2-2-2" class="sumario-link"><div class="sumario-item" role="menuitem"><span class="sumario-titulo sumario-recuo-2">2.2.2 Product Backlog e Épicos</span><span class="sumario-pontos"></span><span class="sumario-pagina">10</span></div></a>
+            <a href="#sec-2-2-3" class="sumario-link"><div class="sumario-item" role="menuitem"><span class="sumario-titulo sumario-recuo-2">2.2.3 Gestão Visual e Quadro Kanban</span><span class="sumario-pontos"></span><span class="sumario-pagina">11</span></div></a>
+            <a href="#sec-2-3" class="sumario-link"><div class="sumario-item" role="menuitem"><span class="sumario-titulo sumario-recuo-1">2.3 Etapa 3 – Modelagem de Banco de Dados e NoSQL</span><span class="sumario-pontos"></span><span class="sumario-pagina">13</span></div></a>
+            <a href="#sec-2-4" class="sumario-link"><div class="sumario-item" role="menuitem"><span class="sumario-titulo sumario-recuo-1">2.4 Etapa 4 – Desenvolvimento do sistema com POO (C#)</span><span class="sumario-pontos"></span><span class="sumario-pagina">14</span></div></a>
+            <a href="#sec-2-5" class="sumario-link"><div class="sumario-item" role="menuitem"><span class="sumario-titulo sumario-recuo-1">2.5 Etapa 5 – Desenvolvimento Web Responsivo</span><span class="sumario-pontos"></span><span class="sumario-pagina">17</span></div></a>
+            <a href="#sec-2-6" class="sumario-link"><div class="sumario-item" role="menuitem"><span class="sumario-titulo sumario-recuo-1">2.6 Etapa 6 – UX e UI Design</span><span class="sumario-pontos"></span><span class="sumario-pagina">18</span></div></a>
+            <a href="#sec-2-7" class="sumario-link"><div class="sumario-item" role="menuitem"><span class="sumario-titulo sumario-recuo-1">2.7 Etapa 7 – Machine Learning e Análise de Dados</span><span class="sumario-pontos"></span><span class="sumario-pagina">20</span></div></a>
+            <a href="#sec-2-8" class="sumario-link"><div class="sumario-item" role="menuitem"><span class="sumario-titulo sumario-recuo-1">2.8 Etapa 8 – Comunicação, Liderança, Negociação e LIBRAS</span><span class="sumario-pontos"></span><span class="sumario-pagina">20</span></div></a>
+            <a href="#sec-2-9" class="sumario-link"><div class="sumario-item" role="menuitem"><span class="sumario-titulo sumario-recuo-1">2.9 Etapa 9 – Integração e avaliação final</span><span class="sumario-pontos"></span><span class="sumario-pagina">21</span></div></a>
             
-            <a href="#sec-3" class="sumario-link">
-                <div class="sumario-item" role="menuitem"><span class="sumario-titulo">3 CONCLUSÃO</span><span class="sumario-pontos"></span><span class="sumario-pagina">21</span></div>
-            </a>
-            <a href="#sec-ref" class="sumario-link">
-                <div class="sumario-item" role="menuitem"><span class="sumario-titulo">REFERÊNCIAS</span><span class="sumario-pontos"></span><span class="sumario-pagina">22</span></div>
-            </a>
+            <a href="#sec-3" class="sumario-link"><div class="sumario-item" role="menuitem"><span class="sumario-titulo">3 CONCLUSÃO</span><span class="sumario-pontos"></span><span class="sumario-pagina">23</span></div></a>
+            <a href="#sec-ref" class="sumario-link"><div class="sumario-item" role="menuitem"><span class="sumario-titulo">REFERÊNCIAS</span><span class="sumario-pontos"></span><span class="sumario-pagina">24</span></div></a>
         </nav>
     </section>
 
@@ -200,7 +111,7 @@
         <ul>
             <li>Definir a arquitetura da aplicação e suas respectivas regras de negócio baseadas em gamificação.</li>
             <li>Implementar metodologias ágeis para controle de rastreabilidade, fundamentadas nos processos do MPS.BR (SOFTEX, 2021).</li>
-            <li>Modelar a estrutura do SQL Server e implementar a lógica do sistema via Programação Orientada a Objetos em C#.</li>
+            <li>Modelar a estrutura do SQL Server e implementar a lógica do sistema via Programação Orientada a Objetos em C# e .NET 10.</li>
             <li>Construir interfaces aplicando Affordance, Pregnância da Forma e as Heurísticas de Nielsen.</li>
             <li>Substituir construções genéricas por HTML Semântico aliado ao Flexbox e Media Queries, além de garantir acessibilidade com WAI-ARIA.</li>
         </ul>
@@ -256,8 +167,8 @@
             <li>RNF03: Responsividade seguindo restritamente os critérios de Mobile First e Flexbox.</li>
             <li>RNF04: Acessibilidade Universal com modos de contraste voltados a distúrbios de visão.</li>
             <li>RNF05: Desempenho garantido com tempo de resposta inferior a 2 segundos para o processamento de transição visual e cálculo de tempo dos flashcards.</li>
-            <li>RNF06: Interoperabilidade e compatibilidade asseguradas para execução nos principais navegadores web do mercado (Google Chrome, Mozilla Firefox, Microsoft Edge e Safari).</li>
-            <li>RNF07: Escalabilidade programada prevendo a integração em Node.js com banco de dados estruturado e autenticação por JSON Web Token, cuja implementação técnica ocorrerá a partir do quarto semestre.</li>
+            <li>RNF06: Interoperabilidade e compatibilidade asseguradas para execução nos principais navegadores web do mercado.</li>
+            <li>RNF07: Escalabilidade programada prevendo a integração em Node.js com banco de dados estruturado e autenticação por JSON Web Token.</li>
         </ul>
     </section>
 
@@ -307,61 +218,154 @@
         <p class="paragrafo">A modelagem lógica definiu as cardinalidades essenciais operando no SGBD SQL Server (ELMASRI; NAVATHE, 2011). As diretrizes de privacidade exigidas pela LGPD (BRASIL, 2018) foram atendidas criando campos dedicados à ofuscação (Hash) na camada de persistência de dados. O Quadro 1 evidencia o desenvolvimento da estrutura fundamental da entidade no banco transacional.</p>
         
         <div class="code-box" aria-label="Código de criação da tabela de usuários em SQL">
-            Quadro 1 – Script DDL para criação da Tabela no SQL Server<br><br>
-            CREATE TABLE tb_usuarios (<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;id_usuario INT IDENTITY(1,1) PRIMARY KEY,<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;nome_completo VARCHAR(150) NOT NULL,<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;email VARCHAR(100) UNIQUE NOT NULL,<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;senha_hash VARCHAR(255) NOT NULL,<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;xp_acumulado INT DEFAULT 0,<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;moedas_virtuais INT DEFAULT 0,<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;data_cadastro DATETIME DEFAULT GETDATE()<br>
-            );
+            <pre><code>Quadro 1 – Script DDL para criação da Tabela no SQL Server
+
+CREATE TABLE tb_usuarios (
+    id_usuario INT IDENTITY(1,1) PRIMARY KEY,
+    nome_completo VARCHAR(150) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    senha_hash VARCHAR(255) NOT NULL,
+    xp_acumulado INT DEFAULT 0,
+    moedas_virtuais INT DEFAULT 0,
+    data_cadastro DATETIME DEFAULT GETDATE()
+);</code></pre>
         </div>
         <p class="legenda-fonte" style="text-align: left; margin-top:-0.5cm; margin-bottom: 1cm;">Fonte: Criado pelos autores, 2026.</p>
         
         <p class="paragrafo">A estrutura relacional viabiliza não apenas as restrições e unicidade de credenciais, mas também escalabilidade para eventuais conexões com bases NoSQL focadas em armazenar os imensos volumes de logs de acertos dos flashcards diários.</p>
     </section>
 
+    <!-- PÁGINA 14: INÍCIO DA ETAPA 4 (POO) -->
     <section class="page">
         <span class="num-pagina">14</span>
         <h3 id="sec-2-4">2.4 Etapa 4 – Desenvolvimento do sistema com POO (C#)</h3>
-        <p class="paragrafo">A arquitetura de desenvolvimento utilizou o paradigma de Programação Orientada a Objetos através da linguagem C#, como pilar fundamental para a construção de lógicas e entidades reutilizáveis na engenharia de software (PRESSMAN; MAXIM, 2016). O isolamento via encapsulamento evita a modificação fraudulenta de variáveis de gamificação na memória, conforme modelado no Quadro 2.</p>
+        <p class="paragrafo">A arquitetura de desenvolvimento do Back-end utilizou o paradigma de Programação Orientada a Objetos (POO) através da linguagem C# e da plataforma .NET 10. O sistema aplica rigorosamente os quatro pilares da POO: Abstração, Encapsulamento, Herança e Polimorfismo, garantindo proteção de dados e facilidade de manutenção (PRESSMAN; MAXIM, 2016).</p>
         
-        <div class="code-box" aria-label="Código C# da classe Usuário">
-            Quadro 2 – Classe de Objeto estruturada em C#<br><br>
-            public class Usuario {<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;public int Id { get; private set; }<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;public string Nome { get; private set; }<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;private int _xpAcumulado;<br><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;public Usuario(int id, string nome) {<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.Id = id;<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.Nome = nome;<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this._xpAcumulado = 0;<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;public void AdicionarXP(int pontos) {<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (pontos > 0) this._xpAcumulado += pontos;<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
-            }
+        <p class="paragrafo">A classe base do sistema é a <code>Usuario</code>, que encapsula os atributos primários de autenticação (Id, Nome, Email, Senha) e abstrai o método de <code>Login()</code> para todos os atores da plataforma.</p>
+
+        <div class="code-box" aria-label="Código C# da classe Usuario e Admin">
+            <pre><code>Quadro 2 – Classes Usuario.cs e Admin.cs em C#
+
+using System;
+
+namespace PIM_III {
+    public class Usuario {
+        public int Id { get; set; }
+        public string Nome { get; set; }
+        public string Email { get; set; }
+        public string Senha { get; set; }
+
+        public Usuario(int id, string nome, string email, string senha) {
+            Id = id; Nome = nome; Email = email; Senha = senha;
+        }
+        public void Login() {
+            Console.WriteLine("Usuário logado com sucesso!");
+        }
+    }
+
+    internal class Admin : Usuario {
+        public Admin(int id, string nome, string email, string senha)
+        : base(id, nome, email, senha) {}
+
+        public void gerenciarAcesso() {
+            Console.WriteLine("Gerenciando acesso...");
+        }
+    }
+}</code></pre>
         </div>
         <p class="legenda-fonte" style="text-align: left; margin-top:-0.5cm; margin-bottom: 1cm;">Fonte: Criado pelos autores, 2026.</p>
-
-        <h3 id="sec-2-5">2.5 Etapa 5 – Desenvolvimento Web Responsivo</h3>
-        <p class="paragrafo">No escopo do presente semestre, a camada de apresentação foi concebida através de prototipagem de alta fidelidade no software Figma, orientada para futura codificação em marcação semântica profunda. O uso genérico de elementos div foi substituído no mapeamento arquitetural por tags precisas do HTML5, tais como header, main, section e nav, garantindo otimização lógica (ISO/IEC, 2011).</p>
     </section>
 
+    <!-- PÁGINA 15: CONTINUAÇÃO DA ETAPA 4 (HERANÇA E COMPOSIÇÃO) -->
     <section class="page">
         <span class="num-pagina">15</span>
-        <p class="paragrafo">A estratégia adotada no design baseou-se na priorização de dispositivos móveis através do conceito Mobile First. A estruturação prevê o uso do Flexbox para alinhamentos transversais e CSS Grid Layout para a montagem dos painéis de flashcards. Toda a responsividade projetada será operada por Media Queries que reordenam dinamicamente a interface.</p>
+        <p class="paragrafo">A partir da superclasse <code>Usuario</code>, aplicamos o conceito de Herança para derivar perfis com níveis de acesso estritos. Além do Administrador, temos o perfil <code>Tutor</code>, responsável por gerenciar conteúdo e acompanhar o desempenho. A entidade central da plataforma é a classe <code>Aluno</code>, que para além de herdar de Usuário, utiliza o princípio de Composição associando-se às classes de Gamificação (XP, Moedas, Desempenho e Simulado).</p>
 
-        <h3 id="sec-2-6">2.6 Etapa 6 – UX e UI Design</h3>
-        <p class="paragrafo">A engenharia de usabilidade aplicou testes sistemáticos nos protótipos de alta fidelidade baseados nas Heurísticas de Usabilidade de Nielsen (KRUG, 2014). Para garantir a visibilidade do status do sistema, foram incorporadas barras de preenchimento de experiência (XP). A prevenção de erros foi abordada desabilitando visualmente os botões antes que o usuário conclua o preenchimento dos formulários exigidos.</p>
-        
-        <p class="paragrafo">A interface utiliza o conceito de Pregnância da Forma, apresentando os cartões de estudo como blocos simples, desprovidos de ruído visual, reduzindo a carga cognitiva. Os botões de interação exibem forte affordance, incorporando efeitos de elevação que sugerem fisicamente ao utilizador a ação de clique, consolidando um ambiente virtual altamente engajador.</p>
+        <div class="code-box" aria-label="Código C# da classe Aluno e Tutor">
+            <pre><code>Quadro 3 – Classes Aluno.cs e Tutor.cs (Herança e Composição)
+
+using System.Collections.Generic;
+
+namespace PIM_III {
+    internal class Tutor : Usuario {
+        public Tutor(int id, string n, string e, string s) : base(id,n,e,s) {}
+        public void acompanharDesempenho() { Console.WriteLine("Acompanhando..."); }
+        public void gerenciarConteudo() { Console.WriteLine("Gerenciando..."); }
+    }
+
+    internal class Aluno : Usuario {
+        public Simulado Simulado { get; set; }
+        public Desempenho Desempenho { get; set; }
+        public XP XP { get; set; }
+        public Moedas Moedas { get; set; }
+        public Acessibilidade Acessibilidade { get; set; }
+        public List<Duvidas> Duvidas { get; set; }
+
+        public Aluno(int id, string n, string e, string s) : base(id, n, e, s) {
+            Duvidas = new List<Duvidas>();
+        }
+
+        public void EstudarFlashCard() { Console.WriteLine("Estudando Flashcard..."); }
+        public void RealizarSimulado() { Console.WriteLine("Fazendo simulado..."); }
+        public void VisualizarProgresso() { Console.WriteLine("Visualizando..."); }
+    }
+}</code></pre>
+        </div>
+        <p class="legenda-fonte" style="text-align: left; margin-top:-0.5cm; margin-bottom: 1cm;">Fonte: Criado pelos autores, 2026.</p>
+    </section>
+
+    <!-- PÁGINA 16: COMPONENTES MENORES E PROGRAM.CS -->
+    <section class="page">
+        <span class="num-pagina">16</span>
+        <p class="paragrafo">As classes complementares encapsulam atributos numéricos vitais para a economia virtual e acessibilidade, enquanto a classe <code>Program</code> atua como o ponto de inicialização e instanciação (Main) do software.</p>
+
+        <div class="code-box" aria-label="Código C# de Program e Classes auxiliares">
+            <pre><code>Quadro 4 – Classes Auxiliares e Program.cs
+
+namespace PIM_III {
+    internal class XP { public int Pontos { get; set; } }
+    internal class Moedas { public int Quantidade { get; set; } }
+    internal class Desempenho { public float Progresso { get; set; } }
+    internal class Simulado { public int Id { get; set; } public float Nota { get; set; } }
+    internal class Duvidas { public string Descricao { get; set; } }
+    internal class Acessibilidade { public string Modo { get; set; } }
+}
+
+// Arquivo de Execução Principal
+using System;
+using PIM_III;
+
+public class Program {
+    public static void Main(string[] args) {
+        Console.WriteLine("---PIM_III---");
+        Console.WriteLine("Seja bem vindo");
+
+        // Instanciação com parâmetros exigidos pelo construtor
+        Usuario u = new Usuario(1, "Aluno Padrão", "aluno@nexti.com", "senha123");
+        u.Login();
+    }
+}</code></pre>
+        </div>
+        <p class="legenda-fonte" style="text-align: left; margin-top:-0.5cm; margin-bottom: 1cm;">Fonte: Criado pelos autores, 2026.</p>
+    </section>
+
+    <!-- PÁGINA 17: ETAPA 5 E 6 -->
+    <section class="page">
+        <span class="num-pagina">17</span>
+        <h3 id="sec-2-5">2.5 Etapa 5 – Desenvolvimento Web Responsivo</h3>
+        <p class="paragrafo">No escopo do presente semestre, a camada de apresentação (Front-end) foi desenvolvida utilizando HTML5 estruturado e semântico. O uso genérico de elementos <code>div</code> foi substituído no mapeamento arquitetural por tags precisas da W3C, tais como <code>header</code>, <code>main</code>, <code>section</code>, <code>article</code> e <code>nav</code>, garantindo otimização lógica para motores de busca e acessibilidade (ISO/IEC, 2011).</p>
+        <p class="paragrafo">A estratégia adotada no design baseou-se na priorização de dispositivos móveis através do conceito Mobile First. A estruturação previu o uso do Flexbox para alinhamentos transversais do painel principal e CSS Grid Layout para a montagem dos painéis de login. Toda a responsividade projetada é operada de forma limpa por Media Queries nativas que reordenam dinamicamente a interface sem uso de bibliotecas de terceiros.</p>
     </section>
 
     <section class="page">
-        <span class="num-pagina">16</span>
+        <span class="num-pagina">18</span>
+        <h3 id="sec-2-6">2.6 Etapa 6 – UX e UI Design</h3>
+        <p class="paragrafo">A engenharia de usabilidade aplicou testes sistemáticos nos protótipos baseados nas Heurísticas de Usabilidade de Nielsen (KRUG, 2014). Para garantir a visibilidade do status do sistema, foram incorporadas barras de progresso (WAI-ARIA) e interfaces que informam claramente a quantidade de XP e Moedas do aluno. A prevenção de erros foi abordada desabilitando visualmente botões de questionário após a seleção de uma resposta.</p>
+        <p class="paragrafo">A interface utiliza o conceito de Pregnância da Forma, apresentando os cartões de estudo (Flashcards) como blocos simples, desprovidos de ruído visual, reduzindo a carga cognitiva. Os botões de interação exibem forte affordance, incorporando efeitos de elevação que sugerem fisicamente ao utilizador a ação de clique, consolidando um ambiente virtual altamente engajador.</p>
+    </section>
+
+    <section class="page">
+        <span class="num-pagina">19</span>
         <div class="diagrama-container">
             <p class="legenda-topo">Figura 3 – Diagrama de Caso de Uso do Sistema Nex_TI</p>
             <img src="UseCase Diagram Nex_TI.png" alt="Diagrama de Casos de Uso" class="diagrama-img">
@@ -370,21 +374,21 @@
     </section>
 
     <section class="page">
-        <span class="num-pagina">17</span>
+        <span class="num-pagina">20</span>
         <h3 id="sec-2-7">2.7 Etapa 7 – Machine Learning e Análise de Dados</h3>
-        <p class="paragrafo">A inteligência sistêmica mapeada no projeto valida a integração do algoritmo matemático SM-2 (ANKI, 2026). A lógica estrutural prevê que as respostas do aluno ajustem as datas de retomada do conteúdo, gerando uma base de dados analítica de alta precisão para a avaliação de desempenho global baseada nas curvas de esquecimento individual.</p>
-        <p class="paragrafo">O roadmap técnico estabelece ainda a integração teórica de Modelos de Linguagem de grande escala. Os gatilhos e conectores lógicos injetarão o contexto de estudo dos alunos para alimentar a análise de dados, auxiliando tutores através de resumos automáticos.</p>
+        <p class="paragrafo">A inteligência sistêmica mapeada no projeto valida a integração do algoritmo matemático SM-2 (ANKI, 2026). A lógica estrutural desenvolvida no JavaScript prevê que as respostas do aluno ajustem as datas de retomada do conteúdo, gerando uma base de dados analítica de alta precisão (armazenada em formato JSON no LocalStorage) para a avaliação de desempenho global baseada nas curvas de esquecimento individual.</p>
+        <p class="paragrafo">O roadmap técnico estabelece ainda a integração futura de Modelos de Linguagem de grande escala (LLMs). Os gatilhos e conectores lógicos injetarão o contexto de estudo dos alunos para alimentar a análise de dados, auxiliando tutores através de resumos automáticos.</p>
 
         <h3 id="sec-2-8">2.8 Etapa 8 – Comunicação, Liderança, Negociação e LIBRAS</h3>
         <p class="paragrafo">A execução dos artefatos ágeis exigiu habilidades de liderança e comunicação baseadas nos ritos do framework de desenvolvimento (SCHWABER; SUTHERLAND, 2020). O escopo restrito de prototipagem demandou negociações eficazes pela equipe para consolidar uma arquitetura de dados estável dentro do calendário letivo.</p>
-        <p class="paragrafo">No campo inegociável da acessibilidade digital, o sistema foi estruturado prevendo os atributos da iniciativa WAI-ARIA. Elementos interativos receberão rótulos ocultos (aria-label) para softwares leitores de tela e áreas de notificação usarão a propriedade aria-live. Este rigor técnico soma-se ao planejamento de espaços nativos em tela para a alocação de vídeo interpretado em LIBRAS, consolidando a inclusão digital absoluta do projeto (ISO/IEC, 2011).</p>
+        <p class="paragrafo">No campo inegociável da acessibilidade digital, o sistema Front-end foi estruturado implementando os atributos da iniciativa WAI-ARIA de forma profunda. Elementos interativos receberam rótulos ocultos (<code>aria-label</code>) para softwares leitores de tela e áreas de notificação usam propriedades como <code>aria-live="polite"</code> e <code>role="progressbar"</code>. A aplicação conta ainda com botões nativos para manipulação de Zoom de tela e paletas de Alto Contraste, consolidando a inclusão digital do projeto (ISO/IEC, 2011).</p>
     </section>
 
     <section class="page">
-        <span class="num-pagina">18</span>
+        <span class="num-pagina">21</span>
         <h3 id="sec-2-9">2.9 Etapa 9 – Integração e avaliação final</h3>
-        <p class="paragrafo">A fase de avaliação arquitetural homologou a usabilidade semântica, a integridade da orientação a objetos e a coerência do SQL elaborado pela equipe. A modelagem consolidada no Diagrama de Classes atua como o esqueleto inquestionável para a criação e manipulação dos dados via C# (PRESSMAN; MAXIM, 2016).</p>
-        <p class="paragrafo">Todos os artefatos de código-fonte desenvolvidos para a prototipagem de alta fidelidade desta etapa encontram-se integralmente versionados e disponíveis para consulta pública no GitHub (REPOSITÓRIO, 2026).</p>
+        <p class="paragrafo">A fase de avaliação arquitetural homologou a usabilidade semântica do JavaScript, a integridade da orientação a objetos em C# e a coerência do banco SQL elaborado pela equipe. A modelagem consolidada no Diagrama de Classes atua como o esqueleto inquestionável para a criação e manipulação dos dados transacionais da plataforma (PRESSMAN; MAXIM, 2016).</p>
+        <p class="paragrafo">Todos os artefatos de código-fonte desenvolvidos para o MVP, desde as interfaces de flashcards até as classes do Back-end, encontram-se integralmente versionados e disponíveis para consulta pública no repositório oficial do projeto no GitHub (REPOSITÓRIO, 2026).</p>
         
         <div class="diagrama-container" style="margin-top: 1cm;">
             <p class="legenda-topo">Figura 4 – Diagrama de Classes do Sistema Nex_TI</p>
@@ -394,7 +398,7 @@
     </section>
 
     <section class="page">
-        <span class="num-pagina">19</span>
+        <span class="num-pagina">22</span>
         <p class="paragrafo">Para prover rastreabilidade comportamental e confirmar o fluxo transacional (SOFTEX, 2021), a cronologia dos eventos, requisições de banco e processamento da repetição espaçada foi diagramada no artefato de sequência exposto na Figura 5, fechando a prova de conceito técnica exigida no semestre.</p>
 
         <div class="diagrama-container" style="margin-top: 1cm;">
@@ -405,15 +409,15 @@
     </section>
 
     <section class="page">
-        <span class="num-pagina">20</span>
+        <span class="num-pagina">23</span>
         <h2 id="sec-3" style="margin-top: 1cm;">3 CONCLUSÃO</h2>
-        <p class="paragrafo">A especificação técnica e o desenvolvimento arquitetural da plataforma Nex_TI validaram substancialmente a premissa teórica de que o apoio à aprendizagem com gatilhos gamificados otimiza o acompanhamento corporativo. A adoção irrestrita da Engenharia de Software moderna não apenas direcionou o fluxo de tarefas no modelo Kanban, mas garantiu a aplicação de soluções robustas exigidas pelo mercado de tecnologia atual.</p>
-        <p class="paragrafo">O atendimento rigoroso ao controle de qualidade estabeleceu uma fundação visual de alta fidelidade concebida sob os preceitos de HTML semântico, Flexbox, Grid e acessibilidade transversal via WAI-ARIA e LIBRAS. No espectro da interface, as heurísticas de usabilidade chancelaram um ambiente dotado de forte pregnância da forma e affordance clara nos botões interativos de avaliação, anulando a sobrecarga cognitiva do utilizador final.</p>
-        <p class="paragrafo">Fica atestada a maturidade analítica da equipe ao fornecer uma solução que transcende a documentação teórica, entregando a alvenaria sistêmica com classes escritas em C# sob o paradigma da Orientação a Objetos e estruturas transacionais completas prontas para processamento no SQL Server, formando uma base inquestionável para a codificação plena e o amadurecimento do ecossistema educacional.</p>
+        <p class="paragrafo">A especificação técnica e o desenvolvimento arquitetural da plataforma Nex_TI validaram substancialmente a premissa teórica de que o apoio à aprendizagem com gatilhos gamificados otimiza o acompanhamento corporativo e acadêmico. A adoção irrestrita da Engenharia de Software moderna não apenas direcionou o fluxo de tarefas no modelo Kanban, mas garantiu a aplicação de soluções robustas exigidas pelo mercado de tecnologia atual.</p>
+        <p class="paragrafo">O atendimento rigoroso ao controle de qualidade estabeleceu um MVP (Minimum Viable Product) visual de altíssima fidelidade concebido sob os preceitos de HTML5 semântico, CSS Flexbox/Grid e Vanilla JavaScript. A acessibilidade foi tratada de forma transversal via tags WAI-ARIA, modos de Alto Contraste e controles de Zoom independentes. No espectro da interface, as heurísticas de usabilidade chancelaram um ambiente dotado de forte pregnância da forma e affordance clara nos botões interativos de avaliação, anulando a sobrecarga cognitiva do utilizador final.</p>
+        <p class="paragrafo">Fica atestada a maturidade analítica e técnica da equipe ao fornecer uma solução que transcende a documentação teórica, entregando a alvenaria sistêmica com classes escritas em C# e .NET 10 sob os quatro pilares da Orientação a Objetos. Estruturas transacionais completas prontas para processamento no SQL Server formam a base inquestionável para a codificação plena e o amadurecimento do ecossistema educacional nos semestres subsequentes.</p>
     </section>
 
     <section class="page">
-        <span class="num-pagina">21</span>
+        <span class="num-pagina">24</span>
         <h2 id="sec-ref" class="center" style="margin-bottom: 1.5cm;">REFERÊNCIAS</h2>
         
         <p>ALURA. <strong>Plataforma de cursos online de tecnologia</strong>. Disponível em: <a href="https://www.alura.com.br" target="_blank" class="ref-link">https://www.alura.com.br</a>. Acesso em: 22 mar. 2026.</p>
@@ -440,7 +444,7 @@
     </section>
 
     <section class="page">
-        <span class="num-pagina">22</span>
+        <span class="num-pagina">25</span>
         <h2 class="center">FICHA DE CONTROLE DO PIM</h2>
         <p><strong>Grupo Nº:</strong> 02 &nbsp;&nbsp; <strong>Ano:</strong> 2026 &nbsp;&nbsp; <strong>Período:</strong> Diurno</p>
         <p><strong>Tema:</strong> Desenvolvimento de plataforma web de avaliação e apoio à aprendizagem para uma empresa fictícia de tecnologia educacional</p>
@@ -470,7 +474,8 @@
             <tr><td>05/03</td><td>1ª Reunião: Leitura do Manual do PIM III e definição do escopo técnico.</td></tr>
             <tr><td>12/03</td><td>2ª Reunião: Criação do Backlog, C# e estrutura lógica do SQL.</td></tr>
             <tr><td>18/03</td><td>3ª Reunião: Refatoração com UX/UI, Heurísticas, Semântica e WAI-ARIA.</td></tr>
-            <tr><td>22/03</td><td>4ª Reunião: Alinhamento final da prototipagem e emissão do documento ABNT com Abstract.</td></tr>
+            <tr><td>22/03</td><td>4ª Reunião: Alinhamento final da prototipagem e emissão do documento ABNT.</td></tr>
+            <tr><td>26/03</td><td>5ª Reunião: Injeção do código C# (.NET 10) e estruturação final da documentação.</td></tr>
         </table>
     </section>
 
