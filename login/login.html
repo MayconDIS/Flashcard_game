@@ -6,7 +6,7 @@
     <title>Login - Nex_TI</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300e6e6'><path d='M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z'/></svg>">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
     <main class="login-container" aria-labelledby="form-title">
@@ -19,21 +19,24 @@
             <div class="form-group" id="group-nome" style="display: none;">
                 <label for="nome" class="tech-font">Nickname</label>
                 <div class="input-with-icon">
-                    <input type="text" id="nome" placeholder="Ex: Maycon" aria-label="Seu nickname">
+                    <!-- Autocomplete para facilitar o preenchimento -->
+                    <input type="text" id="nome" placeholder="Ex: Maycon" autocomplete="username" aria-label="Seu nickname">
                 </div>
             </div>
             
             <div class="form-group">
                 <label for="email" class="tech-font">E-mail</label>
                 <div class="input-with-icon">
-                    <input type="email" id="email" placeholder="dev@quest.com" required aria-required="true">
+                    <!-- Autocomplete para e-mail -->
+                    <input type="email" id="email" placeholder="dev@quest.com" autocomplete="email" required aria-required="true">
                 </div>
             </div>
             
             <div class="form-group">
                 <label for="password" class="tech-font">Password</label>
                 <div class="input-with-icon">
-                    <input type="password" id="password" placeholder="••••••••" required aria-required="true">
+                    <!-- Autocomplete para senha -->
+                    <input type="password" id="password" placeholder="••••••••" autocomplete="current-password" required aria-required="true">
                 </div>
             </div>
             
@@ -41,7 +44,8 @@
         </form>
         
         <footer class="extra-links">
-            <p id="footer-text">Acesso negado? <a href="#" onclick="toggleMode(event)" aria-label="Alternar para ecrã de registo">Solicitar Cadastro</a></p>
+            <!-- Semântica: role="button" pois não nos leva a outra página, mas sim altera o estado visual da atual -->
+            <p id="footer-text">Acesso negado? <a href="#" onclick="toggleMode(event)" aria-label="Alternar para ecrã de registo" role="button">Solicitar Cadastro</a></p>
         </footer>
     </main>
 
@@ -64,14 +68,14 @@
                 title.innerHTML = 'Nex_<span class="tech-text">TI</span>';
                 subtitle.innerText = 'Welcome back, developer.';
                 btn.innerText = 'Entrar no Terminal';
-                footerText.innerHTML = 'Ainda não tem acesso? <a href="#" onclick="toggleMode(event)">Cadastre-se</a>';
+                footerText.innerHTML = 'Ainda não tem acesso? <a href="#" onclick="toggleMode(event)" role="button">Cadastre-se</a>';
                 groupNome.style.display = 'none'; 
                 inputNome.required = false;
             } else {
                 title.innerHTML = 'New_<span class="tech-text">Access</span>';
                 subtitle.innerText = 'Join the Quest.';
                 btn.innerText = 'Criar Conta';
-                footerText.innerHTML = 'Já tem acesso? <a href="#" onclick="toggleMode(event)">Faça Login</a>';
+                footerText.innerHTML = 'Já tem acesso? <a href="#" onclick="toggleMode(event)" role="button">Faça Login</a>';
                 groupNome.style.display = 'block'; 
                 inputNome.required = true;
             }
@@ -99,7 +103,8 @@
                 localStorage.setItem(userKey + 'desbloqueadas', JSON.stringify(todasFases));
                 localStorage.setItem(userKey + 'bonus_unlocked', JSON.stringify(todosBonus));
 
-                setTimeout(() => { window.location.href = '../home/index.html'; }, 800);
+                // ATUALIZADO: Agora aponta para home.html
+                setTimeout(() => { window.location.href = '../home/home.html'; }, 800);
                 return;
             }
 
@@ -114,7 +119,8 @@
                 btn.innerText = "Registrado! Entrando...";
                 localStorage.setItem('quest_user_name', nome);
                 
-                setTimeout(() => { window.location.href = '../home/index.html'; }, 1000);
+                // ATUALIZADO: Agora aponta para home.html
+                setTimeout(() => { window.location.href = '../home/home.html'; }, 1000);
             } 
             else {
                 const user = usersDB[email];
@@ -123,7 +129,8 @@
                 btn.innerText = "Autenticando...";
                 localStorage.setItem('quest_user_name', user.nome);
                 
-                setTimeout(() => { window.location.href = '../home/index.html'; }, 1000);
+                // ATUALIZADO: Agora aponta para home.html
+                setTimeout(() => { window.location.href = '../home/home.html'; }, 1000);
             }
         }
 

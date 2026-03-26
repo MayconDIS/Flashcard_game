@@ -1,0 +1,150 @@
+/* =========================================
+   FOLHA DE ESTILOS PARA IMPRESSÃO (Ctrl + P)
+   Foco em economia de tinta e documento oficial
+   ========================================= */
+   
+/* 1. Limpar fundos escuros e sombras para poupar tinta */
+body, .container, .main-content, .dashboard-header, 
+.left-panel, .aula-item, #right-panel, 
+.carta-frente, .carta-verso {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    background-image: none !important;
+}
+
+/* 2. Esconder barras e botões inúteis no papel */
+header, .hamburger-menu, .game-controls, 
+#botao-proxima, #btn-voltar-topo, .a11y-widget, 
+.main-footer, .btn-action {
+    display: none !important;
+}
+
+/* 3. Ajustar as margens para usar a folha A4 toda */
+body { padding: 0 !important; margin: 0 !important; }
+.container { max-width: 100% !important; padding: 0 !important; }
+
+/* 4. Formatar o Cabeçalho do Usuário (HUD) */
+.dashboard-header {
+    border: 2px solid #000 !important;
+    padding: 20px !important;
+    margin-bottom: 30px !important;
+    border-radius: 0 !important; /* Tira bordas redondas no papel */
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+.welcome-text {
+    flex: 1 !important;
+}
+
+.welcome-text h1 { 
+    color: #000 !important; 
+    font-size: 16pt !important;
+    white-space: nowrap !important; /* IMPEDE A QUEBRA DE LINHA DO NOME */
+    display: block !important;
+    margin-bottom: 5px !important;
+}
+
+.welcome-text p { 
+    color: #000 !important; 
+    margin: 0 !important;
+}
+
+.tech-text { 
+    background: none !important; 
+    -webkit-text-fill-color: #000 !important; 
+    display: inline !important; 
+}
+
+.xp-wrapper {
+    display: flex !important;
+    flex-direction: row !important; 
+    gap: 15px !important;
+    border: none !important; /* REMOVE A LINHA INTRUSA DO MOBILE */
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.xp-wrapper span {
+    color: #000 !important; /* Limpa as cores das legendas "Nível" e "Coins" */
+}
+
+.xp-badge { 
+    border: 1px solid #000 !important; 
+    background: none !important; 
+    color: #000 !important;
+    box-shadow: none !important;
+    animation: none !important; /* Desliga o pulso de neon no papel */
+}
+
+/* 5. Formatar a Lista de Módulos e Fases */
+.left-panel { display: flex !important; flex-direction: column !important; }
+
+.dia-header {
+    color: #000 !important;
+    border-bottom: 2px solid #000 !important;
+    padding-bottom: 5px !important;
+    margin-top: 20px !important;
+    opacity: 1 !important; 
+}
+
+.aula-item {
+    border: none !important;
+    border-bottom: 1px dashed #666 !important;
+    padding: 10px 0 !important;
+    margin: 0 !important;
+    opacity: 1 !important; 
+    transform: none !important;
+    display: flex !important;
+    justify-content: space-between !important;
+}
+
+/* Tira a linha tracejada dupla vinda do Mobile */
+.aula-item > div {
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.aula-title, .icon-status { color: #000 !important; }
+
+/* 6. Formatar o Flashcard se ele estiver aberto na hora de imprimir */
+#right-panel.active {
+    display: block !important;
+    border-top: 3px double #000 !important;
+    margin-top: 30px !important;
+    padding-top: 20px !important;
+    page-break-before: always; 
+}
+
+.card-inner { 
+    display: block !important; 
+    transform: none !important; 
+}
+
+.carta-frente, .carta-verso {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    border: 2px solid #000 !important;
+    padding: 20px !important;
+    margin-bottom: 15px !important;
+    min-height: auto !important;
+    transform: none !important;
+    backface-visibility: visible !important; 
+    page-break-inside: avoid; 
+}
+
+.carta-frente::before { 
+    content: "FRENTE DA CARTA:"; 
+    font-weight: bold; display: block; border-bottom: 1px solid #000; padding-bottom: 5px; margin-bottom: 10px; 
+}
+
+.carta-verso::before { 
+    content: "VERSO DA CARTA:"; 
+    font-weight: bold; display: block; border-bottom: 1px solid #000; padding-bottom: 5px; margin-bottom: 10px; 
+}

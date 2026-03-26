@@ -1,0 +1,112 @@
+/* =========================================
+   MEDIA QUERIES: RESPONSIVIDADE MOBILE
+   (Sobrescreve o layout Desktop para telas até 800px)
+   ========================================= */
+@media (max-width: 800px) {
+    header {
+        padding: 0 15px; 
+        height: 70px; 
+        flex-direction: row; 
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    body {
+        /* MATEMÁTICA TRAVADA MOBILE: 70px do header + 15px de respiro = 85px */
+        padding-top: 85px; 
+    }
+    
+    .logo { font-size: 1.3rem; justify-content: flex-start; }
+    .logo span:nth-of-type(3) { display: none; }
+    
+    .header-right { width: auto; justify-content: flex-end; gap: 15px; }
+    .header-right .btn-action { font-size: 0.85rem; padding: 8px 12px; }
+    
+    .container { padding: 0 10px; margin: 0 auto 20px auto; }
+    
+    .dashboard-header { flex-direction: column; align-items: flex-start; text-align: left; padding: 20px; }
+    .welcome-text h1 { font-size: 1.4rem; }
+    .xp-wrapper { width: 100%; justify-content: center; margin-top: 15px; border-top: 1px solid #30363d; padding-top: 15px; }
+
+    /* FASES COM ESPAÇAMENTO CORRIGIDO */
+    .left-panel { gap: 12px; }
+    
+    .aula-item { 
+        flex-wrap: wrap !important; 
+        padding: 15px !important; 
+        align-items: center !important; 
+        margin-bottom: 0 !important; 
+    }
+    
+    /* LINHA PONTILHADA INTERNA IDÊNTICA À FOTO */
+    .aula-item > div { 
+        width: 100% !important; 
+        justify-content: flex-end !important; 
+        margin-left: 0 !important; 
+        margin-top: 12px !important; 
+        padding-top: 12px !important; 
+        border-top: 1px dashed rgba(139, 146, 165, 0.4) !important; 
+    }
+
+    .aula-item::after { display: none !important; }
+    .aula-title { font-size: 0.95rem; flex: 1; line-height: 1.4; }
+
+    /* REDUÇÃO NO TAMANHO DO CARTÃO PARA O MOBILE ENCAIXAR TUDO NO ECRÃ */
+    .card-container, .carta-frente, .carta-verso { 
+        min-height: 290px !important; 
+    }
+    .carta-frente, .carta-verso { 
+        padding: 15px !important; 
+    }
+    
+    #titulo-aula { font-size: 1rem; }
+    .btn-jogo { font-size: 0.85rem; padding: 12px 10px; }
+
+    /* MÓDULOS COM ESPAÇAMENTO CORRIGIDO */
+    .dia-header {
+        display: flex !important;
+        flex-wrap: wrap !important; 
+        align-items: center !important;
+        gap: 5px !important; 
+        line-height: 1.4 !important;
+        margin-top: 25px !important; 
+        margin-bottom: 5px !important; 
+        padding-bottom: 0 !important;
+        border-bottom: none !important;
+        font-size: 0.95rem !important;
+    }
+    
+    .left-panel .dia-header:first-child { margin-top: 10px !important; }
+    .dia-header span.tech-font { margin-bottom: 0 !important; }
+    
+    .dia-line {
+        display: block !important;
+        width: 100% !important; 
+        flex-grow: 0 !important; 
+        height: 2px !important; 
+        margin-top: 8px !important; 
+    }
+
+    .anki-container { gap: 5px; }
+    .anki-btn { padding: 10px 2px; }
+    .anki-label { font-size: 0.8rem; }
+    .anki-time { font-size: 0.75rem; }
+
+    /* BOTOES FLUTUANTES NO MOBILE */
+    #btn-voltar-topo {
+        bottom: 20px !important; left: 20px !important; right: auto !important; width: 50px !important; height: 50px !important;
+    }
+
+    .app-footer {
+        bottom: 80px !important; left: 20px !important; height: 50px !important; min-height: 50px !important; max-height: 50px !important; padding: 0 12px !important;
+    }
+
+    /* AJUSTES DE ACESSIBILIDADE NO MOBILE */
+    .mobile-a11y { display: flex !important; }
+    .a11y-widget { display: none !important; }
+
+    /* Ajustes do Rodapé no Mobile */
+    .main-footer { padding: 40px 20px 90px 20px; }
+    .footer-content { flex-direction: column !important; gap: 30px; }
+    .footer-bottom { flex-direction: column; text-align: center; justify-content: center; }
+}

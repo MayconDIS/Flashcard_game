@@ -12,7 +12,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
     
-    <link rel="stylesheet" href="style.css?v=8">
+    <!-- Arquitetura CSS Modularizada -->
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/desktop.css">
+    <link rel="stylesheet" href="../css/mobile.css">
+    
+    <!-- CSS Exclusivo para Impressão -->
+    <link rel="stylesheet" href="../css/print.css" media="print">
 </head>
 <body>
 
@@ -43,6 +49,9 @@
                     </a>
                     <a class="dropdown-item flex-align" onclick="mostrarProgresso()">
                         <span class="material-symbols-outlined">monitoring</span> Minhas Estatísticas
+                    </a>
+                    <a class="dropdown-item flex-align" onclick="abrirMapaMental()">
+                        <span class="material-symbols-outlined" style="color: var(--alura-purple);">hub</span> Mapa Neural
                     </a>
                     <a class="dropdown-item danger flex-align" onclick="resetarProgresso()">
                         <span class="material-symbols-outlined">warning</span> Formatar Sistema
@@ -252,6 +261,43 @@
                 <button class="btn-action btn-right tech-font flex-align-center" style="width: 100%; padding: 15px; justify-content: center;" onclick="iniciarQuizNivelamento()">
                     <span class="material-symbols-outlined" style="margin-right:5px;">play_arrow</span> START_SCAN()
                 </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- NOVO: MODAL MAPA MENTAL (OBSIDIAN VIEW) -->
+    <div class="modal-overlay" id="modalMapaMental" style="background: rgba(0,0,0,0.95);">
+        <div class="modal-content" style="max-width: 90vw; height: 90vh; border-color: var(--alura-purple); display: flex; flex-direction: column;">
+            <div class="modal-header" style="border-bottom-color: var(--alura-purple);">
+                <h2 style="color: var(--alura-purple);" class="flex-align"><span class="material-symbols-outlined" style="margin-right:10px;">hub</span> Mapa Neural</h2>
+                <button class="btn-close flex-align" onclick="fecharModal('modalMapaMental')"><span class="material-symbols-outlined">close</span></button>
+            </div>
+            
+            <div class="modal-body" id="mapa-mental-body" style="flex: 1; position: relative; overflow: hidden; background: #0b0c10; padding: 0; border-radius: 0 0 12px 12px; cursor: grab;">
+                
+                <!-- A Teia Neural -->
+                <div id="obsidian-canvas" class="obsidian-canvas"></div>
+                
+                <!-- NOVO: WIDGET DE CONTROLO DA CÂMARA DO MAPA -->
+                <div class="a11y-widget" id="a11y-widget-map" style="position: absolute !important; bottom: 20px !important; left: 20px !important; z-index: 1000 !important;">
+                    <button class="a11y-toggle flex-align-center" onclick="document.getElementById('a11y-widget-map').classList.toggle('open')" title="Controles da Câmara">
+                        <span class="material-symbols-outlined" style="font-size: 1.6rem;">settings_overscan</span>
+                    </button>
+                    <div class="a11y-options">
+                        <!-- Botões de Zoom Específicos para o Mapa -->
+                        <button class="btn-action tech-font flex-align-center" id="btn-zoom-out-map" title="Afastar (Zoom Out)">
+                            <span class="material-symbols-outlined">zoom_out</span>
+                        </button>
+                        <button class="btn-action tech-font flex-align-center" id="btn-zoom-in-map" title="Aproximar (Zoom In)">
+                            <span class="material-symbols-outlined">zoom_in</span>
+                        </button>
+                        <!-- O Alto Contraste continua a ser útil no mapa -->
+                        <button class="btn-action tech-font flex-align-center" onclick="toggleAltoContraste()" title="Alternar Alto Contraste">
+                            <span class="material-symbols-outlined">contrast</span>
+                        </button>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

@@ -1,0 +1,216 @@
+/* =========================================
+   1. GLOBAL: VARIÁVEIS, RESETS E FONTES
+   ========================================= */
+:root {
+    --alura-dark: #0b0c10;
+    --alura-card: #161b22;
+    --alura-blue: #2f81f7;
+    --alura-green: #00ff88;
+    --alura-cyan: #00e6e6;
+    --alura-purple: #8a2be2;
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, sans-serif; 
+}
+
+.tech-font { 
+    font-family: 'Fira Code', 'Courier New', Courier, monospace !important; 
+}
+
+body { 
+    background-color: var(--alura-dark); 
+    color: #c5c6c7; 
+    line-height: 1.6; 
+    background-image: 
+        linear-gradient(rgba(0, 230, 230, 0.03) 1px, transparent 1px), 
+        linear-gradient(90deg, rgba(0, 230, 230, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+/* =========================================
+   2. GLOBAL: ANIMAÇÕES
+   ========================================= */
+@keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseNeon {
+    0% { box-shadow: 0 0 5px rgba(0, 230, 230, 0.1); }
+    50% { box-shadow: 0 0 15px rgba(0, 230, 230, 0.4); }
+    100% { box-shadow: 0 0 5px rgba(0, 230, 230, 0.1); }
+}
+
+@keyframes floatAvatar {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-4px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes flyUp { 
+    0% { transform: translateY(0) scale(0.5) rotate(0deg); opacity: 1; } 
+    100% { transform: translateY(-80px) scale(1.5) rotate(180deg); opacity: 0; } 
+}
+
+@keyframes floatButton {
+    0% { transform: translateY(0); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); }
+    50% { transform: translateY(-8px); box-shadow: 0 15px 25px rgba(0, 230, 230, 0.3); }
+    100% { transform: translateY(0); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); }
+}
+
+/* =========================================
+   3. GLOBAL: CLASSES UTILITÁRIAS
+   ========================================= */
+.material-symbols-outlined { 
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; 
+}
+
+.flex-align { display: flex; align-items: center; gap: 6px; }
+.flex-align-center { display: flex; align-items: center; justify-content: center; }
+
+.tech-text { 
+    background: linear-gradient(90deg, var(--alura-cyan), var(--alura-purple)); 
+    -webkit-background-clip: text; 
+    background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    font-weight: 800; 
+}
+
+.btn-action {
+    background-color: var(--alura-card); 
+    color: var(--alura-cyan); 
+    border: 1px solid var(--alura-cyan);
+    padding: 8px 16px; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    transition: all 0.3s ease;
+}
+
+.btn-action:hover { 
+    background-color: rgba(0, 230, 230, 0.1); 
+    box-shadow: 0 0 15px rgba(0, 230, 230, 0.3); 
+    text-shadow: 0 0 5px rgba(0, 230, 230, 0.5); 
+}
+
+.star-anim { 
+    position: absolute; bottom: 0; font-size: 1.5rem; 
+    animation: flyUp 1s ease-out forwards; pointer-events: none; 
+}
+
+/* =========================================
+   4. GLOBAL: CORES DOS MÓDULOS (Identidade)
+   ========================================= */
+.mod-01 span.tech-font { color: var(--alura-green); }
+.mod-01 .dia-line { background: linear-gradient(90deg, var(--alura-green), transparent); }
+.mod-02 span.tech-font { color: var(--alura-cyan); }
+.mod-02 .dia-line { background: linear-gradient(90deg, var(--alura-cyan), transparent); }
+.mod-03 span.tech-font { color: var(--alura-purple); }
+.mod-03 .dia-line { background: linear-gradient(90deg, var(--alura-purple), transparent); }
+.mod-04 span.tech-font { color: #ffd700; }
+.mod-04 .dia-line { background: linear-gradient(90deg, #ffd700, transparent); }
+.mod-05 span.tech-font { color: #ff4500; }
+.mod-05 .dia-line { background: linear-gradient(90deg, #ff4500, transparent); }
+
+/* =========================================
+   5. GLOBAL: ACESSIBILIDADE ALTO CONTRASTE
+   ========================================= */
+body.high-contrast-mode {
+    --alura-dark: #000000 !important;
+    --alura-card: #000000 !important;
+    --alura-blue: #FFFF00 !important;
+    --alura-green: #FFFF00 !important;
+    --alura-cyan: #FFFF00 !important;
+    --alura-purple: #FFFFFF !important;
+    background-color: #000000 !important;
+    background-image: none !important;
+    color: #FFFFFF !important;
+}
+
+body.high-contrast-mode * { text-shadow: none !important; box-shadow: none !important; }
+
+body.high-contrast-mode .btn-action, body.high-contrast-mode .aula-item,
+body.high-contrast-mode .modal-content, body.high-contrast-mode .dropdown-content,
+body.high-contrast-mode .card-inner > div, body.high-contrast-mode header,
+body.high-contrast-mode .a11y-toggle, body.high-contrast-mode .a11y-options {
+    border: 2px solid #FFFF00 !important; background-color: #000000 !important;
+}
+
+body.high-contrast-mode .dia-line { background: #FFFF00 !important; }
+body.high-contrast-mode .tech-text { background: none !important; -webkit-text-fill-color: #FFFF00 !important; color: #FFFF00 !important; }
+body.high-contrast-mode .xp-badge { color: #000000 !important; background-color: #FFFF00 !important; border-color: #FFFF00 !important; }
+
+/* =========================================
+   6. GLOBAL: MAPA NEURAL (OBSIDIAN VIEW) - AVANÇADO
+   ========================================= */
+.obsidian-canvas {
+    position: relative;
+    width: 4000px; /* Aumentámos o espaço de exploração */
+    height: 4000px;
+    background-color: #0b0c10;
+    background-image: radial-gradient(rgba(0, 230, 230, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    transform-origin: 0 0; /* Essencial para o Zoom funcionar direito */
+    will-change: transform;
+}
+
+.obsidian-node {
+    position: absolute;
+    border-radius: 50%;
+    cursor: grab;
+    transform: translate(-50%, -50%);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    z-index: 10;
+}
+
+.obsidian-node:active { cursor: grabbing; }
+
+.obsidian-node .label {
+    position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+    color: #8b92a5; font-size: 0.8rem; white-space: nowrap; pointer-events: none;
+    opacity: 0; transition: opacity 0.3s; background: rgba(11, 12, 16, 0.9);
+    border: 1px solid #30363d; padding: 4px 8px; border-radius: 6px; margin-top: 8px;
+}
+.obsidian-node:hover .label { opacity: 1; color: #fff; z-index: 20; }
+
+.obsidian-edge {
+    position: absolute; height: 1px; transform-origin: 0 50%; z-index: 1; pointer-events: none;
+}
+
+/* Efeito de Pulsar (Lastro Neural) */
+.neural-pulse {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid var(--alura-cyan);
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    pointer-events: none;
+    z-index: 5;
+    animation: pulseOut 0.8s cubic-bezier(0.1, 0, 0.1, 1) forwards;
+}
+
+@keyframes pulseOut {
+    100% { transform: translate(-50%, -50%) scale(4); opacity: 0; }
+}
+
+/* Mini Carta Flutuante no Mapa */
+.mini-flashcard {
+    position: absolute;
+    background: rgba(22, 27, 34, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--alura-cyan);
+    border-radius: 12px;
+    padding: 20px;
+    width: 250px;
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 20px rgba(0, 230, 230, 0.2);
+    z-index: 100;
+    pointer-events: none;
+    animation: fadeSlideUp 0.3s ease forwards;
+}
+.mini-flashcard h4 { font-size: 0.9rem; color: var(--alura-cyan); margin-bottom: 10px; border-bottom: 1px dashed #30363d; padding-bottom: 5px; }
+.mini-flashcard p { font-size: 0.85rem; color: #c5c6c7; }
