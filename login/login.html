@@ -9,41 +9,41 @@
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <div class="login-container">
-        <div class="login-header">
+    <main class="login-container" aria-labelledby="form-title">
+        <header class="login-header">
             <h1 id="form-title" class="logo-main tech-font">Nex_<span class="tech-text">TI</span></h1>
             <p id="form-subtitle" class="subtitle">Welcome back, developer.</p>
-        </div>
+        </header>
         
-        <form class="login-form" onsubmit="handleAuth(event)">
+        <form class="login-form" onsubmit="handleAuth(event)" aria-label="Formulário de Autenticação">
             <div class="form-group" id="group-nome" style="display: none;">
                 <label for="nome" class="tech-font">Nickname</label>
                 <div class="input-with-icon">
-                    <input type="text" id="nome" placeholder="Ex: Maycon">
+                    <input type="text" id="nome" placeholder="Ex: Maycon" aria-label="Seu nickname">
                 </div>
             </div>
             
             <div class="form-group">
                 <label for="email" class="tech-font">E-mail</label>
                 <div class="input-with-icon">
-                    <input type="email" id="email" placeholder="dev@quest.com" required>
+                    <input type="email" id="email" placeholder="dev@quest.com" required aria-required="true">
                 </div>
             </div>
             
             <div class="form-group">
                 <label for="password" class="tech-font">Password</label>
                 <div class="input-with-icon">
-                    <input type="password" id="password" placeholder="••••••••" required>
+                    <input type="password" id="password" placeholder="••••••••" required aria-required="true">
                 </div>
             </div>
             
-            <button type="submit" class="btn-login tech-font" id="btn-submit">> INITIALIZE_LOGIN()</button>
+            <button type="submit" class="btn-login tech-font" id="btn-submit" aria-live="assertive">> INITIALIZE_LOGIN()</button>
         </form>
         
-        <div class="extra-links">
-            <p id="footer-text">Acesso negado? <a href="#" onclick="toggleMode(event)">Solicitar Cadastro</a></p>
-        </div>
-    </div>
+        <footer class="extra-links">
+            <p id="footer-text">Acesso negado? <a href="#" onclick="toggleMode(event)" aria-label="Alternar para ecrã de registo">Solicitar Cadastro</a></p>
+        </footer>
+    </main>
 
     <script>
         let isLoginMode = true;
@@ -84,21 +84,16 @@
             const password = document.getElementById('password').value;
             const btn = document.getElementById('btn-submit');
             
-            // ==========================================
-            // 1. ACESSO MESTRE ADMIN (GOD MODE)
-            // ==========================================
             if (isLoginMode && email === "admin@quest.com" && password === "admin") {
                 btn.innerText = "Acesso Concedido...";
                 localStorage.setItem('quest_user_name', 'Admin');
                 
-                // Injetando status máximo para o Admin
                 const userKey = 'quest_Admin_';
-                localStorage.setItem(userKey + 'nivelado', 'true'); // Pula diagnóstico
+                localStorage.setItem(userKey + 'nivelado', 'true');
                 localStorage.setItem(userKey + 'rank', 'Rank: Deus (Admin)');
                 localStorage.setItem(userKey + 'xp', '99999');
                 localStorage.setItem(userKey + 'coins', '99999');
                 
-                // Libera todas as fases e bônus
                 const todasFases = ["fase1","fase2","fase3","fase4","fase5","fase6","fase7","fase8","fase9","fase10","fase11","fase12","fase13","fase14","fase15","fase16","fase17","fase18","fase19","fase20","fase21","fase22"];
                 const todosBonus = ["bonus1","bonus2","bonus3","bonus4"];
                 localStorage.setItem(userKey + 'desbloqueadas', JSON.stringify(todasFases));
@@ -108,9 +103,6 @@
                 return;
             }
 
-            // ==========================================
-            // 2. CADASTRO DE NOVO ALUNO
-            // ==========================================
             if (!isLoginMode) {
                 const nome = document.getElementById('nome').value.trim();
                 
@@ -124,9 +116,6 @@
                 
                 setTimeout(() => { window.location.href = '../home/index.html'; }, 1000);
             } 
-            // ==========================================
-            // 3. LOGIN COMUM DE ALUNO
-            // ==========================================
             else {
                 const user = usersDB[email];
                 if (!user || user.senha !== password) return mostrarErro("Acesso Bloqueado!");
